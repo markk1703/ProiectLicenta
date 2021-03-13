@@ -15,6 +15,10 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    @if(!auth()->user()->password)
+                    <p>Va rugam adaugati o parola.</p>
+                    @endif
                 </div>
             </div>
         </div>

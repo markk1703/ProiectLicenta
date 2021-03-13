@@ -17,6 +17,9 @@ Route::group([ 'middleware' => ['guest']], function() {//TOTI (INC GUEST)
     Route::get('/', function () {
         return view('welcome');
     });
+
+    Route::get('/auth/{provider}','Auth\LoginController@redirectToProvider');//pt logare cu Facebook
+    Route::get('/auth/{provider}/callback','Auth\LoginController@handleProviderCallback');
 });
 
 Route::group([ 'middleware' => ['auth']], function() {//USERS+ADMIN

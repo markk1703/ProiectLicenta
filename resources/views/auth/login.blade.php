@@ -63,6 +63,18 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="col-m-2">
+                            sau
+                        </div>
+                        <div class="col-m-2">
+                            <a href="/auth/facebook" class="btn btn-secondary">Autentificare folosind Facebook</a>
+                        </div>
+                        <div class="col-m-2 pt-2">
+                            <a href="/auth/google" class="btn btn-secondary">Autentificare folosind Google</a>
+                        </div>
+                
+                    </div>
+                    
                     </form>
                 </div>
             </div>

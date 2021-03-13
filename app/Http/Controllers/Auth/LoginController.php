@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Models\SocialProvider;
+use App\Models\User;
+use Socialite;
 
 class LoginController extends Controller
 {
@@ -70,5 +73,54 @@ class LoginController extends Controller
     public function username()
     {
         return $this->username;
+    }
+
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    public function handleProviderCallback($provider)
+    {
+        try{
+            $socialUser = Socialite::driver($provider)->user();
+        }catch(\Exception $e)
+        {
+            return redirect('/');
+        }
+        //verifica daca s-a logat anterior
+        $socialProvider=SocialProvider::where('provider_id',$socialUser->getId())->first();
+        if(!$socialProvider)
+        {
+            //creeaza un user nou
+            switch($provider){
+                case 'facebook':
+            $name=$socialUser['name'];
+            $splitName=explode(' ', $name, 2);
+            $first_name = $splitName[0];
+            $last_name = !empty($splitName[1]) ? $splitName[1] : '';
+            $user=User::firstOrCreate(
+                ['email'=>$socialUser->getEmail()],
+                ['nume'=>$last_name,'prenume'=>$first_name]
+            );
+                break;
+
+                case 'google':
+                $user=User::firstOrCreate(
+                    ['email'=>$socialUser->getEmail()],
+                    ['nume'=>$socialUser->user['family_name'],'prenume'=>$socialUser->user['given_name']]
+                );
+                break;
+            }
+
+            $user->socialProviders()->create(
+                ['provider_id'=>$socialUser->getId(),'provider'=>$provider]
+            );
+ 
+        }
+        else $user=$socialProvider->user;
+
+        auth()->login($user);
+        return redirect('/home');
     }
 }

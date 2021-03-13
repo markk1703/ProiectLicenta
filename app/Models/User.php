@@ -48,4 +48,8 @@ class User extends Authenticatable
         'createdAt'=>'datetime',
         'stamp' => 'datetime'
     ];
+
+    function socialProviders(){
+        return $this->hasMany(SocialProvider::class);
+    }
 }
