@@ -13,17 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group([ 'middleware' => ['guest']], function() {//TOTI (INC GUEST)
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
 
-Auth::routes();
+Route::group([ 'middleware' => ['auth']], function() {//USERS+ADMIN
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group([ 'middleware' => ['user']], function() {//USERS
+});
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group([ 'middleware' => ['admin']], function() {//ADMINISTRATOR
+});
 
 Auth::routes();
 
