@@ -22,11 +22,12 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable(false);
             $table->string('imagine')->default('default.jpg');
             $table->string('idRol')->default('2');
-            $table->rememberToken();
+            $table->rememberToken()->default(Str::random(10));
+
             $table->timestamp('email_verified_at')->nullable(); //$table->timestamps(); pt toate
             $table->timestamp('updated_at')->nullable(false);
             $table->timestamp('created_at')->nullable(false);
-            $table->timestamp('stamp');
+            $table->timestamp('stamp')->default(now());
             $table->boolean('isActiv')->default('1');
         });
     }
