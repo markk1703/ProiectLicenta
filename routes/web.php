@@ -23,6 +23,11 @@ Route::group([ 'middleware' => ['guest']], function() {//TOTI (INC GUEST)
 });
 
 Route::group([ 'middleware' => ['auth']], function() {//USERS+ADMIN
+    //PROFIL
+Route::get('profile', 'ProfileController@index');
+Route::post('profile', 'ProfileController@updateAvatar');
+Route::post('profile/update', 'ProfileController@updateProfile');
+Route::post('profile/password', 'ProfileController@updatePassword');
 });
 
 Route::group([ 'middleware' => ['user']], function() {//USERS

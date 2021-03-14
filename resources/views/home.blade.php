@@ -14,11 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
-
-                    @if(!auth()->user()->password)
-                    <p>Va rugam adaugati o parola.</p>
-                    @endif
+                    {{ __('Te-ai logat cu succes!') }}
                 </div>
             </div>
         </div>
