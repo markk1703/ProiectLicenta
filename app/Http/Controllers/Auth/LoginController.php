@@ -7,7 +7,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Models\SocialProvider;
 use App\Models\User;
-use Socialite;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -120,7 +121,7 @@ class LoginController extends Controller
         }
         else $user=$socialProvider->user;
 
-        auth()->login($user);
+        Auth::login($user);
         return redirect('/home');
     }
 }

@@ -38,8 +38,8 @@ class ProfileController extends Controller
         else if($request->hasFile('imagine') && Auth::user()->idRol==2)
         {
             $imagine=$request->file('imagine');
-            $filename=time() . '.' . $Imagine->getClientOriginalExtension();
-            Image::make($Imagine)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
+            $filename=time() . '.' . $imagine->getClientOriginalExtension();
+            Image::make($imagine)->resize(300,300)->save(public_path('/uploads/avatars/'.$filename));
             
             $user=Auth::user();
             $user->imagine=$filename;
@@ -53,7 +53,7 @@ class ProfileController extends Controller
         $this->validate($request,[
             'nume'=>'required|string',
             'prenume'=>'required|string',
-            'email'=>'required|email',
+            'email'=>'email|unique:users',
         ]);
 
       
@@ -65,31 +65,60 @@ class ProfileController extends Controller
         return redirect('/profile')->with('success','Informatii actualizate cu succes.');
         
     }
+    public function updateEmail(Request $request)
+    {
+        $this->validate($request,[
+            'email'=>'nullable|string|unique:users',
+        ]);
+        $user=Auth::user();
+        $user->email=$request['email'];
+        $user->save();
+        return redirect('/profile')->with('success','Email actualizat cu succes.');
+    }
+
     public function updateUsername(Request $request)
     {
         $this->validate($request,[
-            'username'=>'required',
+            'username'=>'nullable|string|unique:users',
         ]);
+        $user=Auth::user();
+        $user->username=$request['username'];
+        $user->save();
         return redirect('/profile')->with('success','Nume utilizator actualizat cu succes.');
     }
 
 
     public function updatePassword(Request $request)
     {//handle upload profile
+        $user=Auth::user();
+        if(Auth::user()->password){//daca utilizatorul are setata o parola
         $this->validate($request,[
             'parola'=>'required|min:8',
             'parolaNoua'=>'required|min:8',
             'parolaNoua_confirm'=>'required|min:8',
         ]);
-
-
-        $user=Auth::user();
-        if(Hash::check($request['parola'],Auth::user()->parola) && ($request['parolaNoua']==$request['parolaNoua_confirm']))
-        {$user->parola=Hash::make($request['parolaNoua']);
+        if(Hash::check($request['parola'],Auth::user()->password) && ($request['parolaNoua']==$request['parolaNoua_confirm']))
+        {$user->password=Hash::make($request['parolaNoua']);
         $user->save();
         return redirect('/profile')->with('success','Parola actualizata cu succes.');
         }
         else return redirect('/profile')->with('error','Parolele nu corespund.');
+    }
+        else{//daca utilizatorul nu are o parola existenta
+            $this->validate($request,[
+                'parola'=>'nullable|min:8',
+                'parolaNoua'=>'required|min:8',
+                'parolaNoua_confirm'=>'required|min:8',
+            ]);
+        
+            if($request['parolaNoua']==$request['parolaNoua_confirm'])
+        {$user->password=Hash::make($request['parolaNoua']);
+        $user->save();
+        return redirect('/profile')->with('success','Parola actualizata cu succes.');
+        }
+        else return redirect('/profile')->with('error','Parolele nu corespund.');
+        }
+
         
     }
 

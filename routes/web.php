@@ -27,6 +27,8 @@ Route::group([ 'middleware' => ['auth']], function() {//USERS+ADMIN
 Route::get('profile', 'ProfileController@index');
 Route::post('profile', 'ProfileController@updateAvatar');
 Route::post('profile/update', 'ProfileController@updateProfile');
+Route::post('profile/username/update', 'ProfileController@updateUsername');
+Route::post('profile/email/update', 'ProfileController@updateEmail');
 Route::post('profile/password', 'ProfileController@updatePassword');
 });
 
