@@ -29,7 +29,6 @@ class ProfileController extends Controller
             $imagine=$request->file('imagine');
             $filename=time() . '.' . $imagine->getClientOriginalExtension();
             Image::make($imagine)->resize(300,300)->save(public_path('/uploads/avatars/admin/'.$filename));
-            
             $user=Auth::user();
             $user->imagine=$filename;
             $user->save();
