@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Localitate;
+use App\Models\Adrese;
+use App\Models\Judet;
+
+use DB;
 
 class ProfileController extends Controller
 {
@@ -16,9 +21,13 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        $judete = Judet::get();
+        $adrese = Adrese::where('user_id', '=', Auth::user()->id)->get();
+        $localitati = Localitate::get();
+       
         if(Auth::user()->idRol==1)
         return view('admin.profile');
-    else return view('profile');
+    else return view('profile',compact('judete','localitati','adrese'));
     }
 
     public function updateAvatar(Request $request)
@@ -52,14 +61,12 @@ class ProfileController extends Controller
         $this->validate($request,[
             'nume'=>'required|string',
             'prenume'=>'required|string',
-            'email'=>'email|unique:users',
         ]);
 
       
         $user=Auth::user();
         $user->nume=$request['nume'];
         $user->prenume=$request['prenume'];
-        $user->email=$request['email'];
         $user->save();
         return redirect('/profile')->with('success','Informatii actualizate cu succes.');
         
@@ -116,11 +123,10 @@ class ProfileController extends Controller
         return redirect('/profile')->with('success','Parola actualizata cu succes.');
         }
         else return redirect('/profile')->with('error','Parolele nu corespund.');
-        }
-
-        
+        } 
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *

@@ -123,6 +123,47 @@
                             </div>
                         </form>
                         <hr>
+                            <div class="row mb-5">
+                                <div class="col-md-4 mb-4">
+                                    <div>
+                                        Adaugă adresa
+                                    </div>
+                                    <div class="text-muted small">
+                                        Județ și oraș
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <form method="POST" action="{{action('AdreseController@store')}}">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Județ</label>
+                                                    <select id="judet" name="judet">
+                                                        <option>Alege judetul</option>
+                                                        @foreach($judete as $judet => $id)
+                                                        <option value="{{$id}}">
+                                                            {{$judet}}
+                                                        </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Localitate</label>
+                                                    <select id="localitate" name="localitate">
+                                                        <option>Alege</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btn btn-success" value="Adaugă"><br>
+                                    </form>
+                                </div>
+                            </div>
+                        <hr>
+
                         <div class="row mt-5">
                             <div class="col-md-4 mb-4">
                                 <div>
@@ -170,4 +211,36 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#judet').change(function () {
+                var judet_id = $(this).val();
+                if (judet_id) {
+                    $.ajax({
+                        type: "GET",
+                        url: "{{url('get-city-list')}}?judet_id=" + judet_id,
+                        success: function (res) {
+                            if (res) {
+                                $("#localitate").empty();
+                                $("#localitate").append(
+                                    '<option>Alege localitatea</option>');
+                                $.each(res, function (key, val) {
+                                    $("#localitate").append('<option value="' +
+                                    val['nume'] + '">' + val['nume'] + '</option>');
+                                });
+
+                            } else {
+                                $("#localitate").empty();
+                            }
+                        }
+                    });
+                } else {
+                    $("#state").empty();
+                    $("#city").empty();
+                }
+            });
+        });
+
+    </script>
     @endsection

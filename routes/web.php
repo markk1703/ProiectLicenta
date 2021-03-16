@@ -22,22 +22,27 @@ Route::group([ 'middleware' => ['guest']], function() {//TOTI (INC GUEST)
     Route::get('/auth/{provider}/callback','Auth\LoginController@handleProviderCallback');
 });
 
-Route::group([ 'middleware' => ['auth']], function() {//USERS+ADMIN
+Route::group([ 'middleware' => ['auth','verified']], function() {//USERS+ADMIN
     //PROFIL
 Route::get('profile', 'ProfileController@index');
-Route::post('profile', 'ProfileController@updateAvatar');
-Route::post('profile/update', 'ProfileController@updateProfile');
-Route::post('profile/username/update', 'ProfileController@updateUsername');
-Route::post('profile/email/update', 'ProfileController@updateEmail');
-Route::post('profile/password', 'ProfileController@updatePassword');
+Route::post('profile/update/avatar', 'ProfileController@updateAvatar');//update avatar
+Route::post('profile/update/info', 'ProfileController@updateProfile');//update nume+prenume
+Route::post('profile/update/username', 'ProfileController@updateUsername');//update username
+Route::post('profile/update/email', 'ProfileController@updateEmail');//update mail
+Route::post('profile/update/password', 'ProfileController@updatePassword');//update parola
+    //ORAS
+Route::get('get-city-list','JudetOrasController@getLocalitati');//lista orase din judet
+
+    //ADRESA
+Route::resource('adresa','AdreseController');//update adresa
+
 });
 
-Route::group([ 'middleware' => ['user']], function() {//USERS
+Route::group([ 'middleware' => ['user','verified']], function() {//USERS
 });
 
-Route::group([ 'middleware' => ['admin']], function() {//ADMINISTRATOR
+Route::group([ 'middleware' => ['admin','verified']], function() {//ADMINISTRATOR
 });
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+Auth::routes(['verify'=>true]);

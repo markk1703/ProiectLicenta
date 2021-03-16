@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -32,9 +33,27 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
+                    @auth
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item mr-5">
+                            <a class="nav-link" href="/home">Home</a>
+                        </li>
+                        <li class="nav-item mr-5">
+                            <a class="nav-link" href="#">Semnalează o defecțiune</a>
+                        </li>
+                        <li class="nav-item dropdown mr-5">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Probleme existente
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Adaugă conținut</a>
+                                <a class="dropdown-item" href="#">Conținutul meu</a>
+                                <a class="dropdown-item" href="#">Caută conținut</a>
+                            </div>
+                        </li>
                     </ul>
+                    @endauth
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
