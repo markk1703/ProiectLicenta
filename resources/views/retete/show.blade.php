@@ -5,38 +5,83 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h1>{{$reteta->denumire}}</h1>
-                </div>
-                    <div class="card-body">
-                        <div class="col-md-10">
+                    <div class="row">
+                        @if($reteta->imagine_principala)
+                        <div class="col">
+                            <img src="/uploads/retete/{{$reteta->utilizator_id}}/{{$reteta->id}}/{{$reteta->imagine_principala}}"
+                                style="max-width:200px;max-height:100%;left:10px;margin-top:0px;">
+                        </div>
+                        @endif
+                        <div class="col">
+                            <h5>Imagini:</h5>
                             <div class="row">
-                                <div class="col-md-10">
-                                    <div class="form-group">
-                                        <label class="form-control-label">Denumire</label>
-                                        <div>{{$reteta->denumire}}</div>
-                                    </div>
+                                @foreach($imagini as $imagine)
+                                <div class="col">
+                                    <img src="/uploads/retete/{{$reteta->utilizator_id}}/{{$reteta->id}}/{{$imagine}}"
+                                        style="max-width:100%;max-height:100%;left:10px;margin-top:0px;">
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <label class="form-control-label">Ingrediente</label>
-                                    <div>{{$reteta->ingrediente}}</div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-10">
-                                    <label class="form-control-label">Mod de preparare</label>
-                                    <div>{{$reteta->modDePreparare}}</div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="card-body">
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <h5>Denumire:</h5>
+                                    <div>{{$reteta->denumire}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h5>Ingrediente:</h5>
+                                <div>{{$reteta->ingrediente}}</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h5>Mod de preparare:</h5>
+                                <div>{{$reteta->mod_de_preparare}}</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+
+</script>
 @endsection

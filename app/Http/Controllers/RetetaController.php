@@ -66,7 +66,9 @@ class RetetaController extends Controller
      */
     public function show($id)
     {$reteta=Reteta::findOrFail($id);
-        return view('retete.show',['reteta'=>$reteta]);
+    $imaginiString=$reteta->imagini;
+    $imagini=explode(", ",$imaginiString);
+        return view('retete.show',['reteta'=>$reteta,'imagini'=>$imagini]);
     }
 
     /**

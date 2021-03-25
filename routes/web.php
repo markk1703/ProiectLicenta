@@ -37,7 +37,6 @@ Route::resource('adresa','AdreseController');//update adresa
     //RETETE
 Route::get('retete/create','RetetaController@create')->name('retete.create');//create
 Route::post('retete','RetetaController@store')->name('retete.store');//store
-Route::get('retete/{id}','RetetaController@show')->name('retete.show');//show
 Route::get('retete/{id}/edit','RetetaController@edit')->name('retete.edit');//edit
 Route::post('retete/{id}','RetetaController@update')->name('retete.update');//update
 Route::delete('retete/{id}','RetetaController@destroy')->name('retete.destroy');//destroy
@@ -52,6 +51,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
     //RETETE
 Route::get('retete','RetetaController@index');//afisare retete
+Route::get('retete/{id}','RetetaController@show')->name('retete.show');//show reteta
     //SEARCH
 Route::get('search','SearchController@index');//sectiune cautare
 
