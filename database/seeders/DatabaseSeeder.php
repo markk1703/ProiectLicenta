@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         //\App\Models\User::factory(10)->create();
-         $this->call(UserSeeder::class); //Useri random
-         $this->call(JudetSeeder::class); //pt toate judetele din RO
-         //$this->call(LocalitateSeeder::class); //pt toate localitatile din RO
-         $this->call(AdreseSeeder::class); //Adrese random + populare 'localitati'
+         //$this->call(UserSeeder::class); //Useri random
+         //$this->call(JudetSeeder::class); //pt toate judetele din RO
+         ///$this->call(LocalitateSeeder::class); //pt toate localitatile din RO //NU il folosesc
+         //$this->call(AdreseSeeder::class); //Adrese random + populare 'localitati'
+         $this->call(IngredienteSeeder::class);//Ingrediente in BD pt testare
     }
 }

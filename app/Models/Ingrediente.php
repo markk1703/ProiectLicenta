@@ -5,22 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Judet extends Model
+class Ingrediente extends Model
 {
     use HasFactory;
-    protected $table='judete';
+    protected $table='ingrediente';
     public $timestamps=false;
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'denumire',
-        'prescurtare'
+        'categorie',
+        'unitateDeMasura',
     ];
-    function localitate()
+
+    function reteta()
     {
-        return $this->hasMany(Localitate::class);
+        return $this->hasMany(Reteta::class);
     }
 }

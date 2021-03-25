@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Judet;
+use App\Models\Reteta;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class JudetFactory extends Factory
+class RetetaFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Judet::class;
+    protected $model = Reteta::class;
 
     /**
      * Define the model's default state.

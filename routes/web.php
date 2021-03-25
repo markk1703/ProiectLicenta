@@ -32,17 +32,27 @@ Route::post('profile/update/email', 'ProfileController@updateEmail');//update ma
 Route::post('profile/update/password', 'ProfileController@updatePassword');//update parola
     //ORAS
 Route::get('get-city-list','JudetOrasController@getLocalitati');//lista orase din judet
-
     //ADRESA
 Route::resource('adresa','AdreseController');//update adresa
-
+    //RETETE
+Route::get('retete/create','RetetaController@create')->name('retete.create');//create
+Route::post('retete','RetetaController@store')->name('retete.store');//store
+Route::get('retete/{id}','RetetaController@show')->name('retete.show');//show
+Route::get('retete/{id}/edit','RetetaController@edit')->name('retete.edit');//edit
+Route::post('retete/{id}','RetetaController@update')->name('retete.update');//update
+Route::delete('retete/{id}','RetetaController@destroy')->name('retete.destroy');//destroy
+    //IMAGINI
+Route::get('image/create','UploadFileController@create');
+Route::post('image/create','UploadFileController@create');
+Route::get('image/edit','UploadFileController@edit');
+Route::post('image/store','UploadFileController@store');//adaugare imagini
 });
 
-Route::group([ 'middleware' => ['user','verified']], function() {//USERS
-});
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//home
 
-Route::group([ 'middleware' => ['admin','verified']], function() {//ADMINISTRATOR
-});
+    //RETETE
+Route::get('retete','RetetaController@index');//afisare retete
+    //SEARCH
+Route::get('search','SearchController@index');//sectiune cautare
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 Auth::routes(['verify'=>true]);

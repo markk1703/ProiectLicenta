@@ -9,6 +9,7 @@ class Adrese extends Model
 {
     use HasFactory;
     protected $table='adrese';
+    public $timestamps = true;
     protected $fillable = [
         'user_id',
         'judet_id',

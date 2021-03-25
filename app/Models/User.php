@@ -44,8 +44,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'createdAt'=>'datetime',
+        'created_at'=>'datetime',
         'stamp' => 'datetime'
     ];
 
@@ -55,5 +54,9 @@ class User extends Authenticatable implements MustVerifyEmail
     function adrese()
     {
         return $this->hasMany(Adresa::class);
+    }
+    function retete()
+    {
+        return $this->hasMany(Reteta::class);
     }
 }

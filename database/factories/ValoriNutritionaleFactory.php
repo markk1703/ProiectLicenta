@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\MarcaAuto;
+use App\Models\ValoriNutritionale;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class MarcaAutoFactory extends Factory
+class ValoriNutritionaleFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = MarcaAuto::class;
+    protected $model = ValoriNutritionale::class;
 
     /**
      * Define the model's default state.
