@@ -21,12 +21,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password')->nullable();
             $table->string('imagine')->default('default.jpg');
-            $table->string('rol_id')->default('2');
+            $table->unsignedBigInteger('rol_id')->default(2);
+            //  $table->foreign('rol_id')->references('id')->on('roluri')->onDelete('cascade')->onUpdate('cascade');
             $table->rememberToken()->default(Str::random(10));
 
             $table->timestamp('email_verified_at')->nullable(); //$table->timestamps(); pt toate
-            $table->timestamp('updated_at')->nullable(false);
-            $table->timestamp('created_at')->nullable(false);
+            $table->timestamp('updated_at')->nullable(false)->default(now());
+            $table->timestamp('created_at')->nullable(false)->default(now());
             $table->timestamp('stamp')->default(now());
             $table->boolean('is_activ')->default('1');
         });

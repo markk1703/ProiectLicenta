@@ -19,7 +19,7 @@
                     <div class="row" id="avatar-row">
                         <div class="col-md-10">
                             <div class="form-group">
-                                <form method="POST" action="{{ action('UploadFileController@store') }}"
+                                <form method="POST" action="{{ action('UploadImagesController@store') }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <table class="table">
@@ -39,7 +39,7 @@
                     <div class="row" id="images-row">
                         <div class="col-md-10">
                             <div class="form-group">
-                                <form method="POST" action="{{ action('UploadFileController@store') }}"
+                                <form method="POST" action="{{ action('UploadImagesController@store') }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <table class="table">

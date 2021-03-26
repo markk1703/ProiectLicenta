@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-light text-left mt-3">
-                        <button type="submit" class="btn btn-success">Actualizeaza</button>
+                        <button type="submit" class="btn btn-success">Mai departe</button>
                     </div>
                 </form>
             </div>

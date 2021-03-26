@@ -22,6 +22,14 @@
                                 </div>
                                 @endforeach
                             </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    <h5>Categorii:</h5>
+                                    <div>{{$reteta->categorii}}</div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -47,6 +55,13 @@
                             <div class="col-md-10">
                                 <h5>Mod de preparare:</h5>
                                 <div>{{$reteta->mod_de_preparare}}</div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h5>Valori nutritionale:</h5>
+                                <div>-</div>
                             </div>
                         </div>
                         <div class="row">

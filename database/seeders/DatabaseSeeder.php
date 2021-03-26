@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         //$this->call(UserSeeder::class); //Useri random
+         $this->call(RoluriSeeder::class);//Roluri
+         $this->call(UserSeeder::class); //Useri random
          //$this->call(JudetSeeder::class); //pt toate judetele din RO
          ///$this->call(LocalitateSeeder::class); //pt toate localitatile din RO //NU il folosesc
          //$this->call(AdreseSeeder::class); //Adrese random + populare 'localitati'

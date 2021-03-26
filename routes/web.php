@@ -41,10 +41,12 @@ Route::get('retete/{id}/edit','RetetaController@edit')->name('retete.edit');//ed
 Route::post('retete/{id}','RetetaController@update')->name('retete.update');//update
 Route::delete('retete/{id}','RetetaController@destroy')->name('retete.destroy');//destroy
     //IMAGINI
-Route::get('image/create','UploadFileController@create');
-Route::post('image/create','UploadFileController@create');
-Route::get('image/edit','UploadFileController@edit');
-Route::post('image/store','UploadFileController@store');//adaugare imagini
+Route::post('images/store','UploadImagesController@store');//adaugare imagini
+Route::get('images/create','UploadImagesController@create');
+Route::post('images/create','UploadImagesController@create');
+Route::get('images/{id}/edit','UploadImagesController@edit');
+Route::post('images/{id}','UploadImagesController@update');
+Route::delete('images/{id}','UploadImagesController@destroy');
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//home

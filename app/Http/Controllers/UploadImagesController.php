@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Reteta;
 
-class UploadFileController extends Controller
+class UploadImagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -86,9 +86,10 @@ class UploadFileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit(Request $request, $id)
+    {   $reteta=Reteta::find($id);
+        $imagini=explode(', ',$reteta->imagini);
+        return view ('retete.imagini.edit',['reteta'=>$reteta,'imagini'=>$imagini,'imagine_de_sters'=>''])->with('success',"'$reteta->denumire' modified successfully.");
     }
 
     /**
@@ -100,7 +101,7 @@ class UploadFileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return view ('retete.index');
     }
 
     /**
@@ -109,8 +110,9 @@ class UploadFileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($imagine_de_sters)
     {
-        //
+       dd($imagine_de_sters);
+       return back()->with('success','Imagine stearsa cu succes')->with('path',$new_name);
     }
 }
