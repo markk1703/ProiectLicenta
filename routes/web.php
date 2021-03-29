@@ -46,13 +46,15 @@ Route::get('images/create','UploadImagesController@create');
 Route::post('images/create','UploadImagesController@create');
 Route::get('images/{id}/edit','UploadImagesController@edit');
 Route::post('images/{id}','UploadImagesController@update');
-Route::delete('images/{id}','UploadImagesController@destroy');
+// Route::post('images/delete','UploadImagesController@delete');
+
+
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//home
 
     //RETETE
-Route::get('retete','RetetaController@index');//afisare retete
+Route::get('retete','RetetaController@index')->name('retete.index');//afisare retete
 Route::get('retete/{id}','RetetaController@show')->name('retete.show');//show reteta
     //SEARCH
 Route::get('search','SearchController@index');//sectiune cautare

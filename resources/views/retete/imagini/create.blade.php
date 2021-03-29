@@ -11,7 +11,7 @@
                             <h5>pentru '{{$request->denumire}}'</h5>
                         </div>
                         <div class="col">
-                            
+
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,8 @@
                                     @csrf
                                     <table class="table">
                                         <tr>
-                                            <td width="40%" align="right"><label>Selecteaza imaginea principala</label></td>
+                                            <td width="40%" align="right"><label>Selecteaza imaginea principala</label>
+                                            </td>
                                             <td width="30"><input type="file" name="select_file" /></td>
                                             <input name="id" value={{$request->id}} hidden>
                                             <input name="tip" value='principal' hidden>
@@ -44,7 +45,8 @@
                                     @csrf
                                     <table class="table">
                                         <tr>
-                                            <td width="40%" align="right"><label>Selecteaza imagini secundare</label></td>
+                                            <td width="40%" align="right"><label>Selecteaza imagini secundare</label>
+                                            </td>
                                             <td width="30"><input type="file" name="select_file" /></td>
                                             <input name="id" value={{$request->id}} hidden>
                                             <input name="tip" value='secundar' hidden>
@@ -63,9 +65,7 @@
                     </div>
                 </div>
                 <div class="card-footer bg-light text-left mt-3">
-                    <form method="GET" action="{{action('RetetaController@index')}}">
-                        <button type="submit" class="btn btn-success">OK</button>
-                    </form>
+                    <a href="{{ action('RetetaController@index')}}" class="btn btn-success">OK</a>
                 </div>
             </div>
         </div>

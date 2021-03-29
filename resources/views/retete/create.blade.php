@@ -48,7 +48,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                    
+                        </div>
+                    </div>
                     <div class="card-footer bg-light text-left mt-3">
                         <button type="submit" class="btn btn-success">Mai departe</button>
                     </div>
@@ -56,6 +57,5 @@
             </div>
         </div>
     </div>
-</div>
 
-@endsection
+    @endsection

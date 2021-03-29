@@ -104,15 +104,20 @@ class UploadImagesController extends Controller
         return view ('retete.index');
     }
 
+    public function delete($imagine_de_sters)
+    {dd($imagine_de_sters);
+        return back()->with('success','Imagine stearsa cu succes')->with('path',$new_name);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($imagine_de_sters)
+    public function destroy($id)
     {
-       dd($imagine_de_sters);
-       return back()->with('success','Imagine stearsa cu succes')->with('path',$new_name);
+    //
     }
+    
 }

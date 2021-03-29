@@ -12,6 +12,17 @@
                                 style="max-width:200px;max-height:100%;left:10px;margin-top:0px;">
                         </div>
                         @endif
+                            <div class="col">
+                                @if($reteta->utilizator_id==Auth::id())
+                                <form action="{{action('RetetaController@destroy',$reteta->id)}}" method="POST">
+                                    <a class="btn btn-primary"
+                                        href="{{action('RetetaController@edit',$reteta->id)}}">Editeaza</a>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger">Șterge</button>
+                                </form>
+                                @endif
+                            </div>
                         <div class="col">
                             <h5>Imagini:</h5>
                             <div class="row">
