@@ -19,7 +19,7 @@
                     <div class="row" id="avatar-row">
                         <div class="col-md-10">
                             <div class="form-group">
-                                <form method="POST" action="{{ action('UploadImagesController@store') }}"
+                                <form method="POST" action="{{ route('images.store') }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <table class="table">
@@ -40,7 +40,7 @@
                     <div class="row" id="images-row">
                         <div class="col-md-10">
                             <div class="form-group">
-                                <form method="POST" action="{{ action('UploadImagesController@store') }}"
+                                <form method="POST" action="{{ route('images.store') }}"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <table class="table">
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="card-footer bg-light text-left mt-3">
-                    <a href="{{ action('RetetaController@index')}}" class="btn btn-success">OK</a>
+                    <a href="{{ route('retete.index')}}" class="btn btn-success">OK</a>
                 </div>
             </div>
         </div>

@@ -22,13 +22,13 @@
                                         <div class="col-md-2"><img src="http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png"
                                             style="max-width:100%;max-height:100%;left:10px;margin-top:0px;"></div>
                                         @endif
-                                        <h4><a href="{{action('RetetaController@show',$reteta->id)}}" class="col">{{$reteta->denumire}}</a></h4>
+                                        <h4><a href="{{route('retete.show',$reteta->id)}}" class="col">{{$reteta->denumire}}</a></h4>
                                         <div class="col">{{$reteta->categorii}}</div>
                                         <div class="col">
                                             @if($reteta->utilizator_id==Auth::id())
-                                            <form action="{{action('RetetaController@destroy',$reteta->id)}}" method="POST">
+                                            <form action="{{route('retete.destroy',$reteta->id)}}" method="POST">
                                                 <a class="btn btn-primary"
-                                                    href="{{action('RetetaController@edit',$reteta->id)}}">Editeaza</a>
+                                                    href="{{route('retete.edit',$reteta->id)}}">Editeaza</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">Șterge</button>

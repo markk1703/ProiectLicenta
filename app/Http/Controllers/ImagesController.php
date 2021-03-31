@@ -3,22 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Reteta;
+use Illuminate\Support\Facades\Auth;
 
-class UploadImagesController extends Controller
+class ImagesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
+     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -37,8 +27,7 @@ class UploadImagesController extends Controller
     public function store(Request $request)
     { 
         $this->validate($request,[
-        'select_file'=>'required|image|mimes:jpeg,png,jpg,gif'
-    ]);
+        'select_file'=>'required|image|mimes:jpeg,png,jpg,gif']);
 
     $reteta=Reteta::find($request->id);//find reteta
 
@@ -68,30 +57,7 @@ class UploadImagesController extends Controller
         $reteta->save();
         return back()->with('success','Imagine incarcata cu succes')->with('path',$new_name);
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Request $request, $id)
-    {   $reteta=Reteta::find($id);
-        $imagini=explode(', ',$reteta->imagini);
-        return view ('retete.imagini.edit',['reteta'=>$reteta,'imagini'=>$imagini,'imagine_de_sters'=>''])->with('success',"'$reteta->denumire' modified successfully.");
-    }
-
+    
     /**
      * Update the specified resource in storage.
      *
@@ -104,20 +70,34 @@ class UploadImagesController extends Controller
         return view ('retete.index');
     }
 
-    public function delete($imagine_de_sters)
-    {dd($imagine_de_sters);
-        return back()->with('success','Imagine stearsa cu succes')->with('path',$new_name);
-    }
-
     /**
-     * Remove the specified resource from storage.
+     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-    //
+    public function edit(Request $request, $id)
+    {   $reteta=Reteta::find($id);
+        $imagini=explode(', ',$reteta->imagini);
+        return view ('retete.imagini.edit',['reteta'=>$reteta,'imagini'=>$imagini])->with('success',"'$reteta->denumire' modified successfully.");
     }
-    
+
+    public function delete(Request $request)
+    {
+    $reteta=Reteta::find($request->id);
+    if($request->tip=='principal')
+    {$reteta->imagine_principala=null;}
+    else
+        if($request->tip=='secundar')//daca este imagine secundara
+        {
+            $imagini=explode(', ',$reteta->imagini);//descompunere string in tablou
+            foreach(array_keys($imagini, $request->imagine_de_sters) as $imagine)
+            {
+                unset($imagini[$imagine]);//sterge imaginea din tablou
+            }
+        $reteta->imagini=implode(', ',$imagini);//recompunere string
+        }
+        $reteta->save();
+        return back()->with('success','Imagine stearsa cu succes');
+    }
 }

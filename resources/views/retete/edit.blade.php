@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h1>Editeaza reteta</h1>
                 </div>
-                <form action="{{ action('RetetaController@update',$reteta->id)}}" method="POST">
+                <form action="{{ route('retete.update',$reteta->id)}}" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="col-md-10">

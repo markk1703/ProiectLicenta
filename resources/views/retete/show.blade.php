@@ -14,9 +14,9 @@
                         @endif
                             <div class="col">
                                 @if($reteta->utilizator_id==Auth::id())
-                                <form action="{{action('RetetaController@destroy',$reteta->id)}}" method="POST">
+                                <form action="{{route('retete.destroy',$reteta->id)}}" method="POST">
                                     <a class="btn btn-primary"
-                                        href="{{action('RetetaController@edit',$reteta->id)}}">Editeaza</a>
+                                        href="{{route('retete.edit',$reteta->id)}}">Editeaza</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Șterge</button>

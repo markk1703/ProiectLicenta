@@ -55,7 +55,7 @@ class RetetaController extends Controller
             'utilizator_id'=>Auth::id(),
             'created_at' => now()
         ]);
-        return redirect()->action('UploadImagesController@create',['denumire'=>$reteta->denumire,'id'=>$reteta->id])->with('success',"'$reteta->denumire' added successfully.");
+        return redirect()->route('images.create',['denumire'=>$reteta->denumire,'id'=>$reteta->id])->with('success',"'$reteta->denumire' added successfully.");
     }
 
     /**
@@ -104,7 +104,7 @@ class RetetaController extends Controller
     $reteta->categorii=$request->input('categorii');
     $reteta->save();
     
-    return redirect()->action('UploadImagesController@edit',$id)->with('success',"'$reteta->denumire' modified successfully.");
+    return redirect()->route('images.edit',$id)->with('success',"'$reteta->denumire' modified successfully.");
     }
 
     /**
@@ -116,7 +116,7 @@ class RetetaController extends Controller
     public function destroy($id)
     {$reteta=Reteta::find($id);
         Reteta::find($id)->delete();
-        return redirect()->action('RetetaController@index')->with('success',"'$reteta->denumire' deleted successfully.");
+        return redirect()->route('retete.index')->with('success',"'$reteta->denumire' deleted successfully.");
     }
 
 }

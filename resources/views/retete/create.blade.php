@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <h1>Adauga reteta</h1>
                 </div>
-                <form action="{{ action('RetetaController@store') }}" method="POST">
+                <form action="{{ route('retete.store') }}" method="POST">
                     @csrf
                     <div class="card-body">
                         <div class="col-md-10">
