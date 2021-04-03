@@ -138,7 +138,7 @@
 </div>
 
 <script>
-    $(document).ready(function (imagine_de_sters) {
+    $(document).ready(function () {
         $('#imagineDeStersOption').change(function () {
             var e=document.getElementById('imagineDeStersOption');
             var img=document.getElementById('imagine_de_sters');

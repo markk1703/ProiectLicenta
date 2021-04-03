@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
          ///$this->call(LocalitateSeeder::class); //pt toate localitatile din RO //NU il folosesc
          //$this->call(AdreseSeeder::class); //Adrese random + populare 'localitati'
          $this->call(IngredienteSeeder::class);//Ingrediente in BD pt testare
+         $this->call(ValoriNutritionaleSeeder::class);//Valori nutritionale de test
     }
 }

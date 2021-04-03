@@ -15,6 +15,7 @@ class CreateRetetasTable extends Migration
     {
         Schema::create('retete', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('utilizator_id')->nullable(false)->default(Auth::id());
             $table->string('denumire')->nullable(false);
             $table->string('ingrediente')->nullable(false);
             $table->string('mod_de_preparare')->nullable(false);
@@ -22,7 +23,6 @@ class CreateRetetasTable extends Migration
             $table->string('imagine_principala')->nullable(true);
             $table->string('imagini')->nullable(true);
             $table->string('URL_video')->nullable(true);
-            $table->integer('utilizator_id')->nullable(false);
             $table->timestamps();
         });
     }

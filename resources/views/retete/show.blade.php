@@ -71,8 +71,12 @@
                         <hr>
                         <div class="row">
                             <div class="col-md-10">
-                                <h5>Valori nutritionale:</h5>
-                                <div>-</div>
+                                <h5>Valori nutritionale (100 g produs):</h5>
+                                @foreach ($tabValori as $val)
+                                    <div>{{$val}}</div>
+                                @endforeach
+                                    <hr>
+                                    <div>TOTAL: {{$totalValori}}</div>
                             </div>
                         </div>
                         <div class="row">

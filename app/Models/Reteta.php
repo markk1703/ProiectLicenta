@@ -11,14 +11,14 @@ class Reteta extends Model
     protected $table='retete';
     public $timestamps = true;
     protected $fillable = [
+        'utilizator_id',
         'denumire',
         'ingrediente',
         'mod_de_preparare',
         'categorii',
         'imagine_principala',
         'imagini',
-        'URL_video',
-        'utilizator_id'
+        'URL_video'
     ];
     protected $casts = [
         'created_at'=>'datetime',

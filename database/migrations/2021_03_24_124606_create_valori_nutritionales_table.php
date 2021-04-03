@@ -15,7 +15,16 @@ class CreateValoriNutritionalesTable extends Migration
     {
         Schema::create('valori_nutritionale', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('ingredient_id')->unique();
+            $table->string('calorii');
+            $table->string('grasimi');
+            $table->string('grasimi saturate');
+            $table->string('glucide');
+            $table->string('proteine');
+            $table->string('sare');
+            $table->string('calciu');
+            $table->timestamp('updated_at')->nullable(false)->default(now());
+            $table->timestamp('created_at')->nullable(false)->default(now());
         });
     }
 

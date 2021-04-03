@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Reteta;
+use App\Models\ValoriNutritionale;
+use App\Models\Ingrediente;
 
 class RetetaController extends Controller
 {
@@ -18,7 +20,79 @@ class RetetaController extends Controller
         $retete=Reteta::orderBy('created_at','desc')->paginate(5);
         if($request->utilizator_id)
         $retete=Reteta::orderBy('created_at','desc')->where('utilizator_id',$request->utilizator_id)->paginate(5);
+        
         return view('retete.index')->with(compact('retete'));
+    }
+
+    public function getValoriNutritionale_all($retete)//val nutritionale pt toate retetele
+    {$tabValori_all=array();
+        foreach($retete as $reteta){
+            $tabValori=$this->getValoriNutritionale($reteta);
+            array_push($tabValori_all,$tabValori);
+            }
+        return $tabValori_all;
+    }
+
+    public function getValoriNutritionale(Reteta $reteta)//valori nutritionale pentru o reteta
+    {
+    $retete=Reteta::select('id','utilizator_id','ingrediente')->orderBy('created_at','desc')->get();
+    $ingrediente=Ingrediente::all();
+    $valoriNutritionale=ValoriNutritionale::orderBy('created_at','desc')->get();
+    
+    $tabValori=array();
+        foreach($ingrediente as $ingredient)
+        {   $valori="";
+            $columns=array('calorii','grasimi','grasimi saturate','glucide','proteine','sare','calciu');
+            $ingr=explode(', ',$reteta->ingrediente);//tablou cu ingrediente
+            foreach($ingr as $i)//parcurgere tablou
+            {
+                $pieces=explode(' ',$i);//tablou cu cuvintele unui ingredient
+                $last_word = array_pop($pieces);//ultimul cuvant din ingredient
+                if($ingredient->denumire==$last_word)
+                foreach($valoriNutritionale as $valNutr)
+                {
+                    if($valNutr->ingredient_id==$ingredient->id)
+                    {$valori=$valori.$ingredient->denumire.', ';
+                    {foreach ($columns as $col)
+                    $valori=$valori.$valNutr->$col.' '.$col.', ';
+                    }
+                    array_push($tabValori,$valori);
+                    $valori=null;
+                    }
+                }
+            }
+        }
+    return $tabValori;
+    }
+    public function getTotalValoriNutritionale($tabValori)
+    {$valori=array();
+    $rez=array();
+        foreach($tabValori as $val)
+        {
+        $strings=null;
+            $pieces = explode(',', $val);
+            foreach($pieces as $key=>$piece)
+            {
+                $arr = explode(' ',trim($piece));
+                if(count($arr)>1)
+                    for($i=3;$i<count($arr);$i++)//array de dim 2 (valoare + string)
+                    $arr[1]=$arr[1].' '.$arr[$i];
+                if(count($arr)>1){
+                    if ( ! isset($valori[$key])) {
+                        $valori[$key] = 0;
+                     }
+                    $valori[$key]=$valori[$key]+$arr[0];
+                    $strings[$key]=$arr[1].' '.$arr[2];
+                }
+            }
+        }
+        foreach($valori as $key=>$val)
+        {if ( ! isset($rez[$key])) {
+            $rez[$key] = "";
+         }
+         $rez[$key]=$valori[$key].' '.$strings[$key];
+        }
+        return $rez;
     }
 
     /**
@@ -45,6 +119,7 @@ class RetetaController extends Controller
             'categorii'=>'required'
         ]);
         $reteta=Reteta::create([
+            'utilizator_id'=>Auth::id(),
             'denumire' => $request['denumire'],
             'ingrediente' => $request['ingrediente'],
             'mod_de_preparare' => $request['preparare'],
@@ -52,7 +127,6 @@ class RetetaController extends Controller
             'imagine_principala' => $request['imagine_princ'],
             'imagini' => $request['imagini'],
             'URL_video' => $request['URLVideo'],
-            'utilizator_id'=>Auth::id(),
             'created_at' => now()
         ]);
         return redirect()->route('images.create',['denumire'=>$reteta->denumire,'id'=>$reteta->id])->with('success',"'$reteta->denumire' added successfully.");
@@ -68,7 +142,10 @@ class RetetaController extends Controller
     {$reteta=Reteta::findOrFail($id);
     $imaginiString=$reteta->imagini;
     $imagini=explode(", ",$imaginiString);
-        return view('retete.show',['reteta'=>$reteta,'imagini'=>$imagini]);
+    $tabValori=$this->getValoriNutritionale($reteta);
+    $totalValori=$this->getTotalValoriNutritionale($tabValori);
+    $totalValori=implode(', ',$totalValori);
+        return view('retete.show',['reteta'=>$reteta,'imagini'=>$imagini,'tabValori'=>$tabValori,'totalValori'=>$totalValori]);
     }
 
     /**
