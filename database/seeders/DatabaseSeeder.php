@@ -20,5 +20,7 @@ class DatabaseSeeder extends Seeder
          //$this->call(AdreseSeeder::class); //Adrese random + populare 'localitati'
          $this->call(IngredienteSeeder::class);//Ingrediente in BD pt testare
          $this->call(ValoriNutritionaleSeeder::class);//Valori nutritionale de test
+         $this->call(FollowshipsSeeder::class);//Followers
+         $this->call(RetetaSeeder::class);//Retete
     }
 }

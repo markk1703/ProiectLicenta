@@ -18,7 +18,7 @@ class CreateValoriNutritionalesTable extends Migration
             $table->unsignedBigInteger('ingredient_id')->unique();
             $table->string('calorii');
             $table->string('grasimi');
-            $table->string('grasimi saturate');
+            $table->string('grasimi_saturate');
             $table->string('glucide');
             $table->string('proteine');
             $table->string('sare');

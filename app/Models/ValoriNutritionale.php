@@ -14,7 +14,7 @@ class ValoriNutritionale extends Model
         'ingredient_id',
         'calorii',
         'grasimi',
-        'grasimi saturate',
+        'grasimi_saturate',
         'glucide',
         'proteine',
         'sare',

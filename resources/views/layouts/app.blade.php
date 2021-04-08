@@ -9,7 +9,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/home') }}">
+                <a class="navbar-brand mr-5" @guest href="{{ url('/discover') }}" @endguest @auth href="{{ url('/home') }}" @endauth>
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -22,16 +22,16 @@
                     <!-- Left Side Of Navbar -->
 
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item mx-5">
+                        @auth
+                        <li class="nav-item mr-5">
                             <a class="nav-link" href="/home">Home</a>
                         </li>
-                        @guest
+                        @endauth
                         <li class="nav-item mr-5">
-                            <a class="nav-link" href="{{action('RetetaController@index')}}">Rețete</a>
+                            <a class="nav-link" href="{{route('retete.discover')}}">Descoperă</a>
                         </li>
-                        @endguest
                         <li class="nav-item mr-5">
-                            <a class="nav-link" href="{{action('SearchController@index')}}">Caută</a>
+                            <a class="nav-link" href="{{route('search.index')}}">Caută rețete</a>
                         </li>
                         @auth
                         <li class="nav-item dropdown mr-5">
@@ -40,26 +40,34 @@
                                 Rețete
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{action('RetetaController@create')}}">Adaugă rețetă</a>
-                                <a class="dropdown-item" href="{{action('RetetaController@index',['utilizator_id'=>Auth::id()])}}">Rețetele mele</a>
-                                <a class="dropdown-item" href="{{action('RetetaController@index')}}">Vezi rețete</a>
+                                <a class="dropdown-item" href="{{route('retete.create')}}">Adaugă rețetă</a>
+                                <a class="dropdown-item" href="{{route('retete.index',['utilizator_id'=>Auth::id()])}}">Rețetele mele</a>
+                                <a class="dropdown-item" href="{{route('retete.index')}}">Vezi rețete</a>
                             </div>
                         </li>
                         @endauth
-                        <li class="nav-item mr-5">
-                            <a class="nav-link" href="#">Despre</a>
+                        <li class="nav-item dropdown mr-5">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Nutriție
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{route('nutritie.scan')}}">Calculator valori nutritionale</a>
+                                <a class="dropdown-item" href="#">Caută produs</a>
+                            </div>
                         </li>
+                        @auth
                         <li class="nav-item dropdown mr-5">
                             <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Altele
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">#1</a>
-                                <a class="dropdown-item" href="#">#2</a>
-                                <a class="dropdown-item" href="#">#3</a>
+                                <a class="dropdown-item" href="{{route('followship.index',['utilizator_id'=>Auth::id()])}}">Lista de urmariri</a>
+                                <a class="dropdown-item" href="{{route('home.dashboard',['utilizator_id'=>Auth::id()])}}">Dashboard</a>
                             </div>
                         </li>
+                        @endauth
                     </ul>
 
 
@@ -105,11 +113,10 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <div class="py-4">
             @include('inc.messages')
-            @yield('content')
-        </main>
+        </div>
     </div>
+    @yield('content')
 </body>
-
 </html>

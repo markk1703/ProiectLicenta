@@ -18,7 +18,7 @@ Route::group([ 'middleware' => ['guest']], function() {//TOTI (INC GUEST)
         return view('welcome');
     });
 
-    Route::get('/auth/{provider}','Auth\LoginController@redirectToProvider');//pt logare cu Facebook
+    Route::get('/auth/{provider}','Auth\LoginController@redirectToProvider');//pt logare cu Facebook/Google
     Route::get('/auth/{provider}/callback','Auth\LoginController@handleProviderCallback');
 });
 
@@ -47,16 +47,22 @@ Route::get('images/create','ImagesController@create')->name('images.create');;
 Route::post('images/create','ImagesController@create')->name('images.create');;
 Route::get('images/{id}/edit','ImagesController@edit')->name('images.edit');;
 Route::post('images/{id}','ImagesController@update')->name('images.update');;
+    //FOLLOWSHIP
+Route::get('followers','FollowshipController@index')->name('followship.index');//afisare urmariri/urmaritori
 
 
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');//home
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');//home
+Route::get('dashboard','HomeController@dashboard')->name('home.dashboard');
 
     //RETETE
 Route::get('retete','RetetaController@index')->name('retete.index');//afisare retete
 Route::get('retete/{id}','RetetaController@show')->name('retete.show');//show reteta
+Route::get('discover','RetetaController@discover')->name('retete.discover');//descopera retete
     //SEARCH
-Route::get('search','SearchController@index');//sectiune cautare
+Route::get('search','SearchController@index')->name('search.index');//sectiune cautare
+    //NUTRITIE
+Route::match(array('get','post'),'nutritie/scan','NutritieController@scan')->name('nutritie.scan');//scanare cod de bare
 
 Auth::routes(['verify'=>true]);

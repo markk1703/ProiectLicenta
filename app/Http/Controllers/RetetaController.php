@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Reteta;
 use App\Models\ValoriNutritionale;
 use App\Models\Ingrediente;
+use OpenFoodFacts;
 
 class RetetaController extends Controller
 {
@@ -24,7 +25,7 @@ class RetetaController extends Controller
         return view('retete.index')->with(compact('retete'));
     }
 
-    public function getValoriNutritionale_all($retete)//val nutritionale pt toate retetele
+    public function getValoriNutritionale_all($retete)//val nutritionale pt toate ingredientele
     {$tabValori_all=array();
         foreach($retete as $reteta){
             $tabValori=$this->getValoriNutritionale($reteta);
@@ -118,6 +119,13 @@ class RetetaController extends Controller
             'preparare'=>'required',
             'categorii'=>'required'
         ]);
+        //  $productName=$request->denumire;
+        //  $productData=$this->findProduct($productName);
+        //  dd($productData);
+        //  $nutriments=$productData[0]["nutriments"];
+        //  $nutriscore_data=$productData[0]["nutriscore_data"];
+        //  dd($nutriscore_data);
+        
         $reteta=Reteta::create([
             'utilizator_id'=>Auth::id(),
             'denumire' => $request['denumire'],
@@ -131,6 +139,11 @@ class RetetaController extends Controller
         ]);
         return redirect()->route('images.create',['denumire'=>$reteta->denumire,'id'=>$reteta->id])->with('success',"'$reteta->denumire' added successfully.");
     }
+    public function findProduct($productName)
+    {
+        $productData = OpenFoodFacts::find($productName);
+        return $productData;
+    }
 
     /**
      * Display the specified resource.
@@ -143,8 +156,9 @@ class RetetaController extends Controller
     $imaginiString=$reteta->imagini;
     $imagini=explode(", ",$imaginiString);
     $tabValori=$this->getValoriNutritionale($reteta);
-    $totalValori=$this->getTotalValoriNutritionale($tabValori);
-    $totalValori=implode(', ',$totalValori);
+    // $totalValori=$this->getTotalValoriNutritionale($tabValori); !!!! DE REVAZUT
+    // $totalValori=implode(', ',$totalValori);
+    $totalValori=null;
         return view('retete.show',['reteta'=>$reteta,'imagini'=>$imagini,'tabValori'=>$tabValori,'totalValori'=>$totalValori]);
     }
 
@@ -194,6 +208,15 @@ class RetetaController extends Controller
     {$reteta=Reteta::find($id);
         Reteta::find($id)->delete();
         return redirect()->route('retete.index')->with('success',"'$reteta->denumire' deleted successfully.");
+    }
+
+    public function discover()
+    {   
+        $retete=Reteta::where('utilizator_id','!=',Auth::id())
+        ->inRandomOrder()
+        ->paginate(5);
+        
+        return view('retete.discover')->with(compact('retete'));
     }
 
 }
