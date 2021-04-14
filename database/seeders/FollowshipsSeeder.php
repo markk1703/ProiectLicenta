@@ -50,10 +50,5 @@ class FollowshipsSeeder extends Seeder
             'user1_id'=>'10',
             'user2_id'=>'1'
             ]);
-        Followship::create([
-            'user1_id'=>'5',
-            'user2_id'=>'1'
-            ]);
-
     }
 }

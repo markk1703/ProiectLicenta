@@ -22,4 +22,27 @@ class FollowshipController extends Controller
             ->get();
         return view('followship.index')->with(compact('followings'))->with(compact('followers'));
     }
+    public function follow(Request $request)
+    {
+
+    }
+    public function unfollow(Request $request)
+    {
+
+    }
+    public function search(Request $request)
+    {
+        $followers = DB::table('followships')
+            ->leftJoin('users', 'followships.user1_id', '=', 'users.id')
+            ->where('followships.user2_id',$request->utilizator_id)
+            ->get();
+        $followings = DB::table('followships')
+        ->leftJoin('users', 'followships.user2_id', '=', 'users.id')
+        ->where('followships.user1_id',$request->utilizator_id)
+            ->get();
+
+        $term=$request->term;
+        $users=DB::table('users')->where('username','LIKE','%'.$term.'%')->get();
+        return response($users);
+    }
 }

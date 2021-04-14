@@ -9,23 +9,88 @@ use OpenFoodFacts;
 class NutritieController extends Controller
 {
     public function scan(Request $request)
-    {  $dictionar=['carbohydrates_100g'=>'carbohidrati_100g',
+    {  $dictionar=[
+    // 'carbohydrates_100g'=>'carbohidrati_100g',
+    // 'energy-kcal_100g'=>'energie-kcal_100g',
+    // 'fat_100g'=>'grasimi_100g',
+    // 'saturated-fat_100g'=>'grasimi-saturate_100g',
+    // 'proteins_100g'=>'proteine_100g',
+    // 'salt_100g'=>'sare_100g',
+    // 'sugars_100g'=>'zahar_100g',
+    // 'sodium_100g'=>'sodiu_100g',
+
     'energy-kcal_100g'=>'energie-kcal_100g',
-    'fat_100g'=>'grasimi_100g',
-    'saturated-fat_100g'=>'grasimi-saturate_100g',
     'proteins_100g'=>'proteine_100g',
-    'salt_100g'=>'sare_100g',
-    'sugars_100g'=>'zahar_100g',
-    'sodium_100g'=>'sodiu_100g',];
+    'casein_100g'=>'cazeina_100g',
+    'carbohydrates_100g'=>'carbohidrati_100g',
+    'sugars_100g'=>'zaharuri_100g',
+    'sucrose_100g'=>'zaharoza_100g',
+    'glucose_100g'=>'glucoza_100g',
+    'fructose_100g'=>'fructoza_100g',
+    'lactose_100g'=>'lactoza_100g',
+    'starch_100g'=>'amidon_100g',
+    'fat_100g'=>'grasimi_100g',
+    'saturated-fat_100g'=>'grasimi saturate_100g',
+    'trans-fat_100g'=>'grasimi trans_100g',
+    'cholesterol_100g'=>'colesterol_100g',
+    'fiber_100g'=>'fibre_100g',
+    'sodium_100g'=>'sodiu_100g',
+    'alcohol_100g'=>'alcool_100g',
+    'vitamin-a_100g'=>'vitamina A_100g',
+    'vitamin-d_100g'=>'vitamina D_100g',
+    'vitamin-e_100g'=>'vitamina E_100g',
+    'vitamin-k_100g'=>'vitamina K_100g',
+    'vitamin-c_100g'=>'vitamina C_100g',
+    'vitamin-b1_100g'=>'vitamina B1_100g',
+    'vitamin-b2_100g'=>'vitamina B2_100g',
+    'vitamin-pp_100g'=>'vitamina PP_100g',
+    'vitamin-b6_100g'=>'vitamina B6_100g',
+    'vitamin-b9_100g'=>'vitamina B9_100g',
+    'vitamin-b12_100g'=>'vitamina B12_100g',
+    'biotin_100g'=>'vitamina B8_100g',
+    'potassium_100g'=>'potasiu_100g',
+    'calcium_100g'=>'calciu_100g',
+    'phosphorum_100g'=>'fosfor_100g',
+    'iron_100g'=>'fier_100g',
+    'magnesium_100g'=>'magneziu_100g',
+    'zinc_100g'=>'zinc_100g',
+    'copper_100g'=>'cupru_100g',
+    'manganese_100g'=>'mangan_100g',
+    'fluoride_100g'=>'fluor_100g',
+    'selenium_100g'=>'seleniu_100g',
+    'iodine_100g'=>'iod_100g',
+    'caffeine_100g'=>'cafeina_100g',
+    'taurine_100g'=>'taurina_100g',
+    // 'ph_100g'=>'pH_100g',
+    // 'fruits-vegetables-nuts_100g'=>'fructe/legume/nuci_100g', //in procente
+    // 'nutrition-score-fr_100g'=>'scor nutritional-fr_100g',
+    // 'nutrition-score-uk_100g'=>'scor nutritional-uk_100g'
+];
+    $nutriscore_images=[
+        'a'=>'https://eurohealthnet-magazine.eu/wp-content/uploads/2019/12/RVB-A-cerne%C2%A6%C3%BC-1024x637.jpg',
+        'b'=>'https://english.fleischwirtschaft.de/news/media/4/Danone-NutriScore-31047.jpeg',
+        'c'=>'https://pbs.twimg.com/media/EcKi3W6X0AAzGPZ.jpg',
+        'd'=>'https://media.istockphoto.com/vectors/nutriscore-official-labels-vector-id1163487432?b=1&k=6&m=1163487432&s=170667a&w=0&h=AMp98_AspDY6b5oocM8qRYa_0Obkhzy5-immBdIcsng=',
+        'e'=>'https://www.abzonline.de/news/media/7/40-Vertre-ford-von-der-EU-ein-verpflichte-Einfhr-d-62400.jpeg'
+    ];
      
         if($request->has('barcode')){
         $produs=OpenFoodFacts::barcode($request->barcode);
         if($produs!=null){
         $valNutritionale=$produs['nutriments'];
+        $nutrient_levels=null;
+        if(array_key_exists('nutrient_levels',$produs))
+            $nutrient_levels=$produs['nutrient_levels'];
         $denumire=$produs['product_name'];
         $img=$produs['selected_images'];
         $img=$img['front']['small'];
         $img=array_pop($img);
+        $nutriscore_grade=null;
+        $nutriscore_image=null;
+        if(array_key_exists('nutriscore_grade',$produs))
+            {$nutriscore_grade=$produs['nutriscore_grade'];
+            $nutriscore_image=$nutriscore_images[$nutriscore_grade];
+            }
         $valoriNutritionale_100=array();
         $valoriNutritionale=array();
         $cantitate=$request['cantitate'];
@@ -40,7 +105,7 @@ class NutritieController extends Controller
         {
             $valoriNutritionale[substr($key,0,-5)]=$valoriNutritionale_100[$key]*$cantitate/100;
         }
-        return view('nutritie.scan')->with(compact('denumire'))->with(compact('valoriNutritionale_100'))->with(compact('valoriNutritionale'))->with(['cantitate'=>$cantitate])->with(['img'=>$img]);}}
+        return view('nutritie.scan')->with(compact('denumire'))->with(compact('valoriNutritionale_100'))->with(compact('valoriNutritionale'))->with(['cantitate'=>$cantitate])->with(['img'=>$img])->with(['nutriscore_grade'=>$nutriscore_grade])->with(['nutriscore_image'=>$nutriscore_image])->with(['nutrient_levels'=>$nutrient_levels]);}}
         else
         return view('nutritie.scan');
     }

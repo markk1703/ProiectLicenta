@@ -51,14 +51,33 @@
                             </div><!-- /.modal-dialog -->
                         </div><!-- /.modal -->
                     
-                    
-                    @if(isset($denumire))
+                    @if(isset($denumire)&&$denumire!=null)
                     <div class='row m-2'><h5>Produs: {{$denumire}}</h5></div>
                     @endif
-                    @if(isset($img))
+                    @if(isset($img)&&$img!=null)
                     <img class='row m-2' height="200px" src="{{$img}}">
                     @endif
-                    @if(isset($valoriNutritionale))
+					@if(isset($nutriscore_grade)&&$nutriscore_grade!=null)
+                    <div class='row m-2'><h5>Scor nutritional: {{$nutriscore_grade}}</h5></div>
+					<img class='row m-2' height="80px" src="{{$nutriscore_image}}">
+                    @endif
+					@if(isset($nutrient_levels)&&$nutrient_levels!=null)
+                    <div class='row'>
+                        <div class='col'>
+                            <table class='table table-striped table-bordered'>
+                                <thead><th colspan="3" class=". text-center">Nivele nutritionale</th>
+                                </thead>
+                    @foreach($nutrient_levels as $key=>$val)
+                    <tr>
+                    <td>{{$key}}</td>
+                    <td>{{$nutrient_levels[$key]}}</td>
+                    </tr>
+                    @endforeach
+                            </table>
+                        </div>
+                    </div>
+                    @endif
+                    @if(isset($valoriNutritionale)&&$valoriNutritionale!=null)
                     <div class='row'>
                         <div class='col'>
                             <table class='table table-striped table-bordered'>
@@ -67,7 +86,7 @@
                                 <thead>
                                     <th scope='col'>Denumire</th>
                                     <th scope='col'>Valoare ({{$cantitate}} g/ml)</th>
-                                    <th scope='col'>Valoare 100 g/ml)</th>
+                                    <th scope='col'>Valoare (100 g/ml)</th>
                                 </thead>
                     @foreach($valoriNutritionale as $key=>$val)
                     <tr>

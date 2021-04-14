@@ -17,7 +17,7 @@ class RetetaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {dd($request);
         $retete=Reteta::orderBy('created_at','desc')->paginate(5);
         if($request->utilizator_id)
         $retete=Reteta::orderBy('created_at','desc')->where('utilizator_id',$request->utilizator_id)->paginate(5);

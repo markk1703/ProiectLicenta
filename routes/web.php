@@ -22,7 +22,7 @@ Route::group([ 'middleware' => ['guest']], function() {//TOTI (INC GUEST)
     Route::get('/auth/{provider}/callback','Auth\LoginController@handleProviderCallback');
 });
 
-Route::group([ 'middleware' => ['auth','verified']], function() {//USERS+ADMIN
+Route::group([ 'middleware' => ['auth','verified']], function() {//USERS+ADMIN verified
     //PROFIL
 Route::get('profile', 'ProfileController@index');
 Route::post('profile/update/avatar', 'ProfileController@updateAvatar');//update avatar
@@ -48,13 +48,15 @@ Route::post('images/create','ImagesController@create')->name('images.create');;
 Route::get('images/{id}/edit','ImagesController@edit')->name('images.edit');;
 Route::post('images/{id}','ImagesController@update')->name('images.update');;
     //FOLLOWSHIP
-Route::get('followers','FollowshipController@index')->name('followship.index');//afisare urmariri/urmaritori
-
+Route::get('followship','FollowshipController@index')->name('followship.index');//afisare urmariri/urmaritori
+Route::get('followship/search','FollowshipController@search')->name('followship.search');//search users
+    //DASHBOARD
+Route::get('dashboard','HomeController@dashboard')->name('home.dashboard');
 
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home.index');//home
-Route::get('dashboard','HomeController@dashboard')->name('home.dashboard');
+
 
     //RETETE
 Route::get('retete','RetetaController@index')->name('retete.index');//afisare retete
