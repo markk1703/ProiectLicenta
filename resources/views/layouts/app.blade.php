@@ -3,9 +3,10 @@
 
 <head>
     @include('inc.head')
+    @yield('hd')
 </head>
 
-<body>
+<body class='mb-5'>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -52,7 +53,7 @@
                                 Nutriție
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('nutritie.scan')}}">Calculator valori nutritionale</a>
+                                <a class="dropdown-item" href="{{route('nutritie.scan')}}">Calculator valori nutriționale</a>
                                 <a class="dropdown-item" href="#">Caută produs</a>
                             </div>
                         </li>
@@ -63,8 +64,8 @@
                                 Altele
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{route('followship.index',['utilizator_id'=>Auth::id()])}}">Lista de urmariri</a>
-                                <a class="dropdown-item" href="{{route('home.dashboard',['utilizator_id'=>Auth::id()])}}">Dashboard</a>
+                                <a class="dropdown-item" href="{{route('followship.index')}}">Lista de urmăriri</a>
+                                <a class="dropdown-item" href="{{route('home.dashboard')}}">Dashboard</a>
                             </div>
                         </li>
                         @endauth
@@ -119,4 +120,5 @@
     </div>
     @yield('content')
 </body>
+<script src="{{asset('js/notiflix-2.7.0.min.js')}}"></script>
 </html>

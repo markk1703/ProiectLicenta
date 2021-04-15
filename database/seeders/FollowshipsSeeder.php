@@ -24,7 +24,27 @@ class FollowshipsSeeder extends Seeder
             ]);
         Followship::create([
             'user1_id'=>'1',
+            'user2_id'=>'4'
+            ]);
+        Followship::create([
+            'user1_id'=>'1',
             'user2_id'=>'5'
+            ]);
+        Followship::create([
+            'user1_id'=>'1',
+            'user2_id'=>'6'
+            ]);
+        Followship::create([
+            'user1_id'=>'1',
+            'user2_id'=>'7'
+            ]);
+        Followship::create([
+            'user1_id'=>'1',
+            'user2_id'=>'8'
+            ]);
+        Followship::create([
+            'user1_id'=>'1',
+            'user2_id'=>'9'
             ]);
         Followship::create([
             'user1_id'=>'5',

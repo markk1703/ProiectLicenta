@@ -1,11 +1,8 @@
 @extends('layouts.app')
-<head>
-    <meta charset="utf-8">
-    <title>Lista de urmariri</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/followship.index.css">
-</head>
+@section('hd')
+<title>Lista de urmariri</title>
+<link rel="stylesheet" href="/css/followship.index.css">
+@endsection
 
 @section('content')
 <div class="container">
@@ -13,57 +10,47 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h1>Urmariri/Urmaritori</h1>
+                    <h1>Urmăriri/Urmăritori</h1>
                 </div>
                 <div class="card-body">
                     <div class="user-profile">
+                        <div class="profile_section_inner" style="padding-bottom: 40px;">
+                            <div class="user_profile_image" 
+                            style="background:url('/uploads/avatars/{{Auth::user()->imagine}}');
+                            width:100px;
+                            height:100px;
+                            background-position:center;
+                            background-size:contain;
+                            border-radius:100%;
+                            border:2px solid #f4f4f4;
+                            margin:0 auto;
+                            margin-bottom:30px;"
+                            >
+                            </div>
+                            <div class="user_profile_name text-center">
+                                    <h2>{{Auth::user()->nume}} {{Auth::user()->prenume}}</h2>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-md-8">
-                                <div class="profile-info-right">
+                                <div class="profile-info-right" id='tabs'>
                                     <ul class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom">
-                                        <li class="active"><a href="#followers" data-toggle="tab">URMĂRITORI</a></li>
+                                        <li class="active"><a href="#profile" data-toggle="tab">PROFIL</a></li>
+                                        <li><a href="#followers" data-toggle="tab">URMĂRITORI</a></li>
                                         <li><a href="#following" data-toggle="tab">URMĂRIRI</a></li>
+                                        <li><a href="#people" data-toggle="tab">PERSOANE</a></li>
                                     </ul>
+                                    
                                     <div class="tab-content">
+                                        <input type="hidden" id="notificationCount" value="{{$notifications->count()}}">
+                                        <!-- profile -->
+                                        @include('followship.partials.profile',compact('followers','followings','notifications'))
                                         <!-- followers -->
-                                        @if(isset($followers)&&$followers->count()>0)
-                                        <div class="tab-pane active" id="followers">
-                                            @foreach($followers as $key=>$follower)
-                                            <div class="media user-follower">
-                                                <img src="/uploads/avatars/{{$followers[$key]->imagine}}" alt="User Avatar" class="media-object pull-left">
-                                                <div class="media-body">
-                                                    <a href="{{route('retete.index',['utilizator_id'=>$followers[$key]->id] )}}">{{$followers[$key]->nume}} {{$followers[$key]->prenume}}<br><span class="text-muted username">{{'@'.$followers[$key]->username}}</span></a>
-                                                    <button type="button" class="btn btn-sm btn-toggle-following pull-right"><i class="fa fa-checkmark-round"></i> <span>Following</span></button>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        @else
-                                            <div class="no_reports_found">
-                                                Momentan nu exista urmaritori.
-                                            </div>
-                                        @endif
-
-                                        <!-- end followers -->
+                                        @include('followship.partials.followers',compact('followers'))
                                         <!-- following -->
-                                        @if(isset($followings)&&$followings->count()>0)
-                                        <div class="tab-pane fade" id="following">
-                                            @foreach($followings as $key=>$following)
-                                            <div class="media user-following">
-                                                <img src="/uploads/avatars/{{$followings[$key]->imagine}}" alt="User Avatar" class="media-object pull-left">
-                                                <div class="media-body">
-                                                    <a href="{{route('retete.index',['utilizator_id'=>$followings[$key]->id] )}}">{{$followings[$key]->nume}} {{$followings[$key]->prenume}}<br><span class="text-muted username">{{'@'.$followings[$key]->username}}</span></a>
-                                                    <button type="button" class="btn btn-sm btn-danger pull-right"><i class="fa fa-close-round"></i> Unfollow</button>
-                                                </div>
-                                            </div>
-                                            @endforeach
-                                        </div>
-                                        @else
-                                            <div class="no_reports_found">
-                                                Momentan nu exista urmariri.
-                                            </div>
-                                        @endif
-                                        <!-- end following -->
+                                        @include('followship.partials.following',compact('followings'))
+                                        <!-- people -->
+                                        @include('followship.partials.people')
                                     </div>
                                 </div>
                             </div>
@@ -74,6 +61,130 @@
         </div>
     </div>
 </div>
-@endsection
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+
+    function processData(selector, action, user_id){
+        let user_action='';
+        if(action=='unfollow'){
+            user_action='Ești sigur că dorești să ștergi această urmărire?';
+        Notiflix.Confirm.Show( 'Atenție', user_action, 'Da', 'Nu', 
+        function(){ // Yes button callback 
+        axios.get("{{route('followship.userAction')}}",{
+            params:{
+                action:action,
+                user_id:user_id,
+                selector:selector
+            }
+        }).then(data=>{
+            $(selector).html(data.data);
+            reloadPeople();
+        }).catch(error=>{
+            console.log(error);
+        }) 
+        }, function(){ // No button callback 
+         } ); }
+         else if(action=='remove_follower'){
+            user_action='Ești sigur că dorești să ștergi acest urmăritor?';
+        Notiflix.Confirm.Show( 'Atenție', user_action, 'Da', 'Nu', 
+        function(){ // Yes button callback 
+        axios.get("{{route('followship.userAction')}}",{
+            params:{
+                action:action,
+                user_id:user_id,
+                selector:selector
+            }
+        }).then(data=>{
+            $(selector).html(data.data);
+            reloadPeople();
+        }).catch(error=>{
+            console.log(error);
+        }) 
+        }, function(){ // No button callback 
+         } ); }
+         else if(action=='follow'){
+            user_action='Ești sigur că dorești să urmărești acest utilizator?';
+        Notiflix.Confirm.Show( 'Atenție', user_action, 'Da', 'Nu', 
+        function(){ // Yes button callback 
+        axios.get("{{route('followship.userAction')}}",{
+            params:{
+                action:action,
+                user_id:user_id,
+                selector:selector
+            }
+        }).then(data=>{
+            $(selector).html(data.data);
+            reloadPeople();
+        }).catch(error=>{
+            console.log(error);
+        }) 
+        }, function(){ // No button callback 
+         } ); }      
+    }
+    function reloadPeople(){//reload pagina 'persoane'
+    let data=$('#userSearchInput').val();
+        axios.get("{{route('followship.userAction')}}",{
+            params:{
+                term:data,
+                action:'reload_people',
+            }
+        }).then(data=>{
+            $('#people_show_action').html(data.data);
+        }).catch(error=>{
+            console.log(error);
+        }) 
+    }
+    function checkNotification()
+    {
+    let status=false;
+    let notification=$('#notificationCount').val();
+    setInterval(function(){
+        axios.get("{{route('followship.checkNotification')}}",{
+            params:{
+                count:notification,
+            }
+        }).then(data=>{
+            if(data.data.data>notification){
+                $('#notificationCount').val(data.data.data);
+                if(status==false){
+                    let song=new Audio();
+                    song.src="{{asset('file/just-saying.mp3')}}";
+                    song.play();
+                    status=true;
+                    reloadFollowers();
+                }
+            }
+        }).catch(error=>{
+            console.log(error);
+        })
+    },4000)
+    }
+    checkNotification();
+
+    function reloadFollowers(){
+        axios.get("{{route('followship.reloadFollowers')}}",{
+
+        }).then(
+            data=>{
+                console.log(data.data);
+                $('#followers_show_action').html(data.data);
+            }
+        )
+    }
+
+    $(document).on('submit','#userSearch',function(event){
+        event.preventDefault();
+        let data=$('#userSearchInput').val();
+        axios.get("{{route('followship.search')}}",{
+            params:{
+                term:data
+            }
+        }).then(data=>{
+            $('#people_show_action').html(data.data);
+        }).catch(error=>{
+            console.log(error);
+        })
+    })
+</script>
+@endsection

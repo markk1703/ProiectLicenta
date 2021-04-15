@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Reteta;
+use App\Models\User;
 use App\Models\ValoriNutritionale;
 use App\Models\Ingrediente;
 use OpenFoodFacts;
+use DB;
 
 class RetetaController extends Controller
 {
@@ -17,12 +19,12 @@ class RetetaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {dd($request);
+    {   $user=null;
         $retete=Reteta::orderBy('created_at','desc')->paginate(5);
         if($request->utilizator_id)
-        $retete=Reteta::orderBy('created_at','desc')->where('utilizator_id',$request->utilizator_id)->paginate(5);
-        
-        return view('retete.index')->with(compact('retete'));
+        {$retete=Reteta::orderBy('created_at','desc')->where('utilizator_id',$request->utilizator_id)->paginate(5);
+        $user=User::find($request->utilizator_id);}
+        return view('retete.index')->with(compact('retete','user'));
     }
 
     public function getValoriNutritionale_all($retete)//val nutritionale pt toate ingredientele
@@ -153,13 +155,14 @@ class RetetaController extends Controller
      */
     public function show($id)
     {$reteta=Reteta::findOrFail($id);
+    $user=User::findOrFail($reteta->utilizator_id);
     $imaginiString=$reteta->imagini;
     $imagini=explode(", ",$imaginiString);
     $tabValori=$this->getValoriNutritionale($reteta);
     // $totalValori=$this->getTotalValoriNutritionale($tabValori); !!!! DE REVAZUT
     // $totalValori=implode(', ',$totalValori);
     $totalValori=null;
-        return view('retete.show',['reteta'=>$reteta,'imagini'=>$imagini,'tabValori'=>$tabValori,'totalValori'=>$totalValori]);
+        return view('retete.show',compact('reteta','imagini','tabValori','totalValori','user'));
     }
 
     /**
@@ -212,9 +215,13 @@ class RetetaController extends Controller
 
     public function discover()
     {   
-        $retete=Reteta::where('utilizator_id','!=',Auth::id())
-        ->inRandomOrder()
-        ->paginate(5);
+        $retete = DB::table('retete')
+            ->join('followships', 'retete.utilizator_id', '=', 'followships.user2_id')
+            ->join('users', 'users.id', '=', 'retete.utilizator_id')
+            ->where('retete.utilizator_id','!=',Auth::id())
+            ->select('users.*', 'retete.*')
+            ->inRandomOrder()
+            ->paginate(5);
         
         return view('retete.discover')->with(compact('retete'));
     }

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('hd')
+<title>Profil</title>
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -141,9 +144,9 @@
                                                     <label class="form-control-label">Județ</label>
                                                     <select id="judet" name="judet">
                                                         <option>Alege judetul</option>
-                                                        @foreach($judete as $judet => $id)
-                                                        <option value="{{$id}}">
-                                                            {{$judet}}
+                                                        @foreach($judete as $judet)
+                                                        <option value="{{$judet->id}}">
+                                                            {{$judet->denumire}}
                                                         </option>
                                                         @endforeach
                                                     </select>

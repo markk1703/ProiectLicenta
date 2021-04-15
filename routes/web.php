@@ -50,6 +50,9 @@ Route::post('images/{id}','ImagesController@update')->name('images.update');;
     //FOLLOWSHIP
 Route::get('followship','FollowshipController@index')->name('followship.index');//afisare urmariri/urmaritori
 Route::get('followship/search','FollowshipController@search')->name('followship.search');//search users
+Route::get('followship/userAction','FollowshipController@userAction')->name('followship.userAction');//unfollow user
+Route::get('followship/checkNotification','FollowshipController@checkNotification')->name('followship.checkNotification');//send notifications
+Route::get('followship/reloadFollowers','FollowshipController@reloadFollowers')->name('followship.reloadFollowers');//reload followers page
     //DASHBOARD
 Route::get('dashboard','HomeController@dashboard')->name('home.dashboard');
 

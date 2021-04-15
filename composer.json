@@ -18,7 +18,8 @@
         "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
-        "openfoodfacts/openfoodfacts-laravel": "^0.2.1"
+        "openfoodfacts/openfoodfacts-laravel": "^0.2.1",
+        "overtrue/laravel-follow": "^2.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
@@ -43,7 +44,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files":[
+            "app/Helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

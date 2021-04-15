@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ZApplyForeignKeys extends Migration
+class ApplyForeignKeys extends Migration
 {
     /**
      * Run the migrations.
@@ -27,7 +27,9 @@ class ZApplyForeignKeys extends Migration
         Schema::table('followships', function(Blueprint $table){
             $table->foreign('user1_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('user2_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-
+        });
+        Schema::table('notificari', function(Blueprint $table){
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

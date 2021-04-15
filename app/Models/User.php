@@ -60,4 +60,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Reteta::class);
     }
+    function followships()
+    {
+        return $this->hasMany(Followship::class);
+    }
 }

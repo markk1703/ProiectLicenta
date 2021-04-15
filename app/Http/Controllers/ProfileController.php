@@ -32,8 +32,7 @@ class ProfileController extends Controller
 
     public function updateAvatar(Request $request)
     {//handle upload imagine
-       
-        if($request->hasFile('imagine') && Auth::user()->idRol==1)
+        if($request->hasFile('imagine') && Auth::user()->rol_id==1)
         {
             $imagine=$request->file('imagine');
             $filename=time() . '.' . $imagine->getClientOriginalExtension();
@@ -43,7 +42,7 @@ class ProfileController extends Controller
             $user->save();
             return redirect('/profile')->with('user',Auth::user());
         }
-        else if($request->hasFile('imagine') && Auth::user()->idRol==2)
+        else if($request->hasFile('imagine') && Auth::user()->rol_id==2)
         {
             $imagine=$request->file('imagine');
             $filename=time() . '.' . $imagine->getClientOriginalExtension();

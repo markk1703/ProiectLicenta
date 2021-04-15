@@ -13,6 +13,6 @@ class AdreseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Adrese::factory(20)->create();
+        \App\Models\Adrese::factory(5)->create();
     }
 }

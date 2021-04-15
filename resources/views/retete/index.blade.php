@@ -6,7 +6,11 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h1>Retete</h1>
+                    @if(isset($user))
+                    <h1>Retete postate de: {{$user->nume}} {{$user->prenume}}</h1>
+                    @else
+                    <h1>Toate retetele</h1>
+                    @endif
                 </div>
                 <div class="card-body">
                     <div class="col">

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('hd')
+<title>{{ config('app.name', 'Laravel') }}</title>
+@endsection
 @section('content')
 <!-- Background image -->
 <div

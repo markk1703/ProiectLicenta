@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('hd')
+<title>Caută rețete</title>
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

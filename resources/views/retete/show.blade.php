@@ -12,17 +12,32 @@
                                 style="max-width:200px;max-height:100%;left:10px;margin-top:0px;">
                         </div>
                         @endif
-                            <div class="col">
+                        <div class="col">
+                            <div class="row">
                                 @if($reteta->utilizator_id==Auth::id())
                                 <form action="{{route('retete.destroy',$reteta->id)}}" method="POST">
-                                    <a class="btn btn-primary"
-                                        href="{{route('retete.edit',$reteta->id)}}">Editeaza</a>
+                                    <a class="btn btn-primary" href="{{route('retete.edit',$reteta->id)}}">Editeaza</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Șterge</button>
                                 </form>
+                            
+                                @elseif(isFollowing($reteta->utilizator_id)=='following')
+                                <button type="button" class="btn btn-outline-secondary">Îl urmărești</button>
+                                @elseif(isFollowing($reteta->utilizator_id)=='follower')
+                                <button type="button" class="btn btn-info">Te urmărește</button>
+                                @else
+                                <button type="button" class="btn btn-primary"> Încă nu îl urmărești</button>
                                 @endif
+                                <hr>
                             </div>
+                            <div class='row'>Adăugată de: 
+                                <a href="{{route('retete.index',['utilizator_id'=>$user->id])}}"> {{$user->username}}</a>
+                            </div>
+
+                            <div class="row"> {{$reteta->created_at}}</div>
+
+                        </div>
                         <div class="col">
                             <h5>Imagini:</h5>
                             <div class="row">
@@ -41,53 +56,53 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="col-md-10">
-                        <div class="row">
-                            <div class="col-md-10">
-                                <div class="form-group">
-                                    <h5>Denumire:</h5>
-                                    <div>{{$reteta->denumire}}</div>
-                                </div>
+            </div>
+            <div class="card-body">
+                <div class="col-md-10">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="form-group">
+                                <h5>Denumire:</h5>
+                                <div>{{$reteta->denumire}}</div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <h5>Ingrediente:</h5>
-                                <div>{{$reteta->ingrediente}}</div>
-                            </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>Ingrediente:</h5>
+                            <div>{{$reteta->ingrediente}}</div>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <h5>Mod de preparare:</h5>
-                                <div>{{$reteta->mod_de_preparare}}</div>
-                            </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>Mod de preparare:</h5>
+                            <div>{{$reteta->mod_de_preparare}}</div>
                         </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-md-10">
-                                <h5>Valori nutritionale (100 g produs):</h5>
-                                @foreach ($tabValori as $val)
-                                    <div>{{$val}}</div>
-                                @endforeach
-                                    <hr>
-                                    <div>TOTAL: {{$totalValori}}</div>
-                            </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h5>Valori nutritionale (100 g produs):</h5>
+                            @foreach ($tabValori as $val)
+                            <div>{{$val}}</div>
+                            @endforeach
+                            <hr>
+                            <div>TOTAL: {{$totalValori}}</div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <script>
