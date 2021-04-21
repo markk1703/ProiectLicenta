@@ -16,6 +16,7 @@ class Reteta extends Model
         'ingrediente',
         'mod_de_preparare',
         'categorii',
+        'tags',
         'imagine_principala',
         'imagini',
         'URL_video'
@@ -28,5 +29,9 @@ class Reteta extends Model
     function ingrediente()
     {
         return $this->hasMany(Ingrediente::class);
+    }
+    function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

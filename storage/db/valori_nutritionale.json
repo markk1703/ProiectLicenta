@@ -1,0 +1,1498 @@
+[
+    {
+      "denumire": "branza de burduf",
+      "proteine": "28",
+      "grasimi": "28",
+      "carbohidrati": "0,5",
+      "calorii": "337",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "branza grasa de vaci",
+      "proteine": "13",
+      "grasimi": "9",
+      "carbohidrati": "4,5",
+      "calorii": "156",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "branza slaba de vaci",
+      "proteine": "17",
+      "grasimi": "1,2",
+      "carbohidrati": "4",
+      "calorii": "97",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "branza telemea de oaie",
+      "proteine": "17",
+      "grasimi": "20",
+      "carbohidrati": "1",
+      "calorii": "270",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "branza telemea de vaca",
+      "proteine": "17",
+      "grasimi": "17,2",
+      "carbohidrati": "1",
+      "calorii": "243",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "branza topita grasa",
+      "proteine": "20",
+      "grasimi": "20,3",
+      "carbohidrati": "1",
+      "calorii": "271",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "cascaval \"penteleu\"",
+      "proteine": "25",
+      "grasimi": "19",
+      "carbohidrati": "1",
+      "calorii": "283",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "iaurt gras",
+      "proteine": "3,2",
+      "grasimi": "3,2",
+      "carbohidrati": "3",
+      "calorii": "55",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "iaurt slab",
+      "proteine": "3,3",
+      "grasimi": "0,1",
+      "carbohidrati": "3,9",
+      "calorii": "30",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "lapte de vaca batut integral",
+      "proteine": "3,5",
+      "grasimi": "3,6",
+      "carbohidrati": "3,9",
+      "calorii": "64",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "lapte de vaca integral",
+      "proteine": "3,5",
+      "grasimi": "3,6",
+      "carbohidrati": "4,8",
+      "calorii": "67",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "lapte de vaca partial degresat ii",
+      "proteine": "3,5",
+      "grasimi": "2",
+      "carbohidrati": "4,9",
+      "calorii": "53",
+      "categorie": "lactate"
+    },
+    {
+      "denumire": "carne de caprioara",
+      "proteine": "20",
+      "grasimi": "1,9",
+      "carbohidrati": "-",
+      "calorii": "100",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "piept pui",
+      "proteine": "30",
+      "grasimi": "1",
+      "carbohidrati": "-",
+      "calorii": "164",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "piept de pui",
+      "proteine": "30",
+      "grasimi": "1",
+      "carbohidrati": "-",
+      "calorii": "164",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de curca slaba",
+      "proteine": "24,5",
+      "grasimi": "8,5",
+      "carbohidrati": "-",
+      "calorii": "179",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de gaina grasa",
+      "proteine": "19",
+      "grasimi": "9,5",
+      "carbohidrati": "-",
+      "calorii": "167",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de gaina slaba",
+      "proteine": "20",
+      "grasimi": "5",
+      "carbohidrati": "-",
+      "calorii": "128",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de iepure",
+      "proteine": "22",
+      "grasimi": "1",
+      "carbohidrati": "-",
+      "calorii": "98",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de miel",
+      "proteine": "18",
+      "grasimi": "20",
+      "carbohidrati": "-",
+      "calorii": "260",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de mistret",
+      "proteine": "22",
+      "grasimi": "2,4",
+      "carbohidrati": "-",
+      "calorii": "114",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de oaie semigrasa",
+      "proteine": "17",
+      "grasimi": "28",
+      "carbohidrati": "-",
+      "calorii": "331",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de oaie slaba",
+      "proteine": "20",
+      "grasimi": "6,5",
+      "carbohidrati": "-",
+      "calorii": "144",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de porc grasa",
+      "proteine": "15",
+      "grasimi": "35",
+      "carbohidrati": "-",
+      "calorii": "388",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de porc semigrasa",
+      "proteine": "16,5",
+      "grasimi": "21,5",
+      "carbohidrati": "-",
+      "calorii": "268",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de porc slaba",
+      "proteine": "20,4",
+      "grasimi": "6,3",
+      "carbohidrati": "-",
+      "calorii": "143",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de rata",
+      "proteine": "19,6",
+      "grasimi": "6",
+      "carbohidrati": "-",
+      "calorii": "136",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de vaca grasa",
+      "proteine": "22",
+      "grasimi": "35",
+      "carbohidrati": "-",
+      "calorii": "401",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de vaca slaba",
+      "proteine": "21",
+      "grasimi": "3",
+      "carbohidrati": "-",
+      "calorii": "118",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "carne de vitel slaba",
+      "proteine": "18,3",
+      "grasimi": "16,3",
+      "carbohidrati": "-",
+      "calorii": "226",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "ficat de bovine",
+      "proteine": "20",
+      "grasimi": "5",
+      "carbohidrati": "4",
+      "calorii": "146",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "ficat de porc",
+      "proteine": "19",
+      "grasimi": "6",
+      "carbohidrati": "3",
+      "calorii": "146",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "limba de bovine",
+      "proteine": "16",
+      "grasimi": "15",
+      "carbohidrati": "0,4",
+      "calorii": "207",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "parizer, crenvurst, polonez, safalade",
+      "proteine": "10,1",
+      "grasimi": "26,6",
+      "carbohidrati": "-",
+      "calorii": "289",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "pate de ficat",
+      "proteine": "8,7",
+      "grasimi": "12",
+      "carbohidrati": "3,2",
+      "calorii": "160",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "rinichi de bovine, de porc",
+      "proteine": "18",
+      "grasimi": "3",
+      "carbohidrati": "-",
+      "calorii": "122",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "sunca presata",
+      "proteine": "18,4",
+      "grasimi": "26,7",
+      "carbohidrati": "-",
+      "calorii": "324",
+      "categorie": "carne"
+    },
+    {
+      "denumire": "crap",
+      "proteine": "18,9",
+      "grasimi": "2,8",
+      "carbohidrati": "-",
+      "calorii": "104",
+      "categorie": "peste"
+    },
+    {
+      "denumire": "salau",
+      "proteine": "19,4",
+      "grasimi": "0,4",
+      "carbohidrati": "-",
+      "calorii": "83",
+      "categorie": "peste"
+    },
+    {
+      "denumire": "stiuca",
+      "proteine": "19,1",
+      "grasimi": "0,4",
+      "carbohidrati": "-",
+      "calorii": "82",
+      "categorie": "peste"
+    },
+    {
+      "denumire": "albus (ou de gaina)",
+      "proteine": "13",
+      "grasimi": "0,2",
+      "carbohidrati": "0,5",
+      "calorii": "57",
+      "categorie": "oua"
+    },
+    {
+      "denumire": "galbenus (ou de gaina)",
+      "proteine": "16",
+      "grasimi": "32",
+      "carbohidrati": "0,3",
+      "calorii": "364",
+      "categorie": "oua"
+    },
+    {
+      "denumire": "oua de gaina",
+      "proteine": "14",
+      "grasimi": "12",
+      "carbohidrati": "0,6",
+      "calorii": "171",
+      "categorie": "oua"
+    },
+    {
+      "denumire": "un ou de gaina cca. 50 g",
+      "proteine": "7",
+      "grasimi": "6",
+      "carbohidrati": "0,3",
+      "calorii": "85",
+      "categorie": "oua"
+    },
+    {
+      "denumire": "un ou de rata cca. 60 g",
+      "proteine": "7",
+      "grasimi": "8",
+      "carbohidrati": "0,2",
+      "calorii": "102",
+      "categorie": "oua"
+    },
+    {
+      "denumire": "ardei gras rosu",
+      "proteine": "1,3",
+      "grasimi": "0,4",
+      "carbohidrati": "7,3",
+      "calorii": "39",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ardei gras verde",
+      "proteine": "1,1",
+      "grasimi": "0,2",
+      "carbohidrati": "4,6",
+      "calorii": "25",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ardei umpluti cu orez (sterilizat)",
+      "proteine": "1,4",
+      "grasimi": "8",
+      "carbohidrati": "8,2",
+      "calorii": "114",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "bulion de tomate",
+      "proteine": "3,6",
+      "grasimi": "-",
+      "carbohidrati": "11,56",
+      "calorii": "60",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "cartofi noi",
+      "proteine": "1,7",
+      "grasimi": "0,2",
+      "carbohidrati": "17,4",
+      "calorii": "80",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "castraveti",
+      "proteine": "1,3",
+      "grasimi": "0,2",
+      "carbohidrati": "2,9",
+      "calorii": "19",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "castraveti murati in otet",
+      "proteine": "-",
+      "grasimi": "-",
+      "carbohidrati": "3,6",
+      "calorii": "15",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ceapă uscata",
+      "proteine": "1,5",
+      "grasimi": "0,2",
+      "carbohidrati": "10,5",
+      "calorii": "51",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ceapă verde",
+      "proteine": "1",
+      "grasimi": "0,2",
+      "carbohidrati": "8,5",
+      "calorii": "20",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ciuperci",
+      "proteine": "5",
+      "grasimi": "0,5",
+      "carbohidrati": "2,5",
+      "calorii": "35",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ciuperci deshidratate",
+      "proteine": "41,7",
+      "grasimi": "1,7",
+      "carbohidrati": "30,8",
+      "calorii": "313",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "conopida",
+      "proteine": "2,8",
+      "grasimi": "0,3",
+      "carbohidrati": "3,9",
+      "calorii": "30",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "conopida in apa (sterilizat)",
+      "proteine": "0,9",
+      "grasimi": "-",
+      "carbohidrati": "1,5",
+      "calorii": "10",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "dovlecei",
+      "proteine": "0,9",
+      "grasimi": "0,1",
+      "carbohidrati": "3,2",
+      "calorii": "18",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "fasole verde",
+      "proteine": "2",
+      "grasimi": "0,2",
+      "carbohidrati": "5,7",
+      "calorii": "33",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "fasole verde in apa (sterilizat)",
+      "proteine": "1,5",
+      "grasimi": "0,4",
+      "carbohidrati": "2,4",
+      "calorii": "20",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ghiveci in bulion (sterilizat)",
+      "proteine": "1,2",
+      "grasimi": "0,5",
+      "carbohidrati": "3,8",
+      "calorii": "25",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "mazare in apa (sterilizat)",
+      "proteine": "2,4",
+      "grasimi": "0,5",
+      "carbohidrati": "8,1",
+      "calorii": "48",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "mazare verde boabe",
+      "proteine": "8,4",
+      "grasimi": "0,5",
+      "carbohidrati": "14",
+      "calorii": "96",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "morcov",
+      "proteine": "1,5",
+      "grasimi": "0,3",
+      "carbohidrati": "8,8",
+      "calorii": "45",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "morcovi deshidratati",
+      "proteine": "9,3",
+      "grasimi": "1,5",
+      "carbohidrati": "61,4",
+      "calorii": "3,4",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "năut",
+      "proteine": "19",
+      "grasimi": "6",
+      "carbohidrati": "61",
+      "calorii": "364",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "telina",
+      "proteine": "69",
+      "grasimi": "0,2",
+      "carbohidrati": "3,5",
+      "calorii": "16",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "pasta de tomate",
+      "proteine": "4,7",
+      "grasimi": "-",
+      "carbohidrati": "17,6",
+      "calorii": "92",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "patlagele rosii",
+      "proteine": "1,1",
+      "grasimi": "0,3",
+      "carbohidrati": "4,3",
+      "calorii": "25",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "patlagele vinete",
+      "proteine": "1,3",
+      "grasimi": "0,2",
+      "carbohidrati": "4,8",
+      "calorii": "27",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ridichi",
+      "proteine": "1,9",
+      "grasimi": "0,3",
+      "carbohidrati": "2,9",
+      "calorii": "22",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "ridichi de luna",
+      "proteine": "0,6",
+      "grasimi": "0,1",
+      "carbohidrati": "3,8",
+      "calorii": "11",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "rosii in bulion (sterilizat)",
+      "proteine": "1,7",
+      "grasimi": "0,4",
+      "carbohidrati": "4,7",
+      "calorii": "30",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "spanac",
+      "proteine": "3,5",
+      "grasimi": "0,3",
+      "carbohidrati": "2",
+      "calorii": "25",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "sparanghel in apa (sterilizat)",
+      "proteine": "0,8",
+      "grasimi": "0,1",
+      "carbohidrati": "2,7",
+      "calorii": "15",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "suc de tomate",
+      "proteine": "1,1",
+      "grasimi": "-",
+      "carbohidrati": "4,6",
+      "calorii": "23",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "tocana de legume (sterilizat)",
+      "proteine": "1,4",
+      "grasimi": "6",
+      "carbohidrati": "5,5",
+      "calorii": "94",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "usturoi",
+      "proteine": "7,2",
+      "grasimi": "0,2",
+      "carbohidrati": "26",
+      "calorii": "137",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "varza rosie",
+      "proteine": "1,9",
+      "grasimi": "0,2",
+      "carbohidrati": "5,6",
+      "calorii": "33",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "varza acra",
+      "proteine": "1,2",
+      "grasimi": "-",
+      "carbohidrati": "3,3",
+      "calorii": "25",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "varza alba",
+      "proteine": "1,8",
+      "grasimi": "0,2",
+      "carbohidrati": "5,8",
+      "calorii": "33",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "afine",
+      "proteine": "0,7",
+      "grasimi": "0,6",
+      "carbohidrati": "13,9",
+      "calorii": "66",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "ananas",
+      "proteine": "0,4",
+      "grasimi": "0,2",
+      "carbohidrati": "11,9",
+      "calorii": "52",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "banane",
+      "proteine": "1,3",
+      "grasimi": "0,6",
+      "carbohidrati": "13,4",
+      "calorii": "66",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "caise (soiuri)",
+      "proteine": "1,1",
+      "grasimi": "0,1",
+      "carbohidrati": "12,9",
+      "calorii": "58",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "capsune",
+      "proteine": "0,8",
+      "grasimi": "0,6",
+      "carbohidrati": "8,2",
+      "calorii": "43",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "cirese (soiuri)",
+      "proteine": "1,1",
+      "grasimi": "0,3",
+      "carbohidrati": "18,3",
+      "calorii": "82",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "cirese amare",
+      "proteine": "1",
+      "grasimi": "0,4",
+      "carbohidrati": "17,8",
+      "calorii": "80",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "corcoduse",
+      "proteine": "0,6",
+      "grasimi": "0,1",
+      "carbohidrati": "10,2",
+      "calorii": "45",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "dude",
+      "proteine": "1,3",
+      "grasimi": "0,6",
+      "carbohidrati": "14,5",
+      "calorii": "81",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "grepfrut",
+      "proteine": "0,5",
+      "grasimi": "0,2",
+      "carbohidrati": "6,5",
+      "calorii": "38",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "gutui",
+      "proteine": "0,5",
+      "grasimi": "0,5",
+      "carbohidrati": "14,2",
+      "calorii": "66",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "lamai",
+      "proteine": "0,9",
+      "grasimi": "0,7",
+      "carbohidrati": "6,2",
+      "calorii": "30",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "mandarine",
+      "proteine": "0,8",
+      "grasimi": "0,1",
+      "carbohidrati": "8,7",
+      "calorii": "40",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "mere",
+      "proteine": "0,3",
+      "grasimi": "0,4",
+      "carbohidrati": "16,9",
+      "calorii": "74",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "nectarine",
+      "proteine": "0,6",
+      "grasimi": "0,1",
+      "carbohidrati": "13,8",
+      "calorii": "56",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "pepeni galbeni",
+      "proteine": "0,5",
+      "grasimi": "0,1",
+      "carbohidrati": "5",
+      "calorii": "23",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "pepeni verzi",
+      "proteine": "0,5",
+      "grasimi": "0,1",
+      "carbohidrati": "5,4",
+      "calorii": "29",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "pere",
+      "proteine": "0,6",
+      "grasimi": "0,6",
+      "carbohidrati": "16",
+      "calorii": "73",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "piersici",
+      "proteine": "0,9",
+      "grasimi": "0,1",
+      "carbohidrati": "12,4",
+      "calorii": "56",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "portocale",
+      "proteine": "0,8",
+      "grasimi": "0,2",
+      "carbohidrati": "10,1",
+      "calorii": "47",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "prune",
+      "proteine": "0,6",
+      "grasimi": "0,1",
+      "carbohidrati": "17,2",
+      "calorii": "74",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "struguri",
+      "proteine": "2,1",
+      "grasimi": "1,7",
+      "carbohidrati": "18,5",
+      "calorii": "100",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "visine",
+      "proteine": "1,2",
+      "grasimi": "0,5",
+      "carbohidrati": "13,6",
+      "calorii": "65",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "avocado",
+      "proteine": "2",
+      "grasimi": "14,66",
+      "carbohidrati": "8,53",
+      "calorii": "160",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "zmeura",
+      "proteine": "1,4",
+      "grasimi": "0,6",
+      "carbohidrati": "13,6",
+      "calorii": "67",
+      "categorie": "fructe"
+    },
+    {
+      "denumire": "caise (fara samburi)",
+      "proteine": "5,2",
+      "grasimi": "0,4",
+      "carbohidrati": "68",
+      "calorii": "304",
+      "categorie": "fructe uscate"
+    },
+    {
+      "denumire": "curmale (cu samburi)",
+      "proteine": "1,9",
+      "grasimi": "0,6",
+      "carbohidrati": "74",
+      "calorii": "326",
+      "categorie": "fructe uscate"
+    },
+    {
+      "denumire": "fasole boabe",
+      "proteine": "23",
+      "grasimi": "1,7",
+      "carbohidrati": "47",
+      "calorii": "303",
+      "categorie": "fructe uscate"
+    },
+    {
+      "denumire": "mazare boabe",
+      "proteine": "21,5",
+      "grasimi": "1,9",
+      "carbohidrati": "53",
+      "calorii": "323",
+      "categorie": "leguminoase uscate"
+    },
+    {
+      "denumire": "prune (cu samburi)",
+      "proteine": "2,5",
+      "grasimi": "0,5",
+      "carbohidrati": "71",
+      "calorii": "306",
+      "categorie": "leguminoase uscate"
+    },
+    {
+      "denumire": "smochine",
+      "proteine": "4,3",
+      "grasimi": "1,3",
+      "carbohidrati": "58",
+      "calorii": "267",
+      "categorie": "leguminoase uscate"
+    },
+    {
+      "denumire": "stafide",
+      "proteine": "2,5",
+      "grasimi": "0,5",
+      "carbohidrati": "71,2",
+      "calorii": "304",
+      "categorie": "leguminoase uscate"
+    },
+    {
+      "denumire": "biscuiti",
+      "proteine": "8,2",
+      "grasimi": "9,5",
+      "carbohidrati": "74",
+      "calorii": "337",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "făină alba",
+      "proteine": "10,3",
+      "grasimi": "1",
+      "carbohidrati": "76,3",
+      "calorii": "364",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "chifle",
+      "proteine": "10,5",
+      "grasimi": "0,6",
+      "carbohidrati": "53,5",
+      "calorii": "269",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "cornuri",
+      "proteine": "10,5",
+      "grasimi": "0,6",
+      "carbohidrati": "53,5",
+      "calorii": "269",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "fulgi de ovaz",
+      "proteine": "13,6",
+      "grasimi": "6,3",
+      "carbohidrati": "65,3",
+      "calorii": "382",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "gris",
+      "proteine": "11,2",
+      "grasimi": "0,8",
+      "carbohidrati": "73,3",
+      "calorii": "354",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "orez decorticat",
+      "proteine": "5,6",
+      "grasimi": "1",
+      "carbohidrati": "75,8",
+      "calorii": "355",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "paine de graham",
+      "proteine": "9,1",
+      "grasimi": "1",
+      "carbohidrati": "51",
+      "calorii": "256",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "paine de grau alba",
+      "proteine": "10,3",
+      "grasimi": "2",
+      "carbohidrati": "54",
+      "calorii": "282",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "paine de grau intermediara",
+      "proteine": "8,3",
+      "grasimi": "0,8",
+      "carbohidrati": "52,2",
+      "calorii": "255",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "paine de grau neagra",
+      "proteine": "8,4",
+      "grasimi": "1,2",
+      "carbohidrati": "48,5",
+      "calorii": "245",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "paine de secara",
+      "proteine": "7,8",
+      "grasimi": "1,3",
+      "carbohidrati": "47,5",
+      "calorii": "239",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "paste fainoase cu ou",
+      "proteine": "10,2",
+      "grasimi": "2,2",
+      "carbohidrati": "79,1",
+      "calorii": "366",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "paste fainoase obisnuite",
+      "proteine": "5,6",
+      "grasimi": "1",
+      "carbohidrati": "75,9",
+      "calorii": "360",
+      "categorie": "produse derivate din cereale"
+    },
+    {
+      "denumire": "alune in coaja",
+      "proteine": "8,7",
+      "grasimi": "33,8",
+      "carbohidrati": "11,7",
+      "calorii": "408",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "arahide",
+      "proteine": "9,3",
+      "grasimi": "44,5",
+      "carbohidrati": "15,7",
+      "calorii": "584",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "castane",
+      "proteine": "10,7",
+      "grasimi": "7",
+      "carbohidrati": "69,5",
+      "calorii": "400",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "dovleac (seminte)",
+      "proteine": "28",
+      "grasimi": "47,4",
+      "carbohidrati": "5,1",
+      "calorii": "572",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "fistic",
+      "proteine": "22,3",
+      "grasimi": "54",
+      "carbohidrati": "13,8",
+      "calorii": "650",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "floarea - soarelui (seminte)",
+      "proteine": "14,7",
+      "grasimi": "32,3",
+      "carbohidrati": "14,5",
+      "calorii": "420",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "masline grecesti",
+      "proteine": "2",
+      "grasimi": "35",
+      "carbohidrati": "7,2",
+      "calorii": "372",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "masline verzi",
+      "proteine": "24",
+      "grasimi": "55",
+      "carbohidrati": "13,2",
+      "calorii": "664",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "nuci",
+      "proteine": "19,8",
+      "grasimi": "60",
+      "carbohidrati": "3,7",
+      "calorii": "654",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "nuci de cocos",
+      "proteine": "8,4",
+      "grasimi": "48,8",
+      "carbohidrati": "29,9",
+      "calorii": "598",
+      "categorie": "fructe si seminte oleaginoase"
+    },
+    {
+      "denumire": "amidon",
+      "proteine": "-",
+      "grasimi": "-",
+      "carbohidrati": "83",
+      "calorii": "340",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "bomboane cu ciocolata",
+      "proteine": "7",
+      "grasimi": "33,8",
+      "carbohidrati": "56,3",
+      "calorii": "574",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "bomboane fondante",
+      "proteine": "3,1",
+      "grasimi": "9,1",
+      "carbohidrati": "78,7",
+      "calorii": "420",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "cacao praf",
+      "proteine": "23,4",
+      "grasimi": "20,2",
+      "carbohidrati": "40,2",
+      "calorii": "449",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "caramele cu lapte",
+      "proteine": "-",
+      "grasimi": "-",
+      "carbohidrati": "96",
+      "calorii": "398",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "ciocolata cu lapte",
+      "proteine": "6,9",
+      "grasimi": "29,9",
+      "carbohidrati": "49,8",
+      "calorii": "603",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "ciocolata cu vanilie",
+      "proteine": "5,1",
+      "grasimi": "33,1",
+      "carbohidrati": "58,9",
+      "calorii": "570",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "ciocolata menaj",
+      "proteine": "6,5",
+      "grasimi": "27,5",
+      "carbohidrati": "61,6",
+      "calorii": "536",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "dulceata de nuci verzi",
+      "proteine": "-",
+      "grasimi": "-",
+      "carbohidrati": "76,1",
+      "calorii": "312",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "dulceata de trandafiri",
+      "proteine": "-",
+      "grasimi": "-",
+      "carbohidrati": "80,3",
+      "calorii": "328",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "fructe confiate",
+      "proteine": "0,3",
+      "grasimi": "-",
+      "carbohidrati": "75",
+      "calorii": "309",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "gem de caise",
+      "proteine": "0,65",
+      "grasimi": "-",
+      "carbohidrati": "73",
+      "calorii": "302",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "gem de capsuni",
+      "proteine": "0,34",
+      "grasimi": "-",
+      "carbohidrati": "74",
+      "calorii": "304",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "gem de gutui",
+      "proteine": "0,35",
+      "grasimi": "-",
+      "carbohidrati": "75",
+      "calorii": "308",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "gem de piersici",
+      "proteine": "0,64",
+      "grasimi": "-",
+      "carbohidrati": "74,5",
+      "calorii": "308",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "gem de prune",
+      "proteine": "0,62",
+      "grasimi": "-",
+      "carbohidrati": "72,5",
+      "calorii": "300",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "gem de visine",
+      "proteine": "0,88",
+      "grasimi": "-",
+      "carbohidrati": "69,5",
+      "calorii": "399",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "gem de zmeura",
+      "proteine": "-",
+      "grasimi": "-",
+      "carbohidrati": "74,3",
+      "calorii": "304",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "glucoza",
+      "proteine": "-",
+      "grasimi": "-",
+      "carbohidrati": "77,7",
+      "calorii": "319",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "halva din floarea - soarelui",
+      "proteine": "18,8",
+      "grasimi": "31,5",
+      "carbohidrati": "43",
+      "calorii": "546",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "halva din susan",
+      "proteine": "13,9",
+      "grasimi": "32,9",
+      "carbohidrati": "47,4",
+      "calorii": "554",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "jeleu de afine",
+      "proteine": "0,6",
+      "grasimi": "-",
+      "carbohidrati": "76",
+      "calorii": "314",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "jeleu de mure",
+      "proteine": "0,5",
+      "grasimi": "-",
+      "carbohidrati": "65",
+      "calorii": "269",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "lactoza",
+      "proteine": "0,2",
+      "grasimi": "-",
+      "carbohidrati": "99",
+      "calorii": "407",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "magiun de prune",
+      "proteine": "1,5",
+      "grasimi": "-",
+      "carbohidrati": "55",
+      "calorii": "245",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "marmelada amestec",
+      "proteine": "0,46",
+      "grasimi": "-",
+      "carbohidrati": "72,5",
+      "calorii": "289",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "marmelada extra",
+      "proteine": "0,42",
+      "grasimi": "-",
+      "carbohidrati": "71",
+      "calorii": "292",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "martipan",
+      "proteine": "9,3",
+      "grasimi": "28,5",
+      "carbohidrati": "46,7",
+      "calorii": "495",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "miere de albine",
+      "proteine": "0,4",
+      "grasimi": "-",
+      "carbohidrati": "81,3",
+      "calorii": "335",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "nuga",
+      "proteine": "9",
+      "grasimi": "35",
+      "carbohidrati": "53",
+      "calorii": "575",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "praline",
+      "proteine": "3",
+      "grasimi": "15",
+      "carbohidrati": "73",
+      "calorii": "450",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "sirop de fructe (visine, zmeura)",
+      "proteine": "0,09",
+      "grasimi": "-",
+      "carbohidrati": "70",
+      "calorii": "288",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "zahar",
+      "proteine": "-",
+      "grasimi": "-",
+      "carbohidrati": "99,9",
+      "calorii": "410",
+      "categorie": "produse zaharoase"
+    },
+    {
+      "denumire": "margarina",
+      "proteine": "0,5",
+      "grasimi": "82",
+      "carbohidrati": "-",
+      "calorii": "786",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "seu de bovine si ovine",
+      "proteine": "0,3",
+      "grasimi": "99,4",
+      "carbohidrati": "-",
+      "calorii": "927",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "smantana 20%",
+      "proteine": "3,5",
+      "grasimi": "20",
+      "carbohidrati": "3,1",
+      "calorii": "213",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "smantana 30%",
+      "proteine": "2,5",
+      "grasimi": "30",
+      "carbohidrati": "2,3",
+      "calorii": "299",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "ulei de soia",
+      "proteine": "-",
+      "grasimi": "99,8",
+      "carbohidrati": "-",
+      "calorii": "928",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "unt",
+      "proteine": "8",
+      "grasimi": "80",
+      "carbohidrati": "2,5",
+      "calorii": "806",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "ulei de floarea - soarelui",
+      "proteine": "-",
+      "grasimi": "99,9",
+      "carbohidrati": "-",
+      "calorii": "929",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "untura de gasca",
+      "proteine": "0,5",
+      "grasimi": "99",
+      "carbohidrati": "-",
+      "calorii": "923",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "untura de porc",
+      "proteine": "0,2",
+      "grasimi": "99,6",
+      "carbohidrati": "-",
+      "calorii": "928",
+      "categorie": "grasimi"
+    },
+    {
+      "denumire": "gelatina",
+      "proteine": "85,6",
+      "grasimi": "0,1",
+      "carbohidrati": "0",
+      "calorii": "343",
+      "categorie": "diverse"
+    },
+    {
+      "denumire": "tahini",
+      "proteine": "17,4",
+      "grasimi": "20,02",
+      "carbohidrati": "21,5",
+      "calorii": "592",
+      "categorie": "diverse"
+    },
+    {
+      "denumire": "bere",
+      "proteine": "0,6",
+      "grasimi": "4,4",
+      "carbohidrati": "4",
+      "calorii": "50",
+      "categorie": "bauturi alcoolice"
+    },
+    {
+      "denumire": "rom",
+      "proteine": "0",
+      "grasimi": "43,9",
+      "carbohidrati": "0",
+      "calorii": "312",
+      "categorie": "bauturi alcoolice"
+    },
+    {
+      "denumire": "tuica",
+      "proteine": "-",
+      "grasimi": "40",
+      "carbohidrati": "-",
+      "calorii": "250",
+      "categorie": "bauturi alcoolice"
+    },
+    {
+      "denumire": "vin mediu",
+      "proteine": "-",
+      "grasimi": "7,5",
+      "carbohidrati": "0,1",
+      "calorii": "53",
+      "categorie": "bauturi alcoolice"
+    },
+    {
+      "denumire": "whisky",
+      "proteine": "0",
+      "grasimi": "42,2",
+      "carbohidrati": "0",
+      "calorii": "301",
+      "categorie": "bauturi alcoolice"
+    }
+  ]

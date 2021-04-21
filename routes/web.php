@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group([ 'middleware' => ['guest']], function() {//TOTI (INC GUEST)
     Route::get('/', function () {
-        return view('welcome');
+        return view('welcome.index');
     });
 
     Route::get('/auth/{provider}','Auth\LoginController@redirectToProvider');//pt logare cu Facebook/Google
@@ -53,6 +53,7 @@ Route::get('followship/search','FollowshipController@search')->name('followship.
 Route::get('followship/userAction','FollowshipController@userAction')->name('followship.userAction');//unfollow user
 Route::get('followship/checkNotification','FollowshipController@checkNotification')->name('followship.checkNotification');//send notifications
 Route::get('followship/reloadFollowers','FollowshipController@reloadFollowers')->name('followship.reloadFollowers');//reload followers page
+Route::get('followship/markAsRead','FollowshipController@markAsRead')->name('followship.markAsRead');//mark as read
     //DASHBOARD
 Route::get('dashboard','HomeController@dashboard')->name('home.dashboard');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Reteta;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\Facades\Image;
 
 class ImagesController extends Controller
 {
@@ -36,7 +37,6 @@ class ImagesController extends Controller
         $image=$request->file('select_file');
         $new_name='avatar.'.$image->getClientOriginalExtension();
         $image->move(public_path("uploads/retete/".Auth::id()."/".$request['id']."/"),$new_name);
-        
         $reteta->imagine_principala=$new_name;
         }
     else if($request->tip=='secundar')

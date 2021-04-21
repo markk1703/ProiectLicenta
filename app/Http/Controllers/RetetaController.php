@@ -10,6 +10,7 @@ use App\Models\ValoriNutritionale;
 use App\Models\Ingrediente;
 use OpenFoodFacts;
 use DB;
+use \stdClass;
 
 class RetetaController extends Controller
 {
@@ -27,75 +28,70 @@ class RetetaController extends Controller
         return view('retete.index')->with(compact('retete','user'));
     }
 
-    public function getValoriNutritionale_all($retete)//val nutritionale pt toate ingredientele
-    {$tabValori_all=array();
-        foreach($retete as $reteta){
-            $tabValori=$this->getValoriNutritionale($reteta);
-            array_push($tabValori_all,$tabValori);
-            }
-        return $tabValori_all;
-    }
+    function unaccent($str)//pt ignorare diacritice
+{
+    $pattern = array(
+        'â', 'Â', 'ă', 'Ă', 'î', 'Î', 'ț', 'Ț', 'ș', 'Ș',
+        );
+        $replace = array(
+        'a', 'A', 'a', 'A', 'i', 'I', 't', 'T', 's', 'S',
+        );
+        return str_replace($pattern, $replace, $str);
+}
+    public function getColumns($jsonName)//ia coloanele pt afisat
+    {
+        $path = storage_path() . "/db/$jsonName";
+        $content = file_get_contents($path);
+        $ingrediente=json_decode($content);
+        $tabValori=array();
 
+        $i1=$ingrediente[array_key_first($ingrediente)];
+        $i1=get_object_vars($i1);
+        $coloane=array();
+        foreach($i1 as $key=>$i){
+            array_push($coloane,$key);
+        }
+        return $coloane;
+    }
     public function getValoriNutritionale(Reteta $reteta)//valori nutritionale pentru o reteta
     {
-    $retete=Reteta::select('id','utilizator_id','ingrediente')->orderBy('created_at','desc')->get();
-    $ingrediente=Ingrediente::all();
-    $valoriNutritionale=ValoriNutritionale::orderBy('created_at','desc')->get();
-    
-    $tabValori=array();
-        foreach($ingrediente as $ingredient)
-        {   $valori="";
-            $columns=array('calorii','grasimi','grasimi saturate','glucide','proteine','sare','calciu');
-            $ingr=explode(', ',$reteta->ingrediente);//tablou cu ingrediente
-            foreach($ingr as $i)//parcurgere tablou
-            {
+        $path = storage_path() . "/db/valori_nutritionale.json";
+        $content = file_get_contents($path);
+        $ingrediente=json_decode($content);
+        $tabValori=array();
+        // $columns=array('proteine','grasimi','carbohidrati','calorii');
+        $um=array('grame','gram','gr','g',' ','mg','kg','conserva','conserve','buc','bucati','bucata','capatani','capatana','tija','ml','l','catei','lingura','lingurita');
+        $ingr=explode(", ",$reteta->ingrediente);//tablou cu ingrediente
+        foreach($ingr as $i)//parcurgere toate ingredientele
+        {   
+            $myIngredient=new stdClass();//obiect pt ingredient
+
+            foreach($ingrediente as $ingredient)//parcurgere tablou
+            {   
                 $pieces=explode(' ',$i);//tablou cu cuvintele unui ingredient
-                $last_word = array_pop($pieces);//ultimul cuvant din ingredient
-                if($ingredient->denumire==$last_word)
-                foreach($valoriNutritionale as $valNutr)
-                {
-                    if($valNutr->ingredient_id==$ingredient->id)
-                    {$valori=$valori.$ingredient->denumire.', ';
-                    {foreach ($columns as $col)
-                    $valori=$valori.$valNutr->$col.' '.$col.', ';
-                    }
-                    array_push($tabValori,$valori);
-                    $valori=null;
-                    }
+                $pieces=$this->unaccent($pieces);
+                $result = array_intersect($um, $pieces);//gaseste daca exista cuvantul pt u.m.
+                $denumireCompleta=implode(" ",$pieces);//denumire inclusiv gramaj
+                $denumireCompleta=$this->unaccent($denumireCompleta);
+                
+                if(isset($result[array_key_first($result)])){
+                    $result=$result[array_key_first($result)];
+                if (($pos = strpos($denumireCompleta, $result)) !== FALSE) { 
+                    $denumire = explode(' ',$denumireCompleta);
+                    $foundIndex = array_search($result,$denumire);
+                    if($foundIndex!==FALSE)
+                    $denumire = array_slice($denumire, $foundIndex + 1);
+                    $denumire=implode(" ",$denumire);
                 }
+                if(str_contains(strtolower($denumire),$this->unaccent($ingredient->denumire))!== FALSE||str_starts_with($this->unaccent($ingredient->denumire),strtolower($denumire))!== FALSE)
+                {
+                    $myIngredient=$ingredient;
+                    array_push($tabValori,$myIngredient);
+                }
+                    } 
             }
         }
     return $tabValori;
-    }
-    public function getTotalValoriNutritionale($tabValori)
-    {$valori=array();
-    $rez=array();
-        foreach($tabValori as $val)
-        {
-        $strings=null;
-            $pieces = explode(',', $val);
-            foreach($pieces as $key=>$piece)
-            {
-                $arr = explode(' ',trim($piece));
-                if(count($arr)>1)
-                    for($i=3;$i<count($arr);$i++)//array de dim 2 (valoare + string)
-                    $arr[1]=$arr[1].' '.$arr[$i];
-                if(count($arr)>1){
-                    if ( ! isset($valori[$key])) {
-                        $valori[$key] = 0;
-                     }
-                    $valori[$key]=$valori[$key]+$arr[0];
-                    $strings[$key]=$arr[1].' '.$arr[2];
-                }
-            }
-        }
-        foreach($valori as $key=>$val)
-        {if ( ! isset($rez[$key])) {
-            $rez[$key] = "";
-         }
-         $rez[$key]=$valori[$key].' '.$strings[$key];
-        }
-        return $rez;
     }
 
     /**
@@ -153,16 +149,19 @@ class RetetaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {$reteta=Reteta::findOrFail($id);
+    public function show($id){
+    
+    $reteta=Reteta::findOrFail($id);
     $user=User::findOrFail($reteta->utilizator_id);
     $imaginiString=$reteta->imagini;
     $imagini=explode(", ",$imaginiString);
     $tabValori=$this->getValoriNutritionale($reteta);
+    $coloane=$this->getColumns('valori_nutritionale.json');
     // $totalValori=$this->getTotalValoriNutritionale($tabValori); !!!! DE REVAZUT
     // $totalValori=implode(', ',$totalValori);
+    
     $totalValori=null;
-        return view('retete.show',compact('reteta','imagini','tabValori','totalValori','user'));
+        return view('retete.show',compact('reteta','imagini','tabValori','user','coloane'));
     }
 
     /**
@@ -215,14 +214,20 @@ class RetetaController extends Controller
 
     public function discover()
     {   
+        if(!Auth::user()){
         $retete = DB::table('retete')
-            ->join('followships', 'retete.utilizator_id', '=', 'followships.user2_id')
-            ->join('users', 'users.id', '=', 'retete.utilizator_id')
-            ->where('retete.utilizator_id','!=',Auth::id())
-            ->select('users.*', 'retete.*')
-            ->inRandomOrder()
-            ->paginate(5);
-        
+            ->inRandomOrder()->get();
+        }
+        else{
+            $retete = DB::table('retete')
+            ->where('utilizator_id','!=', Auth::id())
+           
+            // ->join('followships', 'retete.utilizator_id', '=', 'followships.user2_id')
+            // ->join('users', 'users.id', '=', 'retete.utilizator_id')
+            // ->select('users.*', 'retete.*','followships.*')
+            // ->inRandomOrder()
+            ->get();
+        }
         return view('retete.discover')->with(compact('retete'));
     }
 

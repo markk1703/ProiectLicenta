@@ -21,18 +21,21 @@
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Șterge</button>
                                 </form>
-                            
-                                @elseif(isFollowing($reteta->utilizator_id)=='following')
+
+                                @elseif(Auth::user())
+                                @if(isFollowing($reteta->utilizator_id)=='following')
                                 <button type="button" class="btn btn-outline-secondary">Îl urmărești</button>
                                 @elseif(isFollowing($reteta->utilizator_id)=='follower')
                                 <button type="button" class="btn btn-info">Te urmărește</button>
                                 @else
                                 <button type="button" class="btn btn-primary"> Încă nu îl urmărești</button>
                                 @endif
+                                @endif
                                 <hr>
                             </div>
-                            <div class='row'>Adăugată de: 
-                                <a href="{{route('retete.index',['utilizator_id'=>$user->id])}}"> {{$user->username}}</a>
+                            <div class='row'>Adăugată de:
+                                <a href="{{route('retete.index',['utilizator_id'=>$user->id])}}">
+                                    {{$user->username}}</a>
                             </div>
 
                             <div class="row"> {{$reteta->created_at}}</div>
@@ -84,16 +87,30 @@
                         </div>
                     </div>
                     <hr>
+                    @if(count($tabValori)>0)
                     <div class="row">
                         <div class="col-md-10">
-                            <h5>Valori nutritionale (100 g produs):</h5>
-                            @foreach ($tabValori as $val)
-                            <div>{{$val}}</div>
-                            @endforeach
+                            <table class='table table-striped table-bordered'>
+                                <thead>
+                                    <th colspan="6" class=". text-center">Valori nutriționale / ingredient (100 g/ml)</th>
+                                </thead>
+                                <thead>
+                                    @foreach($coloane as $col)
+                                    <th scope='col'>{{$col}}</th>
+                                    @endforeach
+                                </thead>
+                                @foreach($tabValori as $val)
+                                <tr>
+                                    @foreach($val as $item)
+                                    <td>{{$item}}</td>
+                                    @endforeach
+                                </tr>
+                                @endforeach
+                            </table>
                             <hr>
-                            <div>TOTAL: {{$totalValori}}</div>
                         </div>
                     </div>
+                    @endif
                     <div class="row">
                         <div class="col-md-6">
                         </div>

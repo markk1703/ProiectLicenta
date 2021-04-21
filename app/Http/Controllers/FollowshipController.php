@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Followship;
-use App\Models\Notification;
 use App\Models\User;
+use App\Notifications\NewFollower;
 use DB;
 
 class FollowshipController extends Controller
@@ -22,13 +22,8 @@ class FollowshipController extends Controller
         ->where('followships.user1_id',Auth::id())
             ->get();
         // $people=User::where('id','!=',Auth::id())->get();
-        $notifications=Notification::where('user_id',Auth::id())->get();
-        return view('followship.index')->with(compact('followings','followers','notifications'));
-    }
-
-    public function checkNotification(){
-        $notifications=Notification::where('user_id',Auth::id())->get();
-        return response()->json(['data'=>$notifications->count()]);
+   
+        return view('followship.index')->with(compact('followings','followers'));
     }
 
     public function userAction(Request $request)
@@ -71,11 +66,7 @@ class FollowshipController extends Controller
             if(Followship::where('user1_id',Auth::id())->where('user2_id',$request->user_id)->exists())
             return response()->json(['data'=>'Sorry, unable to perform action'],422);
             else{
-            $notify=Notification::create([
-                'user_id'=>$request->user_id,
-                'titlu'=>'Ai un nou urmaritor',
-                'denumire'=>'Ai un nou urmaritor'
-            ]);
+            User::find($request->user_id)->notify(new NewFollower(User::findOrFail(Auth::id())));
 
             Followship::create([
                 'user1_id'=>Auth::id(),
@@ -110,5 +101,14 @@ class FollowshipController extends Controller
         $term=$request->term;
         $data=DB::table('users')->where('id','!=',Auth::id())->where('username','LIKE','%'.$term.'%')->get();
         return response()->view('followship.partials.people-search',compact('data','term'));
+    }
+
+    public function markAsRead()
+    {
+        foreach(Auth::user()->unreadNotifications as $notification)
+        {
+            $notification->markAsRead();
+        }
+        return back();
     }
 }

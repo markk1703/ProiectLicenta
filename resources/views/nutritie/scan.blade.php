@@ -1,6 +1,11 @@
 @extends('layouts.app')
 @section('hd')
 <title>Calculează valorile nutriționale</title>
+<style>
+	#interactive.viewport {position: relative; width: 100%; height: auto; overflow: hidden; text-align: center;}
+	#interactive.viewport > canvas, #interactive.viewport > video {max-width: 100%;width: 100%;}
+	canvas.drawing, canvas.drawingBuffer {position: absolute; left: 0; top: 0;}
+</style>
 @endsection
 @section('content')
 <div class="container">
@@ -106,14 +111,9 @@
             </div>
         </div>
     </div>
-   
-<style>
-	#interactive.viewport {position: relative; width: 100%; height: auto; overflow: hidden; text-align: center;}
-	#interactive.viewport > canvas, #interactive.viewport > video {max-width: 100%;width: 100%;}
-	canvas.drawing, canvas.drawingBuffer {position: absolute; left: 0; top: 0;}
-</style>
+{{-- Barcode scanner --}}
+<script src="https://cdn.rawgit.com/serratus/quaggaJS/0420d5e0/dist/quagga.min.js"></script>
 <script>
-    
         $(function() {
 	// Create the QuaggaJS config object for the live stream
 	var liveStreamConfig = {

@@ -54,8 +54,8 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Autentificare') }}
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt mr-3"></i>
+                                    {{ __('Conectare') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
@@ -69,10 +69,10 @@
                             sau
                         </div>
                         <div class="col-m-2">
-                            <a href="/auth/facebook" class="btn btn-secondary">Autentificare folosind Facebook</a>
+                            <a href="/auth/facebook" class="btn btn-secondary"><i class="fab fa-facebook-f mr-3"></i>Conectare cu Facebook</a>
                         </div>
                         <div class="col-m-2 pt-2">
-                            <a href="/auth/google" class="btn btn-secondary">Autentificare folosind Google</a>
+                            <a href="/auth/google" class="btn btn-secondary"><i class="fab fa-google mr-3"></i>Conectare cu Google</a>
                         </div>
                 
                     </div>

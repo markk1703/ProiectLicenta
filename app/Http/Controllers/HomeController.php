@@ -31,12 +31,12 @@ class HomeController extends Controller
             ->where('followships.user1_id',Auth::id())
             ->select('users.*', 'retete.*')
             ->get();
-            
-        return view('home',compact('retete'));
+
+        return view('home.index',compact('retete'));
     }
 
     public function dashboard(Request $request)
     {
-        return view('dashboard');
+        return view('dashboard.index');
     }
 }

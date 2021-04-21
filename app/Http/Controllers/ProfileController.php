@@ -27,7 +27,7 @@ class ProfileController extends Controller
        
         if(Auth::user()->idRol==1)
         return view('admin.profile');
-    else return view('profile',compact('judete','localitati','adrese'));
+    else return view('profile.index',compact('judete','localitati','adrese'));
     }
 
     public function updateAvatar(Request $request)
