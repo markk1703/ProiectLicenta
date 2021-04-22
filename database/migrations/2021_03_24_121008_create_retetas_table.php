@@ -23,6 +23,7 @@ class CreateRetetasTable extends Migration
             $table->string('tags')->nullable(true);
             $table->string('imagine_principala')->nullable(true);
             $table->text('imagini')->nullable(true);
+            $table->double('rating_avg')->nullable(true);
             $table->string('URL_video')->nullable(true);
             $table->timestamps();
         });

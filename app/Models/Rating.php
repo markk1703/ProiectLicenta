@@ -8,29 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Rating extends Model
 {
     use HasFactory;
-    protected $table='ratings';
-    protected $fillable=[
-        'reteta_id',
-        'user_id',
-        'rating'
-    ];
+    protected $table = 'ratings';
+
+    public $fillable = ['rating', 'rateable_id', 'user_id'];
 
     /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
+     * @return mixed
      */
-    protected $casts = [
-        'created_at'=>'datetime',
-        'updated_at'=>'datetime'
-    ];
+    public function rateable()
+    {
+        return $this->morphTo();
+    }
 
-    function user()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
-    function reteta()
+
+    public function post()
     {
-        return $this->belongsTo(Reteta::class);
+        return $this->belongsTo(Post::class);
     }
+
 }

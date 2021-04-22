@@ -25,7 +25,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'imagine',
         'rol_id',
         'isActiv',
-        'stamp'
     ];
 
     /**
@@ -46,7 +45,6 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'created_at'=>'datetime',
         'updated_at'=>'datetime',
-        'stamp' => 'datetime'
     ];
 
     function socialProviders(){
@@ -63,5 +61,9 @@ class User extends Authenticatable implements MustVerifyEmail
     function followships()
     {
         return $this->hasMany(Followship::class);
+    }
+    function rating()
+    {
+        return $this->hasMany(Rating::class);
     }
 }

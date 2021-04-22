@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
          $this->call(FollowshipsSeeder::class);//Followers
          $this->call(RetetaSeeder::class);//Retete
          $this->call(CategoriiSeeder::class);//Categorii
+         $this->call(RatingSeeder::class);//Rating
     }
 }

@@ -18,8 +18,10 @@
         "laravel/socialite": "^5.2",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.2",
+        "nesbot/carbon": "^2.46",
         "openfoodfacts/openfoodfacts-laravel": "^0.2.1",
-        "overtrue/laravel-follow": "^2.3"
+        "overtrue/laravel-follow": "^2.3",
+        "willvincent/laravel-rateable": "^2.3"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

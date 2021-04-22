@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use willvincent\Rateable\Rateable;
 
 class Reteta extends Model
 {
     use HasFactory;
+    use Rateable;
     protected $table='retete';
     public $timestamps = true;
     protected $fillable = [
@@ -19,11 +21,8 @@ class Reteta extends Model
         'tags',
         'imagine_principala',
         'imagini',
+        'rating_avg',
         'URL_video'
-    ];
-    protected $casts = [
-        'created_at'=>'datetime',
-        'updated_at' => 'datetime'
     ];
 
     function ingrediente()
@@ -33,5 +32,9 @@ class Reteta extends Model
     function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function rating()
+    {
+    return $this->hasMany(Rating::class);
     }
 }

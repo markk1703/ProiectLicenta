@@ -1,0 +1,114 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use App\Models\Rating;
+
+class RatingSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        Rating::create([
+            'rating'=>'5',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'1'
+        ]);
+        Rating::create([
+            'rating'=>'3',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'4'
+        ]);
+        Rating::create([
+            'rating'=>'1',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'5'
+        ]);
+        Rating::create([
+            'rating'=>'3',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'2'
+        ]);
+        Rating::create([
+            'rating'=>'4',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'6'
+        ]);
+        Rating::create([
+            'rating'=>'4',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'7'
+        ]);
+        Rating::create([
+            'rating'=>'3',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'8'
+        ]);
+        Rating::create([
+            'rating'=>'3',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'9'
+        ]);
+        Rating::create([
+            'rating'=>'2',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'10'
+        ]);
+        Rating::create([
+            'rating'=>'5',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'15',
+            'user_id'=>'11'
+        ]);
+        Rating::create([
+            'rating'=>'5',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'14',
+            'user_id'=>'11'
+        ]);
+        Rating::create([
+            'rating'=>'3',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'14',
+            'user_id'=>'12'
+        ]);
+        Rating::create([
+            'rating'=>'1',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'14',
+            'user_id'=>'10'
+        ]);
+        Rating::create([
+            'rating'=>'5',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'14',
+            'user_id'=>'8'
+        ]);
+        Rating::create([
+            'rating'=>'3',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'14',
+            'user_id'=>'7'
+        ]);
+        Rating::create([
+            'rating'=>'2',
+            'rateable_type'=>'App\Models\Reteta',
+            'rateable_id'=>'14',
+            'user_id'=>'6'
+        ]);
+    }
+}

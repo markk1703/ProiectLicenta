@@ -111,4 +111,11 @@ class FollowshipController extends Controller
         }
         return back();
     }
+    public function checkNotification(Request $request)
+    {$count=count(Auth::user()->unreadNotifications);
+        return response()->json(['count'=>$count]);
+    }
+    public function reloadNotifications(){
+        return response()->view('inc.notifications-action');
+    }
 }

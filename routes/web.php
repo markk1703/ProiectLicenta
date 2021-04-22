@@ -53,7 +53,10 @@ Route::get('followship/search','FollowshipController@search')->name('followship.
 Route::get('followship/userAction','FollowshipController@userAction')->name('followship.userAction');//unfollow user
 Route::get('followship/checkNotification','FollowshipController@checkNotification')->name('followship.checkNotification');//send notifications
 Route::get('followship/reloadFollowers','FollowshipController@reloadFollowers')->name('followship.reloadFollowers');//reload followers page
+Route::get('followship/reloadNotifications','FollowshipController@reloadNotifications')->name('followship.reloadNotifications');//reload notifications
 Route::get('followship/markAsRead','FollowshipController@markAsRead')->name('followship.markAsRead');//mark as read
+    //RATING
+Route::post('/rating/{post}', 'RatingController@postStar')->name('postStar');
     //DASHBOARD
 Route::get('dashboard','HomeController@dashboard')->name('home.dashboard');
 
@@ -68,7 +71,9 @@ Route::get('retete/{id}','RetetaController@show')->name('retete.show');//show re
 Route::get('discover','RetetaController@discover')->name('retete.discover');//descopera retete
     //SEARCH
 Route::get('search','SearchController@index')->name('search.index');//sectiune cautare
+Route::get('search/result','SearchController@search')->name('search.search');//cautare
     //NUTRITIE
-Route::match(array('get','post'),'nutritie/scan','NutritieController@scan')->name('nutritie.scan');//scanare cod de bare
+Route::get('nutritie/calculator','NutritieController@index')->name('nutritie.calculator');//pagina scanare
+Route::post('nutritie/calculator','NutritieController@scan')->name('nutritie.calculator');//scanare cod de bare
 
 Auth::routes(['verify'=>true]);

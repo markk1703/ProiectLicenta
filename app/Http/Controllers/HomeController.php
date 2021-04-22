@@ -29,8 +29,7 @@ class HomeController extends Controller
             ->join('followships', 'retete.utilizator_id', '=', 'followships.user2_id')
             ->join('users', 'users.id', '=', 'retete.utilizator_id')
             ->where('followships.user1_id',Auth::id())
-            ->select('users.*', 'retete.*')
-            ->get();
+            ->select('users.*', 'retete.*')->get();
 
         return view('home.index',compact('retete'));
     }

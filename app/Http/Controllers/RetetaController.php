@@ -58,15 +58,14 @@ class RetetaController extends Controller
         $path = storage_path() . "/db/valori_nutritionale.json";
         $content = file_get_contents($path);
         $ingrediente=json_decode($content);
-        $tabValori=array();
         // $columns=array('proteine','grasimi','carbohidrati','calorii');
         $um=array('grame','gram','gr','g',' ','mg','kg','conserva','conserve','buc','bucati','bucata','capatani','capatana','tija','ml','l','catei','lingura','lingurita');
-        $ingr=explode(", ",$reteta->ingrediente);//tablou cu ingrediente
-        foreach($ingr as $i)//parcurgere toate ingredientele
+        $ingr=$reteta->ingrediente;//tablou cu ingrediente
+        $myIngredient=new stdClass();//obiect cu val unui ingredient
+        $tabValori=array();//array cu obiectele adaugate
+        foreach($ingr as $i)//parcurgere toate ingredientele din reteta
         {   
-            $myIngredient=new stdClass();//obiect pt ingredient
-
-            foreach($ingrediente as $ingredient)//parcurgere tablou
+            foreach($ingrediente as $ingredient)//parcurgere toate ingredientele din json
             {   
                 $pieces=explode(' ',$i);//tablou cu cuvintele unui ingredient
                 $pieces=$this->unaccent($pieces);
@@ -150,18 +149,25 @@ class RetetaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id){
-    
     $reteta=Reteta::findOrFail($id);
+    $ingrediente=$reteta->ingrediente;
+    $ingrediente=explode(", ",$ingrediente);
+    $reteta->ingrediente=$ingrediente;//adauga array cu ingrediente
+    $mod_de_preparare=$reteta->mod_de_preparare;
+    $mod_de_preparare=explode(". ",$mod_de_preparare);
+    $reteta->mod_de_preparare=$mod_de_preparare;//adauga array cu modul de preparare
     $user=User::findOrFail($reteta->utilizator_id);
+    $reteta->user=$user;//adauga array cu utilizatorul
     $imaginiString=$reteta->imagini;
     $imagini=explode(", ",$imaginiString);
+    $reteta->imagini=$imagini;//adauga array cu imagini
     $tabValori=$this->getValoriNutritionale($reteta);
+    $reteta->tabValori=$tabValori;//adauga tabValori in reteta
     $coloane=$this->getColumns('valori_nutritionale.json');
-    // $totalValori=$this->getTotalValoriNutritionale($tabValori); !!!! DE REVAZUT
-    // $totalValori=implode(', ',$totalValori);
-    
-    $totalValori=null;
-        return view('retete.show',compact('reteta','imagini','tabValori','user','coloane'));
+    $reteta->coloane=$coloane;//adauga coloane in reteta
+    $reteta->rating=null;
+    $reteta->avg_rating=null;
+        return view('retete.show',compact('reteta'));
     }
 
     /**

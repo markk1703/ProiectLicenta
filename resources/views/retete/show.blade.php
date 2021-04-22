@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('hd')
+<link href="{{ asset('css/stars.css') }}" rel="stylesheet">
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -34,17 +37,46 @@
                                 <hr>
                             </div>
                             <div class='row'>Adăugată de:
-                                <a href="{{route('retete.index',['utilizator_id'=>$user->id])}}">
-                                    {{$user->username}}</a>
+                                <a href="{{route('retete.index',['utilizator_id'=>$reteta->user->id])}}">{{$reteta->user->username}}</a>
                             </div>
-
-                            <div class="row"> {{$reteta->created_at}}</div>
-
+                            <div class="row"> {{$reteta->created_at->diffForHumans()}}</div>
+                            <form class="row form-horizontal poststars" action="{{route('postStar', $reteta->id)}}" id="addStar" method="POST">
+                                {{ csrf_field() }}
+                                      <div class="form-group required">
+                                        <div class="col-sm-12">
+                                          <input class="star star-5" value="5" id="star-5" type="radio" name="star"/>
+                                          <label class="star star-5" for="star-5"></label>
+                                          <input class="star star-4" value="4" id="star-4" type="radio" name="star"/>
+                                          <label class="star star-4" for="star-4"></label>
+                                          <input class="star star-3" value="3" id="star-3" type="radio" name="star"/>
+                                          <label class="star star-3" for="star-3"></label>
+                                          <input class="star star-2" value="2" id="star-2" type="radio" name="star"/>
+                                          <label class="star star-2" for="star-2"></label>
+                                          <input class="star star-1" value="1" id="star-1" type="radio" name="star"/>
+                                          <label class="star star-1" for="star-1"></label>
+                                         </div>
+                                      </div>
+                              </form>
+                              
+                              <div class="row">
+                              @if(hasRated(Auth::id(),$reteta->id)!=='not_rated')
+                              <h5>Ai acordat: {{hasRated(Auth::id(),$reteta->id)->rating}} stele.</h5>
+                              @else
+                              <h5>Încă nu ai adăugat o recenzie.</h5>
+                              @endif
+                              </div>
+                            <div class="row">
+                                @if(count($reteta->ratings()->get())>0)
+                                <h5>Rating: {{number_format($reteta->averageRating(),2)}} din {{$reteta->usersRated()}} recenzii adăugate.</h5>
+                                @else
+                                <h5>Încă nu există recenzii.</h5>
+                                @endif
+                            </div>
                         </div>
                         <div class="col">
                             <h5>Imagini:</h5>
                             <div class="row">
-                                @foreach($imagini as $imagine)
+                                @foreach($reteta->imagini as $imagine)
                                 <div class="col">
                                     <img src="/uploads/retete/{{$reteta->utilizator_id}}/{{$reteta->id}}/{{$imagine}}"
                                         style="max-width:100%;max-height:100%;left:10px;margin-top:0px;">
@@ -75,19 +107,27 @@
                     <hr>
                     <div class="row">
                         <div class="col-md-10">
-                            <h5>Ingrediente:</h5>
-                            <div>{{$reteta->ingrediente}}</div>
+                            <h5>Ingrediente: ({{count($reteta->ingrediente)}} ingrediente necesare)</h5>
+                            <ul>
+                            @foreach($reteta->ingrediente as $ingredient)
+                            <li>{{$ingredient}}</li>
+                            @endforeach
+                            <ul>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
                         <div class="col-md-10">
-                            <h5>Mod de preparare:</h5>
-                            <div>{{$reteta->mod_de_preparare}}</div>
+                            <h5>Mod de preparare: ({{count($reteta->mod_de_preparare)}} pași de urmat)</h5>
+                            <ol>
+                            @foreach($reteta->mod_de_preparare as $mod_de_preparare)
+                            <li>{{$mod_de_preparare}}</li>
+                            @endforeach
+                            <ol>
                         </div>
                     </div>
                     <hr>
-                    @if(count($tabValori)>0)
+                    @if(count($reteta->tabValori)>0)
                     <div class="row">
                         <div class="col-md-10">
                             <table class='table table-striped table-bordered'>
@@ -95,11 +135,11 @@
                                     <th colspan="6" class=". text-center">Valori nutriționale / ingredient (100 g/ml)</th>
                                 </thead>
                                 <thead>
-                                    @foreach($coloane as $col)
+                                    @foreach($reteta->coloane as $col)
                                     <th scope='col'>{{$col}}</th>
                                     @endforeach
                                 </thead>
-                                @foreach($tabValori as $val)
+                                @foreach($reteta->tabValori as $val)
                                 <tr>
                                     @foreach($val as $item)
                                     <td>{{$item}}</td>
@@ -121,29 +161,9 @@
     </div>
 </div>
 </div>
-
-<script>
-    var slideIndex = 1;
-    showDivs(slideIndex);
-
-    function plusDivs(n) {
-        showDivs(slideIndex += n);
-    }
-
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("mySlides");
-        if (n > x.length) {
-            slideIndex = 1
-        }
-        if (n < 1) {
-            slideIndex = x.length
-        }
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        x[slideIndex - 1].style.display = "block";
-    }
-
+  <script>
+    $('#addStar').change('.star', function(e) {
+    $(this).submit();
+    });
 </script>
 @endsection

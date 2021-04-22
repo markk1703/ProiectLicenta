@@ -18,12 +18,12 @@
                    <div class='row'>
                        <div class='col'>
                        <div class='input-group'>
-                            <form action="{{ route('nutritie.scan') }}" method="POST">
+                            <form action="{{ route('nutritie.calculator') }}" method="POST">
                             @csrf
                            <input id='cantitate' name='cantitate' placeholder="Cantitate" type='number' min=0 required>
                            <label>g(sau ml)</label>
                            <input id='barcode' name='barcode' placeholder="Cod de bare" required>
-                           <button class='btn btn-success' type='submit'>Caută</button>
+                           <button class='btn btn-primary' type='submit'><i class="fa fa-search" aria-hidden="true"></i></button>
                            </form>
                        </div>
                        </div>
@@ -33,7 +33,7 @@
                     <hr>
                         <div class="row">
                             <div class="col-lg-6">
-                                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#livestream_scanner">
+                                        <button class="btn btn-outline-primary btn-sm" type="button" data-toggle="modal" data-target="#livestream_scanner">
                                             <div>Scanați codul de bare</div>
                                             <i class="fa fa-barcode"></i>
                                         </button>

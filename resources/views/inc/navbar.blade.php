@@ -45,8 +45,7 @@
                         Nutriție
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{route('nutritie.scan')}}">Calculator valori nutriționale</a>
-                        <a class="dropdown-item" href="#">Caută produs</a>
+                        <a class="dropdown-item" href="{{route('nutritie.calculator')}}">Calculator valori nutriționale</a>
                     </div>
                 </li>
                 @auth

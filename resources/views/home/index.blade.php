@@ -1,45 +1,47 @@
 @extends('layouts.app')
+@section('hd')
+<link href="{{ asset('css/home-index.css') }}" rel="stylesheet">
+<title>Noutăți</title>
+@endsection
 @section('content')
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h1>Home (retete de la pers urmarite)</h1>
+                    <h1>Noutăți (retete de la pers urmarite)</h1>
                 </div>
                 <div class="card-body">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col">
-                                <div class="container">
-                                    @foreach ($retete as $reteta)
-                                    <div class="row my-2 border">
-                                        @if($reteta->imagine_principala)
-                                        <div class="col-md-2"><img src="/uploads/retete/{{$reteta->utilizator_id}}/{{$reteta->id}}/{{$reteta->imagine_principala}}"
-                                            style="max-width:100%;max-height:100%;left:10px;margin-top:0px;"></div>
-                                        @else
-                                        <div class="col-md-2"><img src="http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png"
-                                            style="max-width:100%;max-height:100%;left:10px;margin-top:0px;"></div>
-                                        @endif
-                                        <h4><a href="{{route('retete.show',$reteta->id)}}" class="col">{{$reteta->denumire}}</a></h4>
-                                        <div class="col">{{$reteta->categorii}}</div>
-                                        <div class="col">
-                                            @if($reteta->utilizator_id==Auth::id())
-                                            <form action="{{route('retete.destroy',$reteta->id)}}" method="POST">
-                                                <a class="btn btn-primary"
-                                                    href="{{route('retete.edit',$reteta->id)}}">Editeaza</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Șterge</button>
-                                            </form>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    @endforeach
+                    <div class="col-md-7">
+                        @foreach($retete as $reteta)
+                        <div class="social-feed-box">
+                            <div class="social-avatar">
+                                <a href="{{route('retete.index',['utilizator_id'=>$reteta->utilizator_id])}}" class="pull-left">
+                                    <img alt="image" src="/uploads/avatars/{{$reteta->imagine}}">
+                                </a>
+                                <div class="media-body">
+                                    <a href="{{route('retete.index',['utilizator_id'=>$reteta->utilizator_id])}}">
+                                        {{$reteta->prenume}} {{$reteta->nume}}
+                                    </a>
+                                    <small class="text-muted">{{$reteta->created_at}}</small>
                                 </div>
                             </div>
+                            <div class="social-body">
+                                <h4><a href="{{route('retete.show',$reteta->id)}}" class="col">{{$reteta->denumire}}</a>
+                                </h4>
+                                <p>
+                                    {{$reteta->ingrediente}}
+                                </p>
+                                @if($reteta->imagine_principala)
+                                <img src="/uploads/retete/{{$reteta->utilizator_id}}/{{$reteta->id}}/{{$reteta->imagine_principala}}"
+                                    class="img-responsive">
+                                @else
+                                <img src="http://www.coraf.org/wp-content/themes/consultix/images/no-image-found-360x250.png"
+                                    class="img-responsive">
+                                @endif
+                            </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
