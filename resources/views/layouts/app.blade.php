@@ -38,7 +38,7 @@ function checkNotification(){
         }).catch(error=>{
             console.log(error);
         })
-    },4000);
+    },8000);
 }
 function reloadNotifications(selector){
     setInterval(function(){
@@ -50,7 +50,7 @@ function reloadNotifications(selector){
         }).catch(error=>{
             console.log(error);
         })
-    },4000);
+    },8000);
 }
 checkNotification();
 </script>

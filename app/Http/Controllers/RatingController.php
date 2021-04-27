@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Reteta;
 use App\Models\Rating;
+use App\Notifications\NewRating;
+use App\Models\User;
 use AppRating;
 
 class RatingController extends Controller
@@ -15,6 +17,7 @@ class RatingController extends Controller
         $reteta->rateOnce($request->input('star'));
         $reteta->rating_avg=$reteta->averageRating();
         $reteta->save();
+        User::find($reteta->utilizator_id)->notify(new NewRating(User::findOrFail(Auth::id()),$reteta,$request->star));
         return redirect()->back();
   }
 }

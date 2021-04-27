@@ -1,6 +1,8 @@
 <?php
 use App\Models\Followship;
 use App\Models\Rating;
+use App\Models\Reteta;
+use Carbon\Carbon;
 function isFollowing($id)
 {
     if(Followship::where('user2_id',$id)->where('user1_id',Auth::user()->id)->exists())
@@ -22,4 +24,14 @@ function hasRated($user_id,$rateable_id)
     else{
         return 'not_rated';
     }
+}
+
+function findReteta($id)
+{$reteta=Reteta::find($id);
+   return $reteta;
+}
+
+function toDate($date){
+    $date=Carbon::parse($date);
+    return $date;
 }

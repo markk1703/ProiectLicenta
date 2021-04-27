@@ -7,20 +7,23 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
 
-class NewFollower extends Notification
+class NewRating extends Notification
 {
     use Queueable;
     public $user;
-    
+    public $reteta;
+    public $stars;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct($user,$reteta,$stars)
     {
         $this->user=$user;
+        $this->reteta=$reteta;
+        $this->stars=$stars;
     }
 
     /**
@@ -33,7 +36,6 @@ class NewFollower extends Notification
     {
         return ['database'];
     }
-
 
     // /**
     //  * Get the mail representation of the notification.
@@ -55,11 +57,13 @@ class NewFollower extends Notification
      * @param  mixed  $notifiable
      * @return array
      */
-    public function toDatabase($notifiable)
+    public function toArray($notifiable)
     {
         return [
             'user_id'=>$this->user->id,
-            'user_name'=>$this->user->username
+            'user_name'=>$this->user->username,
+            'reteta_id'=>$this->reteta->id,
+            'stars'=>$this->stars
         ];
     }
 }

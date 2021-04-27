@@ -23,7 +23,7 @@
                                     <a href="{{route('retete.index',['utilizator_id'=>$reteta->utilizator_id])}}">
                                         {{$reteta->prenume}} {{$reteta->nume}}
                                     </a>
-                                    <small class="text-muted">{{$reteta->created_at}}</small>
+                                    <small class="text-muted">a adăugat o postare: {{toDate($reteta->created_at)->diffForHumans()}}</small>
                                 </div>
                             </div>
                             <div class="social-body">

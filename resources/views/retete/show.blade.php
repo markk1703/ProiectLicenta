@@ -40,6 +40,7 @@
                                 <a href="{{route('retete.index',['utilizator_id'=>$reteta->user->id])}}">{{$reteta->user->username}}</a>
                             </div>
                             <div class="row"> {{$reteta->created_at->diffForHumans()}}</div>
+                            @if($reteta->utilizator_id!=Auth::id())
                             <form class="row form-horizontal poststars" action="{{route('postStar', $reteta->id)}}" id="addStar" method="POST">
                                 {{ csrf_field() }}
                                       <div class="form-group required">
@@ -63,6 +64,7 @@
                               <h5>Ai acordat: {{hasRated(Auth::id(),$reteta->id)->rating}} stele.</h5>
                               @else
                               <h5>Încă nu ai adăugat o recenzie.</h5>
+                              @endif
                               @endif
                               </div>
                             <div class="row">
