@@ -1,5 +1,11 @@
 @extends('layouts.app')
 @section('content')
+<div class="jumbotron jumbotron-fluid">
+    <div class="bg"></div>
+    <div class="container-fluid text-center">
+        <h1 class="display-4">Alege imaginile</h1>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -7,7 +13,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                            <h1>Alege imaginile</h1>
+                            <h4>Imagine principală</h4>
                         </div>
                         <div class="col">
                             <img src="/uploads/retete/{{$reteta->utilizator_id}}/{{$reteta->id}}/{{$reteta->imagine_principala}}"

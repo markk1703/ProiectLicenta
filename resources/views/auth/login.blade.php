@@ -3,11 +3,16 @@
 <title>Login</title>
 @endsection
 @section('content')
+<div class="jumbotron jumbotron-fluid">
+    <div class="bg"></div>
+    <div class="container-fluid text-center">
+        <h1 class="display-4">Conectează-te</h1>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Autentificare') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

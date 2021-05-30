@@ -4,12 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Followship;
 use willvincent\Rateable\Rateable;
+use Spatie\Searchable\Searchable;
+use Spatie\Searchable\SearchResult;
+use Spatie\Tags\HasTags;
+use SortAndFilter;
 
-class Reteta extends Model
+
+class Reteta extends Model implements Searchable
 {
     use HasFactory;
     use Rateable;
+    use HasTags;
+    
     protected $table='retete';
     public $timestamps = true;
     protected $fillable = [
@@ -18,23 +26,24 @@ class Reteta extends Model
         'ingrediente',
         'mod_de_preparare',
         'categorii',
-        'tags',
         'imagine_principala',
         'imagini',
         'rating_avg',
         'URL_video'
     ];
 
-    function ingrediente()
-    {
-        return $this->hasMany(Ingrediente::class);
-    }
     function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'utilizator_id');
     }
-    public function rating()
+    public function ratings()
     {
-    return $this->hasMany(Rating::class);
+    return $this->hasMany(Rating::class,'user_id');
+    }
+    public function getSearchResult(): SearchResult{
+        return new \Spatie\Searchable\SearchResult(
+            $this,
+            $this->denumire
+         );
     }
 }

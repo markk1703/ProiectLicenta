@@ -56,14 +56,21 @@ class User extends Authenticatable implements MustVerifyEmail
     }
     function retete()
     {
-        return $this->hasMany(Reteta::class);
-    }
-    function followships()
-    {
-        return $this->hasMany(Followship::class);
+        return $this->hasMany(Reteta::class,'utilizator_id');
     }
     function rating()
     {
         return $this->hasMany(Rating::class);
+    }
+    function followers()
+    {
+        return $this->hasManyThrough(User::class,Followship::class,'user2_id','id');
+    }
+    function following()
+    {
+        return $this->hasManyThrough(User::class,Followship::class,'user1_id','id');
+    }
+    public function followedRecipes(){
+        return $this->hasManyThrough(Reteta::class,Followship::class,'user1_id','utilizator_id','id');
     }
 }

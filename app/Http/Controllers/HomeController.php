@@ -25,12 +25,13 @@ class HomeController extends Controller
      */
     public function index()
     {//trebuie revizuit!
-        $retete = DB::table('retete')
-            ->join('followships', 'retete.utilizator_id', '=', 'followships.user2_id')
-            ->join('users', 'users.id', '=', 'retete.utilizator_id')
-            ->where('followships.user1_id',Auth::id())
-            ->select('users.*', 'retete.*')->get();
-
+        // $retete = DB::table('retete')
+        //     ->join('followships', 'retete.utilizator_id', '=', 'followships.user2_id')
+        //     ->join('users', 'users.id', '=', 'retete.utilizator_id')
+        //     ->where('followships.user1_id',Auth::id())
+        //     ->select('users.*', 'retete.*')->get();
+             $retete=Reteta::where('utilizator_id','!=',Auth::id())->get();
+            
         return view('home.index',compact('retete'));
     }
 

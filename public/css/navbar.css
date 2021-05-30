@@ -1,0 +1,12 @@
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    height:60px;
+  }
+.responsive{
+  height:50px;
+}

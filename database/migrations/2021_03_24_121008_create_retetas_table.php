@@ -20,7 +20,6 @@ class CreateRetetasTable extends Migration
             $table->text('ingrediente')->nullable(false);
             $table->text('mod_de_preparare')->nullable(false);
             $table->string('categorii')->nullable(true);
-            $table->string('tags')->nullable(true);
             $table->string('imagine_principala')->nullable(true);
             $table->text('imagini')->nullable(true);
             $table->double('rating_avg')->nullable(true);

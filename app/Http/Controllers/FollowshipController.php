@@ -99,7 +99,11 @@ class FollowshipController extends Controller
     public function search(Request $request)
     {
         $term=$request->term;
-        $data=DB::table('users')->where('id','!=',Auth::id())->where('username','LIKE','%'.$term.'%')->get();
+        $data=DB::table('users')
+        ->where(['username','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
+        ->orWhere(['nume','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
+        ->orWhere(['prenume','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
+        ->get();
         return response()->view('followship.partials.people-search',compact('data','term'));
     }
 

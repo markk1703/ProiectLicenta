@@ -1,6 +1,5 @@
 @section('navbar')
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky" id="myHeader">
         <a class="navbar-brand mr-5" @guest href="{{ url('/discover') }}" @endguest @auth href="{{ url('/home') }}"
             @endauth>
             {{ config('app.name', 'Laravel') }}
@@ -105,6 +104,5 @@
                 @endguest
             </ul>
         </div>
-    </div>
 </nav>
 @show

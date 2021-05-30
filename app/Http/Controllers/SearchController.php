@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Reteta;
+use Spatie\Searchable\Search;
 
 class SearchController extends Controller
 {
@@ -12,8 +13,15 @@ class SearchController extends Controller
         return view('search.index');
     }
     public function search(Request $request)
-    {   $term=$request->term;
-        $retete=Reteta::where('denumire','LIKE','%'.$term.'%')->get();
+    {   
+        // $r=Reteta::query()
+        // ->sort($request)
+        // ->filter($request)
+        // ->get();
+        // dd($r);
+        $retete = (new Search())
+        ->registerModel(Reteta::class, 'denumire')
+        ->search($request->term);
         return view('search.inc.index-action',compact('retete'));
     }
 }

@@ -1,14 +1,17 @@
 @extends('layouts.app')
 @section('content')
+<div class="jumbotron jumbotron-fluid">
+    <div class="bg"></div>
+    <div class="container-fluid text-center">
+        <h1 class="display-4">Modifică rețeta</h1>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+            <form action="{{ route('retete.update',$reteta->id)}}" method="POST">
+                @csrf
             <div class="card">
-                <div class="card-header">
-                    <h1>Editeaza reteta</h1>
-                </div>
-                <form action="{{ route('retete.update',$reteta->id)}}" method="POST">
-                    @csrf
                     <div class="card-body">
                         <div class="col-md-10">
                             <div class="row">

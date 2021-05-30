@@ -1,6 +1,11 @@
 @extends('layouts.app')
-
 @section('content')
+<div class="jumbotron jumbotron-fluid">
+    <div class="bg"></div>
+    <div class="container-fluid text-center">
+        <h1 class="display-4">Schimbă parola</h1>
+    </div>
+  </div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

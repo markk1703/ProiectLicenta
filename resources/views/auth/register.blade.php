@@ -3,6 +3,12 @@
 <title>Înregistrare</title>
 @endsection
 @section('content')
+<div class="jumbotron jumbotron-fluid">
+    <div class="bg"></div>
+    <div class="container-fluid text-center">
+        <h1 class="display-4">Creează un cont nou</h1>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -11,7 +17,7 @@
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                       @csrf
 
                         <div class="form-group row">
                             {{-- <label for="nume" class="col-md-4 col-form-label text-md-right">{{ __('Nume') }}</label> --}}

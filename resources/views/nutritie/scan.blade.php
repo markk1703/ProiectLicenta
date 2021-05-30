@@ -8,12 +8,19 @@
 </style>
 @endsection
 @section('content')
-<div class="container">
+<div class="jumbotron jumbotron-fluid">
+    <div class="bg"></div>
+    <div class="container-fluid text-center">
+        <h1 class="display-4">Calculator valori nutriționale</h1>
+    </div>
+</div>
+<div class="container pt-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><h3>Calculator valori nutritionale</h3></div>
-
+                <div class="card-header"><h4>Calculator valori nutritionale</h4>
+                    <small>Introduceți cantitatea și scanați codul de bare al produsului.</small>
+                </div>
                 <div class="card-body">
                    <div class='row'>
                        <div class='col'>

@@ -3,11 +3,16 @@
 <title>Caută rețete</title>
 @endsection
 @section('content')
+<div class="jumbotron jumbotron-fluid">
+    <div class="bg"></div>
+    <div class="container-fluid text-center">
+        <h1 class="display-4">Caută rețete</h1>
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <h3 class="card-header">Caută rețete</h3>
                 <div class="card-body">
                     <div class="input-group">
                         <form action="" id="search" class="form-outline mb-5">

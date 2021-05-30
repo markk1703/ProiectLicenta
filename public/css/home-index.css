@@ -1,3 +1,4 @@
+
 /* Social feed */
 .social-feed-separated .social-feed-box {
   margin-left: 62px;
@@ -16,7 +17,10 @@
   float: none;
 }
 .social-feed-box {
-  /*padding: 15px;*/
+  /* padding: 15px; */
+  display:flex;
+  flex-wrap: wrap;
+  align-content: center;
   border: 1px solid #e7eaec;
   background: rgb(255, 255, 255);
   margin-bottom: 15px;
@@ -55,6 +59,9 @@
   margin-bottom: 10px;
   max-width: 500px;
 }
-
+.denumire{
+  display: flex;
+  align-items: center;  
+}
 
 

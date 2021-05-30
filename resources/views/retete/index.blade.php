@@ -1,16 +1,19 @@
 @extends('layouts.app')
 @section('content')
+<div class="jumbotron jumbotron-fluid">
+    <div class="bg"></div>
+    <div class="container-fluid text-center">
+        @if(isset($user))
+        <h4 class="display-4">Rețetele utilizatorului {{$user->nume}} {{$user->prenume}}</h4>
+        @else
+        <h4 class="display-4">Toate rețetele</h4>
+        @endif
+    </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">
-                    @if(isset($user))
-                    <h1>Retete postate de: {{$user->nume}} {{$user->prenume}}</h1>
-                    @else
-                    <h1>Toate retetele</h1>
-                    @endif
-                </div>
                 <div class="card-body">
                     <div class="col">
                         <div class="row">

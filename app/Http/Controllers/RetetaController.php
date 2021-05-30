@@ -20,7 +20,8 @@ class RetetaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {   $user=null;
+    {  
+        $user=null;
         $retete=Reteta::orderBy('created_at','desc')->paginate(5);
         if($request->utilizator_id)
         {$retete=Reteta::orderBy('created_at','desc')->where('utilizator_id',$request->utilizator_id)->paginate(5);
@@ -158,9 +159,11 @@ class RetetaController extends Controller
     $reteta->mod_de_preparare=$mod_de_preparare;//adauga array cu modul de preparare
     $user=User::findOrFail($reteta->utilizator_id);
     $reteta->user=$user;//adauga array cu utilizatorul
-    $imaginiString=$reteta->imagini;
-    $imagini=explode(", ",$imaginiString);
-    $reteta->imagini=$imagini;//adauga array cu imagini
+    if($reteta->imagini!=null){
+        $imaginiString=$reteta->imagini;
+        $imagini=explode(", ",$imaginiString);
+        $reteta->imagini=$imagini;//adauga array cu imagini
+    }
     $tabValori=$this->getValoriNutritionale($reteta);
     $reteta->tabValori=$tabValori;//adauga tabValori in reteta
     $coloane=$this->getColumns('valori_nutritionale.json');

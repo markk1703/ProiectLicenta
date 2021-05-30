@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "amitavroy/laravel-sort-and-filter": "^1.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -21,6 +22,8 @@
         "nesbot/carbon": "^2.46",
         "openfoodfacts/openfoodfacts-laravel": "^0.2.1",
         "overtrue/laravel-follow": "^2.3",
+        "spatie/laravel-searchable": "^1.9",
+        "spatie/laravel-tags": "^3.1",
         "willvincent/laravel-rateable": "^2.3"
     },
     "require-dev": {
