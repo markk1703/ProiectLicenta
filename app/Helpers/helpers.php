@@ -1,7 +1,7 @@
 <?php
 use App\Models\Followship;
-use App\Models\Rating;
 use App\Models\Reteta;
+use App\Models\Rating;
 use Carbon\Carbon;
 function isFollowing($id)
 {

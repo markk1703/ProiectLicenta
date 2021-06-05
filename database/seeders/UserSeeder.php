@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert(['username'=>'mark1234','nume'=>'Konyicska','prenume'=>'Mark','email'=>'konyicska_mark98@yahoo.com','password'=>Hash::make('password'),'rol_id'=>'2','email_verified_at'=>'2021-03-25 20:59:13']);
         DB::table('users')->insert(['username'=>'user','nume'=>'Doe','prenume'=>'John','email'=>'john.doe@example.net','password'=>Hash::make('password'),'rol_id'=>'2','email_verified_at'=>'2021-03-25 21:04:25']);
-        DB::table('users')->insert(['username'=>'admin','nume'=>'Admin','prenume'=>'John','email'=>'john.admin@example.net','password'=>Hash::make('password'),'rol_id'=>'1','email_verified_at'=>'2021-03-25 21:10:05']);
+        DB::table('users')->insert(['username'=>'admin','nume'=>'Admin','prenume'=>'Administrator','email'=>'john.admin@example.net','password'=>Hash::make('admin1234'),'rol_id'=>'1','email_verified_at'=>'2021-03-25 21:10:05']);
         \App\Models\User::factory(20)->create();        
     }
 }

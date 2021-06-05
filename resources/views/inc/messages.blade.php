@@ -1,5 +1,5 @@
 @section('messages')
-<div class="py-2">
+<div class="messages m-0 p-0">
 @if(count($errors)>0)
     @foreach ($errors->all() as $error)
      <div class="alert alert-danger">

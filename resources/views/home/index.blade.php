@@ -44,6 +44,11 @@
                     @endforeach --}}
                     <div>{{$reteta->ingrediente}}</div>
                 </ul>
+                <div class="col">
+                    @foreach($reteta->tags()->get() as $tag)
+                            <h5><a href="#" class="badge badge-info">{{$tag->name}}</a></h5>                                         
+                    @endforeach
+                </div>
                 </div>
             </div>
         </div>

@@ -50,10 +50,6 @@ class User extends Authenticatable implements MustVerifyEmail
     function socialProviders(){
         return $this->hasMany(SocialProvider::class);
     }
-    function adrese()
-    {
-        return $this->hasMany(Adresa::class);
-    }
     function retete()
     {
         return $this->hasMany(Reteta::class,'utilizator_id');

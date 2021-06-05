@@ -1,4 +1,7 @@
-@section('head')
+<!doctype html>
+<html lang="en">
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -31,5 +34,40 @@
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carousel-slide.css') }}" rel="stylesheet">
     <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
-    
-@show
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CoreUI CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@coreui/coreui/dist/css/coreui.min.css" crossorigin="anonymous">
+
+    <title>Modul Administrator</title>
+</head>
+
+<body class="c-app">
+    <div class="c-wrapper">
+        <div class="c-body">
+            @include('admin.partials.navbar')
+            @include('inc.messages')  
+            <main class="c-main">
+                <div class="container-fluid">
+                    <button class="scrollToTop" id="scrollToTop"><i class="fas fa-arrow-up" id="scrollup-arrow"></i></button></a>
+                    @yield('content')
+                </div>
+            </main>
+        </div>
+        {{-- <footer class="c-footer">
+            <div><a href="https://coreui.io">CoreUI</a> © 2020 creativeLabs.</div>
+            <div class="mfs-auto">Powered by&nbsp;<a href="https://coreui.io/pro/">CoreUI Pro</a></div>
+        </footer> --}}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then CoreUI JS -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+    <script src="{{asset('js/scrollup.js')}}"></script>
+</body>
+
+</html>

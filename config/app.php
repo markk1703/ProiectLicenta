@@ -178,6 +178,7 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Jrean\UserVerification\UserVerificationServiceProvider::class,
+        
 
     ],
 
@@ -234,6 +235,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Socialite'=>Laravel\Socialite\Facades\Socialite::class,
         'UserVerification' => Jrean\UserVerification\Facades\UserVerification::class
+        
 
     ],
 

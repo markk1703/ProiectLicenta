@@ -1,4 +1,3 @@
-@section('navbar')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky" id="myHeader">
         <a class="navbar-brand mr-5" @guest href="{{ url('/discover') }}" @endguest @auth href="{{ url('/home') }}"
             @endauth>
@@ -55,7 +54,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('followship.index')}}">Lista de urmăriri</a>
-                        <a class="dropdown-item" href="{{route('home.dashboard')}}">Dashboard</a>
+                        {{-- <a class="dropdown-item" href="{{route('home.dashboard')}}">Dashboard</a> --}}
                     </div>
                 </li>
                 @endauth
@@ -105,4 +104,3 @@
             </ul>
         </div>
 </nav>
-@show

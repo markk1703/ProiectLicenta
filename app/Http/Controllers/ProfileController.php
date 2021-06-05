@@ -21,13 +21,9 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $judete = Judet::get();
-        $adrese = Adrese::where('user_id', '=', Auth::user()->id)->get();
-        $localitati = Localitate::get();
-       
         if(Auth::user()->idRol==1)
         return view('admin.profile');
-    else return view('profile.index',compact('judete','localitati','adrese'));
+    else return view('profile.index');
     }
 
     public function updateAvatar(Request $request)

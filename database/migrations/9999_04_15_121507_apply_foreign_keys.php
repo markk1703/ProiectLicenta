@@ -26,7 +26,6 @@ class ApplyForeignKeys extends Migration
         });
         Schema::table('ratings', function(Blueprint $table){
             $table->foreign('user_id')->references('id')->on('users');
-
         });
     }
 

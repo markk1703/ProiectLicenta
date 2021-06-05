@@ -143,7 +143,7 @@ class RetetaSeeder extends Seeder
         Reteta::create([
             'utilizator_id'=>'2',
             'denumire'=>'Friptura de miel',
-            'ingrediente'=>'pulpa de miel cu os (1.6 kg), 3 catei usturoi, 2 linguri cu varf mustar cu seminte, 3 catei usturoi, 3 fire cimbru, 1 fir rozmarin, 8 fileuri ansoa in ulei de masline, coaja de la 1 lamaie, 2 linguri suc lamaie, 2 linguri sos de soia, 2 linguri ulei masline, piper',
+            'ingrediente'=>'pulpa de miel cu os (1.6 kg), 6 catei usturoi, 2 linguri cu varf mustar cu seminte, 3 fire cimbru, 1 fir rozmarin, 8 fileuri ansoa in ulei de masline, coaja de la 1 lamaie, 2 linguri suc lamaie, 2 linguri sos de soia, 2 linguri ulei masline, piper',
             'mod_de_preparare'=>'Mixati in blender toate ingredientele pentru marinata (de la verdeturi rupeti frunzulitele de pe tulpina), pana obtineti o pasta.
             * nu se pune sare in marinata deoarece ansoa si sosul de soia sunt suficient de sarate
             In pulpa de miel spalata si uscata bine cu servetele faceti incizii cu un cutit bine ascutit si introduceti felii de usturoi.

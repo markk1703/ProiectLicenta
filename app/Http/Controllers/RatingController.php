@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Reteta;
-use App\Models\Rating;
 use App\Notifications\NewRating;
 use App\Models\User;
+use DB;
 use AppRating;
 
 class RatingController extends Controller
@@ -19,5 +19,9 @@ class RatingController extends Controller
         $reteta->save();
         User::find($reteta->utilizator_id)->notify(new NewRating(User::findOrFail(Auth::id()),$reteta,$request->star));
         return redirect()->back();
+  }
+  public function deleteStar($id){
+    DB::table('ratings')->where('rateable_id',$id)->where('user_id',Auth::id())->delete();
+    return redirect()->back();
   }
 }

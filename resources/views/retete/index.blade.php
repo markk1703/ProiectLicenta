@@ -29,7 +29,11 @@
                                             style="max-width:100%;max-height:100%;left:10px;margin-top:0px;"></div>
                                         @endif
                                         <h4><a href="{{route('retete.show',$reteta->id)}}" class="col">{{$reteta->denumire}}</a></h4>
-                                        <div class="col">{{$reteta->categorii}}</div>
+                                        <div class="col">
+                                            @foreach($reteta->tags()->get() as $tag)
+                                                    <h5><a href="#" class="badge badge-info">{{$tag->name}}</a></h5>                                         
+                                            @endforeach
+                                        </div>
                                         <div class="col">
                                             @if($reteta->utilizator_id==Auth::id())
                                             <form action="{{route('retete.destroy',$reteta->id)}}" method="POST">

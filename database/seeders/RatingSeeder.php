@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\Rating;
+use DB;
 
 class RatingSeeder extends Seeder
 {
@@ -14,97 +14,97 @@ class RatingSeeder extends Seeder
      */
     public function run()
     {
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'5',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'1'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'3',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'4'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'1',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'5'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'3',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'2'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'4',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'6'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'4',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'7'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'3',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'8'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'3',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'9'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'2',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'10'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'5',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'15',
             'user_id'=>'11'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'5',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'14',
             'user_id'=>'11'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'3',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'14',
             'user_id'=>'12'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'1',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'14',
             'user_id'=>'10'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'5',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'14',
             'user_id'=>'8'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'3',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'14',
             'user_id'=>'7'
         ]);
-        Rating::create([
+        DB::table('ratings')->insert([
             'rating'=>'2',
             'rateable_type'=>'App\Models\Reteta',
             'rateable_id'=>'14',

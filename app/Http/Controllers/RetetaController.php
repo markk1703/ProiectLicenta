@@ -83,7 +83,7 @@ class RetetaController extends Controller
                     $denumire = array_slice($denumire, $foundIndex + 1);
                     $denumire=implode(" ",$denumire);
                 }
-                if(str_contains(strtolower($denumire),$this->unaccent($ingredient->denumire))!== FALSE||str_starts_with($this->unaccent($ingredient->denumire),strtolower($denumire))!== FALSE)
+                if(str_starts_with($this->unaccent($ingredient->denumire),strtolower($denumire))!== FALSE)
                 {
                     $myIngredient=$ingredient;
                     array_push($tabValori,$myIngredient);

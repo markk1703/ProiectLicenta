@@ -3,9 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use willvincent\Rateable\Rateable;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Followship;
-use willvincent\Rateable\Rateable;
 use Spatie\Searchable\Searchable;
 use Spatie\Searchable\SearchResult;
 use Spatie\Tags\HasTags;
@@ -14,8 +14,8 @@ use SortAndFilter;
 
 class Reteta extends Model implements Searchable
 {
-    use HasFactory;
     use Rateable;
+    use HasFactory;
     use HasTags;
     
     protected $table='retete';
@@ -35,10 +35,6 @@ class Reteta extends Model implements Searchable
     function user()
     {
         return $this->belongsTo(User::class,'utilizator_id');
-    }
-    public function ratings()
-    {
-    return $this->hasMany(Rating::class,'user_id');
     }
     public function getSearchResult(): SearchResult{
         return new \Spatie\Searchable\SearchResult(
