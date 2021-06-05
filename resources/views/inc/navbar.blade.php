@@ -58,14 +58,14 @@
                     </div>
                 </li>
                 @endauth
+                @auth
+                @include('inc.notifications')
+                @endauth
             </ul>
 
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
-                @auth
-                @include('inc.notifications')
-                @endauth
                 <!-- Authentication Links -->
                 @guest
                 @if (Route::has('login'))

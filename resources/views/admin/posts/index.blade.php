@@ -8,7 +8,7 @@
               <div class="card-header"><h3>Postări</h3>
                 <form action="{{route('admin.posts.create')}}" method="GET">
                   @csrf
-                  <button type="submit" class="btn btn-success btn-sm">Adaugă</button>
+                  <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-plus mr-1"></i>Adaugă</button>
               </form>
               </div>
                 <div class="card-body">
@@ -31,12 +31,12 @@
                         <td>{{$reteta->created_at}}</td>
                         <td><form action="{{route('admin.posts.destroy',$reteta->id)}}" method="POST">
                           <a class="btn btn-info btn-sm"
-                              href="{{route('admin.posts.show',$reteta->id)}}">Vezi</a>
+                              href="{{route('admin.posts.show',$reteta->id)}}"><i class="fas fa-eye"></i></a>
                           <a class="btn btn-secondary btn-sm"
-                              href="{{route('admin.posts.edit',$reteta->id)}}">Editează</a>
+                              href="{{route('admin.posts.edit',$reteta->id)}}"><i class="fas fa-edit"></i></a>
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                          <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                       </form>
                         </tr>
                         @endforeach

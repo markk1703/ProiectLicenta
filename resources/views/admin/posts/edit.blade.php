@@ -9,7 +9,7 @@
                     <form action="{{route('admin.posts.destroy',$reteta->id)}}" method="POST">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                     </form></h3>
                 <div class="card-body">
                     <form action="{{ route('admin.posts.update',$reteta->id)}}" method="POST">

@@ -8,10 +8,10 @@
                 <h3 class="card-header">{{$user->nume}} {{$user->prenume}} ({{$user->username}})
                     <form action="{{route('admin.users.destroy',$user->id)}}" method="POST">
                         <a class="btn btn-secondary btn-sm"
-                            href="{{route('admin.users.edit',$user->id)}}">Editeaza</a>
+                            href="{{route('admin.users.edit',$user->id)}}"><i class="fas fa-edit"></i></a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                     </form>
                 </h3>
                 <div class="card-body">
@@ -72,12 +72,12 @@
                         <div class="row mb-2"><div class="col">{{$reteta->denumire}}</div>
                             <form class="col" action="{{route('admin.posts.destroy',$reteta->id)}}" method="POST">
                             <a class="btn btn-info btn-sm"
-                                href="{{route('admin.posts.show',$reteta->id)}}">Vezi</a>
+                                href="{{route('admin.posts.show',$reteta->id)}}"><i class="fas fa-eye"></i></a>
                             <a class="btn btn-secondary btn-sm"
-                                href="{{route('admin.posts.edit',$reteta->id)}}">Editeaza</a>
+                                href="{{route('admin.posts.edit',$reteta->id)}}"><i class="fas fa-edit"></i></a>
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                         </form></div>
                     @endforeach
                 </div>

@@ -22,6 +22,7 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/messages.css') }}" rel="stylesheet">
     <link href="{{ asset('css/cover.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/scanner.css') }}" rel="stylesheet">
     <link href="{{ asset('css/profile-accordion.css') }}" rel="stylesheet">
     <link href="{{ asset('css/welcome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/footer.css') }}" rel="stylesheet">

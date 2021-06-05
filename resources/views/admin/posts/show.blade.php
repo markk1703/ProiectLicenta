@@ -9,10 +9,10 @@
                     <h3>{{$reteta->denumire}}</h3>
                     <form action="{{route('admin.posts.destroy',$reteta->id)}}" method="POST">
                         <a class="btn btn-secondary btn-sm"
-                            href="{{route('admin.posts.edit',$reteta->id)}}">Editeaza</a>
+                            href="{{route('admin.posts.edit',$reteta->id)}}"><i class="fas fa-edit"></i></a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                        <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                     </form>
                     <hr>
                     <div class="row">
@@ -21,12 +21,12 @@
                                 <div>Utilizator: {{$user->nume}} {{$user->prenume}} ({{$user->username}})</div>
                                 <form action="{{route('admin.users.destroy',$user->id)}}" method="POST">
                                     <a class="btn btn-info btn-sm"
-                                        href="{{route('admin.users.show',$user->id)}}">Vezi</a>
+                                        href="{{route('admin.users.show',$user->id)}}"><i class="fas fa-eye"></i></a>
                                     <a class="btn btn-secondary btn-sm"
-                                        href="{{route('admin.users.edit',$user->id)}}">Editeaza</a>
+                                        href="{{route('admin.users.edit',$user->id)}}"><i class="fas fa-edit"></i></a>
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                             </div>
                         </div>

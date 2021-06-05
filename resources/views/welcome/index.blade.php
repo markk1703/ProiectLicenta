@@ -12,7 +12,7 @@
         <p class="lead">
             <a class="btn btn-primary btn-success" href="/login" role="button"><i
                     class="fas fa-sign-in-alt mr-3"></i>Conectare</a>
-            <a class="btn btn-primary btn-success" href="/register" role="button">Înregistrare</a>
+            <a class="btn btn-primary btn-success" href="/register" role="button"><i class="fas fa-user-plus mr-3"></i>Înregistrare</a>
         </p>
     </div>
   </div>

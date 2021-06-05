@@ -1,3 +1,4 @@
+
     <input id="notificationCount" value=0 hidden>
     @if(Auth::user()->unreadNotifications->count()==0)
     <a class="nav-link dropdown far fa-bell" href="" id="navbarDropdown" role="button" data-toggle="dropdown"

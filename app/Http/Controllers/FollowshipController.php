@@ -104,6 +104,7 @@ class FollowshipController extends Controller
         ->orWhere(['nume','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
         ->orWhere(['prenume','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
         ->get();
+        dd($data);
         return response()->view('followship.partials.people-search',compact('data','term'));
     }
 

@@ -30,7 +30,7 @@
                         <td><form action="{{route('admin.ratings.destroy',$rating->id)}}" method="POST">
                           @csrf
                           @method('DELETE')
-                          <button type="submit" class="btn btn-danger btn-sm">Șterge</button>
+                          <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                       </form>
                         </tr>
                         @endforeach
