@@ -99,12 +99,15 @@ class FollowshipController extends Controller
     public function search(Request $request)
     {
         $term=$request->term;
-        $data=DB::table('users')
-        ->where(['username','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
-        ->orWhere(['nume','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
-        ->orWhere(['prenume','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
+        // $data=DB::table('users')
+        // ->where(['username','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
+        // ->orWhere(['nume','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
+        // ->orWhere(['prenume','LIKE','%'.$term.'%'],['id','!=',Auth::id()])
+        // ->get();
+        $data=User::where('username','like','%'.$term.'%')->where('id','!=',Auth::id())
+        ->orWhere('nume','like','%'.$term.'%')->where('id','!=',Auth::id())
+        ->orWhere('prenume','like','%'.$term.'%')->where('id','!=',Auth::id())
         ->get();
-        dd($data);
         return response()->view('followship.partials.people-search',compact('data','term'));
     }
 

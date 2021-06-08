@@ -90,7 +90,8 @@ Route::get('retete/{id}','RetetaController@show')->name('retete.show');//show re
 Route::get('discover','RetetaController@discover')->name('retete.discover');//descopera retete
     //SEARCH
 Route::get('search','SearchController@index')->name('search.index');//sectiune cautare
-Route::get('search/result','SearchController@search')->name('search.search');//cautare
+Route::get('search/result','SearchController@search')->name('search.search');//cautare dupa nume
+Route::get('search/ingredients','SearchController@searchByIngredient')->name('search.searchByIngredient');//cautare dupa ingredient
     //NUTRITIE
 Route::get('nutritie/calculator','NutritieController@index')->name('nutritie.calculator');//pagina scanare
 Route::post('nutritie/calculator','NutritieController@scan')->name('nutritie.calculator');//scanare cod de bare

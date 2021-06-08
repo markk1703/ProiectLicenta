@@ -22,7 +22,7 @@
                        <div class='input-group'>
                             <form action="{{ route('nutritie.calculator') }}" method="POST">
                             @csrf
-                           <input id='cantitate' name='cantitate' placeholder="Cantitate" type='number' min=0 required>
+                           <input id='cantitate' name='cantitate' placeholder="Cantitate" type='number' min=1 required>
                            <label>g(sau ml)</label>
                            <input id='barcode' name='barcode' placeholder="Cod de bare" required>
                            <button class='btn btn-primary' type='submit'><i class="fa fa-search" aria-hidden="true"></i></button>
