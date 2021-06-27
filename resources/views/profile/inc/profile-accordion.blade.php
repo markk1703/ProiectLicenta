@@ -15,7 +15,7 @@
                                                 @csrf
                                                 <input type="file" name="imagine">
                                                 <input type="hidden" name="_token" value="{{ csrf_token()}}">
-                                                <input type="submit" class="pull-right btn btn-sm btn-success mt-3">
+                                                <input type="submit" value="Încărcare" class="pull-right btn btn-sm btn-success mt-3">
                                             </form>
                                         </div>
                                     </div>
@@ -61,20 +61,22 @@
         <div class="inner">
             <form action="{{ action('ProfileController@updateEmail') }}" method="POST">
                 @csrf
-                <div class="row mb-5">
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col-md-10">
+                <div>
+                    
+                        
+                            
+                            
+
                                 <div class="form-group">
                                     <label class="form-control-label">Email</label>
                                     <input name="email" class="form-control" value="{{Auth::user()->email}}"
                                         required>
                                 </div>
-                            </div>
+                            
 
-                        </div>
+                        
                         <button type="submit" class="btn btn-success">Salvează</button>
-                    </div>
+                    
                 </div>
             </form>
         </div>
@@ -89,13 +91,13 @@
                 <div class="row mb-5">
                     <div class="col-md-8">
                         <div class="row">
-                            <div class="col-md-6">
+                            
                                 <div class="form-group">
                                     <label class="form-control-label">Nume utilizator</label>
                                     <input name="username" class="form-control"
                                         value="{{Auth::user()->username}}">
                                 </div>
-                            </div>
+                            
                         </div>
                         <button type="submit" class="btn btn-success">Salvează</button>
                     </div>
@@ -111,7 +113,7 @@
                 <form action="{{ action('ProfileController@updatePassword') }}" method="POST">
                     @csrf
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col">
                             <div class="form-group">
                                 <label class="form-control-label">Parola actuală</label>
                                 {{-- Daca exista o parola, este obligatorie introducerea ei --}}

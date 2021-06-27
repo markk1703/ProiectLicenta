@@ -33,7 +33,7 @@ class HomeController extends Controller
         //     ->where('followships.user1_id',Auth::id())
         //     ->select('users.*', 'retete.*')->get();
         if(Auth::user()->rol_id==2){
-        $retete=Reteta::where('utilizator_id','!=',Auth::id())->latest()->get();
+        $retete=Reteta::where('utilizator_id','!=',Auth::id())->latest()->paginate(5);
         return view('home.index',compact('retete'));}
         else if(Auth::user()->rol_id==1){
             $utilizatori=User::all()->count();

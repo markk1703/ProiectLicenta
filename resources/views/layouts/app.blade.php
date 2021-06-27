@@ -3,6 +3,7 @@
 
 <head>
     @include('inc.head')
+    <link href="{{ asset('css/loader.css') }}" rel="stylesheet">
     @yield('hd')
 </head>
 <body>
@@ -11,6 +12,7 @@
         <div id="wrapper"> 
             @include('inc.navbar')
             @include('inc.messages')         
+            @include('inc.loader')
             <button class="scrollToTop" id="scrollToTop"><i class="fas fa-arrow-up" id="scrollup-arrow"></i></button></a>
             @yield('content')
         </div>
@@ -19,6 +21,7 @@
 @include('inc.footer')
 @yield('scripts')
 </body>
+<script src="{{asset('js/loader.js')}}"></script>
 <script src="{{asset('js/notiflix-2.7.0.min.js')}}"></script>
 <script src="{{asset('js/navbar-sticky.js')}}"></script>
 <script src="{{asset('js/scrollup.js')}}"></script>

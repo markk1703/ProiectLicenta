@@ -54,6 +54,7 @@
         </div>
         @endforeach
     </div>
+    {{ $retete->links() }}
 </div>
 </div>
 
