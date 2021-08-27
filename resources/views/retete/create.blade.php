@@ -19,7 +19,7 @@
                                     <div class="col-md-10">
                                         <div class="form-group">
                                             <label class="form-control-label">Denumire</label>
-                                            <input name="denumire" placeholder="Adauga o denumire" class="form-control"
+                                            <input name="denumire" placeholder="Adaugă o denumire" class="form-control"
                                                 required>
                                         </div>
                                     </div>
@@ -29,7 +29,7 @@
                                         <div class="form-group">
                                             <label class="form-control-label">Ingrediente</label>
                                             <textarea class="form-control" style="height:150px" id="ingrediente"
-                                                name="ingrediente" placeholder="Adauga ingrediente" required></textarea>
+                                                name="ingrediente" placeholder="Adaugă ingrediente" required></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -46,8 +46,8 @@
                                 <div class="row" id="addCategoriiButton-Row">
                                     <div class="col-md-10">
                                         <div class="form-group">
-                                            <label class="form-control-label">Categorii</label>
-                                            <input name="categorii" placeholder="Adauga categorii" class="form-control"
+                                            <label class="form-control-label">Taguri</label>
+                                            <input name="categorii" placeholder="Adaugă categorii" class="form-control"
                                                 required>
                                         </div>
                                     </div>

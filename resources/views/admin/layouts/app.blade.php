@@ -34,6 +34,7 @@
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carousel-slide.css') }}" rel="stylesheet">
     <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/switcher.css') }}" rel="stylesheet">
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -68,6 +69,9 @@
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
     <script src="{{asset('js/scrollup.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{asset('js/switcher.js')}}"></script>
+
 </body>
 
 </html>

@@ -24,6 +24,7 @@ class SearchController extends Controller
         ->search($request->term);
         return view('search.inc.index-action',compact('retete'));
     }
+    
     function unaccent($str)//pt ignorare diacritice
 {
     $pattern = array(

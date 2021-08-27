@@ -32,5 +32,7 @@
     <link href="{{ asset('css/navbar.css') }}" rel="stylesheet">
     <link href="{{ asset('css/carousel-slide.css') }}" rel="stylesheet">
     <link href="{{ asset('css/rating.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/scrollbar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/switcher.css') }}" rel="stylesheet">
     
 @show

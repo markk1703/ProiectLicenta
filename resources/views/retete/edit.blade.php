@@ -18,7 +18,7 @@
                                 <div class="col-md-10">
                                     <div class="form-group">
                                         <label class="form-control-label">Denumire</label>
-                                        <input name="denumire" placeholder="Adauga o denumire" value="{{$reteta->denumire}}" class="form-control"
+                                        <input name="denumire" placeholder="Adaugă o denumire" value="{{$reteta->denumire}}" class="form-control"
                                             required>
                                     </div>
                                 </div>
@@ -28,7 +28,7 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Ingrediente</label>
                                         <textarea class="form-control" style="height:150px" id="ingrediente"
-                                            name="ingrediente" placeholder="Adauga ingrediente" required>{{$reteta->ingrediente}}</textarea>
+                                            name="ingrediente" placeholder="Adaugă ingrediente" required>{{$reteta->ingrediente}}</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                                     <div class="form-group">
                                         <label class="form-control-label">Mod de preparare</label>
                                         <textarea class="form-control" style="height:150px" id="preparare"
-                                            name="preparare" placeholder="Adauga mod de preparare"
+                                            name="preparare" placeholder="Adaugă mod de preparare"
                                             required>{{$reteta->mod_de_preparare}}</textarea>
                                     </div>
                                 </div>
@@ -45,10 +45,10 @@
                             <div class="row">
                                 <div class="col-md-10">
                                     <div class="form-group">
-                                        <label class="form-control-label">Categorii</label>
+                                        <label class="form-control-label">Taguri</label>
                                         <textarea class="form-control" style="height:150px" id="categorii"
-                                            name="categorii" placeholder="Adauga categorii"
-                                            required>{{$reteta->categorii}}</textarea>
+                                            name="categorii" placeholder="Adaugă categorii"
+                                            required>{{$taguri}}</textarea>
                                     </div>
                                 </div>
                             </div>

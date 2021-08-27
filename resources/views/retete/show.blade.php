@@ -17,7 +17,7 @@
                             <div class="row">
                                 @if($reteta->utilizator_id==Auth::id())
                                 <form action="{{route('retete.destroy',$reteta->id)}}" method="POST">
-                                    <a class="btn btn-primary" href="{{route('retete.edit',$reteta->id)}}">Editeaza</a>
+                                    <a class="btn btn-primary" href="{{route('retete.edit',$reteta->id)}}">Editează</a>
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger">Șterge</button>
@@ -59,6 +59,7 @@
                                 </div>
                             </form>
                             @endif
+                            @if($reteta->utilizator_id!=Auth::id())
                             <div class="row">
                                 @if(hasRated(Auth::id(),$reteta->id)!=='not_rated')
                                 <h5>Ai acordat: {{hasRated(Auth::id(),$reteta->id)->rating}} stele.</h5>
@@ -72,6 +73,7 @@
                                 <h5>Încă nu ai adăugat o recenzie.</h5>
                                 @endif
                             </div>
+                            @endif
                             <div class="row">
                                 @if($reteta->usersRated()>0)
                                 <h5>Rating: {{number_format($reteta->averageRating(),2)}} din {{$reteta->usersRated()}}
@@ -86,12 +88,13 @@
                             <div id="carouselExampleIndicators" class="carousel slide secondary-imgs"
                                 data-ride="carousel" style="max-width:250px;height:200px;left:10px;margin-top:0px;">
                                 <div class="carousel-inner">
-
+                                    @if(isset($reteta->imagine_principala))
                                     <div class="carousel-item active">
                                         <img class="d-block w-100"
                                             src="/uploads/retete/{{$reteta->utilizator_id}}/{{$reteta->id}}/{{$reteta->imagine_principala}}"
                                             alt="First slide">
                                     </div>
+                                    @endif
                                     @if(isset($reteta->imagini))
                                     @foreach($reteta->imagini as $imagine)
                                     <div class="carousel-item">
@@ -114,16 +117,12 @@
                                 @endif
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col">
-                                    <h5>Taguri:</h5>
-                                    <div class="row">
+                                <div class="row">
+                                    <h5>Taguri:</h5>  
                                         @foreach($reteta->tags()->get() as $tag)
-                                        <h5 class="col"><a href="#" class="badge badge-info">{{$tag->name}}</a></h5>
+                                        <h5 class="px-1"><a href="{{route('retete.index',['tag'=>$tag->name])}}" class="badge badge-info">{{$tag->name}}</a></h5>
                                         @endforeach
-                                    </div>
                                 </div>
-                            </div>
 
                         </div>
                     </div>

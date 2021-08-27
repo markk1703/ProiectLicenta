@@ -11,7 +11,7 @@ use Auth;
 class ContentController extends Controller
 {
     public function index(){
-        $retete=Reteta::latest()->get();
+        $retete=Reteta::latest()->paginate(8);
         return view('admin.posts.index',compact('retete'));
     }
     public function create()
@@ -32,7 +32,7 @@ class ContentController extends Controller
         ]);
 
         $retete=Reteta::latest()->get();
-        return view('admin.posts.index',compact('retete'));
+        return redirect(route('admin.posts',compact('retete')));
     }
     public function show($id){
         $reteta=Reteta::find($id);
@@ -64,8 +64,9 @@ class ContentController extends Controller
     }
     public function destroy($id){
         $reteta=Reteta::find($id);
+        $denumire=$reteta->denumire;
         $reteta->delete();
         $retete=Reteta::latest()->get();
-        return view('admin.posts.index',compact('retete'));
+        return redirect(route('admin.posts',compact('retete')))->with('success',"'$denumire' deleted successfully.");
     }
 }

@@ -9,5 +9,7 @@
         <h1 class="display-4">Descoperă</h1>
     </div>
 </div>
+<div class="card discover scrollbar-ripe-malinka">
 @include('retete.inc.galery-section')
+</div>
 @endsection

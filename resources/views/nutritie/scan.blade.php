@@ -64,7 +64,7 @@
                     @if(isset($denumire)&&$denumire!=null)
                     <div class='row m-2'><h5>Produs: {{$denumire}}</h5></div>
                     @endif
-                    @if(isset($img)&&$img!=null)
+                    @if(isset($img) && gettype($img)=="string")
                     <img class='row m-2' height="200px" src="{{$img}}">
                     @endif
 					@if(isset($nutriscore_grade)&&$nutriscore_grade!=null)

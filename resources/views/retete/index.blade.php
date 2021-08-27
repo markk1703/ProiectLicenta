@@ -5,6 +5,8 @@
     <div class="container-fluid text-center">
         @if(isset($user))
         <h4 class="display-4">Rețetele utilizatorului {{$user->nume}} {{$user->prenume}}</h4>
+        @elseif(isset($tag))
+        <h4 class="display-4">Rețetele care conțin tag-ul <span h3 style="background:#6cb2eb; border-radius:10px; color:black;" class="px-3">{{$tag}}</span>:</h4>
         @else
         <h4 class="display-4">Toate rețetele</h4>
         @endif
@@ -19,6 +21,9 @@
                         <div class="row">
                             <div class="col">
                                 <div class="container">
+                                    @if(isset($user) && $retete->count()==0)
+                                    <h4>Utilizatorul {{$user->nume}} {{$user->prenume}} nu a postat încă nicio rețetă.</h4>
+                                    @else
                                     @foreach ($retete as $reteta)
                                     <div class="row my-2 border">
                                         @if($reteta->imagine_principala)
@@ -31,7 +36,7 @@
                                         <h4><a href="{{route('retete.show',$reteta->id)}}" class="col">{{$reteta->denumire}}</a></h4>
                                         <div class="col">
                                             @foreach($reteta->tags()->get() as $tag)
-                                                    <h5><a href="#" class="badge badge-info">{{$tag->name}}</a></h5>                                         
+                                                    <h5><a href="{{route('retete.index',['tag'=>$tag->name])}}" class="badge badge-info">{{$tag->name}}</a></h5>                                         
                                             @endforeach
                                         </div>
                                         <div class="col">
@@ -47,6 +52,7 @@
                                         </div>
                                     </div>
                                     @endforeach
+                                    @endif
                                 </div>
                             </div>
                         </div>

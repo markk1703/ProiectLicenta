@@ -24,7 +24,7 @@
                     <a class="nav-link" href="{{route('admin.posts')}}">Postări</a>
                 </li>
                 <li class="nav-item mr-5">
-                    <a class="nav-link" href="{{route('admin.ratings')}}">Recenzii</a>
+                    <a class="nav-link" href="{{route('admin.ratings')}}">Rating-uri</a>
                 </li>
             </ul>
 

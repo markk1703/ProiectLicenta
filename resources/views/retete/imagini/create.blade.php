@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="card-footer bg-light text-left mt-3">
-                    <a href="{{ route('retete.index')}}" class="btn btn-success">OK</a>
+                    <a href="{{route('retete.index',['utilizator_id'=>Auth::id()])}}" class="btn btn-success">OK</a>
                 </div>
             </div>
         </div>

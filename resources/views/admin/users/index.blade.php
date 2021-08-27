@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"><h3>Utilizatori</h3>
+            <div class="card my-3">
+                <div class="card-header"><h3>Utilizatori existenți</h3>
                   <form action="{{route('admin.users.create')}}" method="GET">
                     @csrf
                     <button type="submit" class="btn btn-success btn-sm"><i class="fas fa-plus mr-1"></i>Adaugă</button>
@@ -47,7 +47,7 @@
                     </tbody>
                   </table>
                 </div>
-            </div>
+            </div>{{ $users->links() }}
         </div>
     </div>
 </div>

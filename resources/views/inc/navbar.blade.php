@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky" id="myHeader">
-        <a class="navbar-brand mr-5" @guest href="{{ url('/discover') }}" @endguest @auth href="{{ url('/home') }}"
+        <a class="navbar-brand mr-5" @guest href="{{ url('/') }}" @endguest @auth href="{{ url('/home') }}"
             @endauth>
             {{ config('app.name', 'Laravel') }}
         </a>
@@ -93,7 +93,7 @@
                         <a class="dropdown-item" href="/profile">Profil</a>
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
+                            <i class="fas fa-sign-out-alt mr-1"></i>Logout
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf

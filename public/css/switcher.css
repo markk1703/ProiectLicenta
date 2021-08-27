@@ -1,0 +1,94 @@
+   /* css for the toggle all switch */
+   .toggle_switch {
+    opacity: 0;
+    }
+    .toggle_switch::-moz-selection, .toggle_switch:after::-moz-selection, .toggle_switch:before::-moz-selection, .toggle_switch *::-moz-selection, .toggle_switch *:after::-moz-selection, .toggle_switch *:before::-moz-selection, .toggle_switch + .toggle_switch-button::-moz-selection {
+    background: none;
+    }
+  .toggle_switch::selection, .toggle_switch:after::selection, .toggle_switch:before::selection, .toggle_switch *::selection, .toggle_switch *:after::selection, .toggle_switch *:before::selection, .toggle_switch + .toggle_switch-button::selection {
+    background: none;
+    }
+    .toggle_switch + .toggle_switch-button {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    left: 50%;
+  transform: translateX(-50%);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+    .toggle_switch + .toggle_switch-button:after, .toggle_switch + .toggle_switch-button:before {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+  }
+    .toggle_switch + .toggle_switch-button:after {
+    left: 0;
+    }
+    .toggle_switch + .toggle_switch-button:before {
+    display: none;
+    }
+    .toggle_switch:checked + .toggle_switch-button:after {
+    left: 50%;
+    }
+    .toggle_switch-ios + .toggle_switch-button {
+    background: #808285;
+    border-radius: 2em;
+    padding: 2px;
+    -webkit-transition: all .4s ease;
+  transition: all .4s ease;
+    border: 1px solid #e8eae9;
+    }
+    .toggle_switch-ios + .toggle_switch-button:after {
+    border-radius: 2em;
+    background: #fefefe;
+    -webkit-transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+    transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+    }
+    .toggle_switch-ios + .toggle_switch-button:hover:after {
+ will-change: padding;
+    }
+    .toggle_switch-ios + .toggle_switch-button:active {
+    box-shadow: inset 0 0 0 2em #e8eae9;
+    }
+    .toggle_switch-ios + .toggle_switch-button:active:after {
+    padding-right: .8em;
+    }
+    .toggle_switch-ios:checked + .toggle_switch-button {
+    background: #808285;
+    }
+    .toggle_switch-ios:checked + .toggle_switch-button:active {
+    box-shadow: none;
+    }
+    .toggle_switch-ios:checked + .toggle_switch-button:active:after {
+    margin-left: -.8em;
+    }
+ 
+ 
+ 
+ .wrapper{
+     margin:20px 10px;
+     text-align:center;
+     border:solid;
+     border-width: 1px;
+     border-color: #9999;
+     border-radius: 25px;
+     width:flex;
+ }
+ .toggle_switch-text{
+     display: inline-block;
+     vertical-align:bottom;
+     margin-left:10px;
+     margin-right: 10px;
+ }
+ .switch{
+   display: inline-block;
+ }

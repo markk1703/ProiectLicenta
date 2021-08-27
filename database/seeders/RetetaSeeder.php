@@ -13,7 +13,8 @@ class RetetaSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
+    {   $backwardDays = 12;
+       
         Reteta::create([
             'utilizator_id'=>'1',
             'denumire'=>'Creveti la cuptor cu unt, usturoi si patrunjel',
@@ -28,7 +29,9 @@ class RetetaSeeder extends Seeder
             Scoateti crevetii pe platou, stoarceti suc de lamaie peste ei si presarati sare grunjoasa de mare. Serviti imediat cu sferturi de lamaie.',
             'categorii'=>'categ1, categ2, categ3',
             'imagine_principala'=>'avatar.jpg',
-            'tags'=>['creveti','unt']
+            'tags'=>['creveti','unt'],
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
             ]);
         Reteta::create([
             'utilizator_id'=>'1',
@@ -40,8 +43,10 @@ class RetetaSeeder extends Seeder
             Stropiti totul cu ulei de masline si amestecati. Dregeti de sare. Serviti imediat cu rosii cherry sau cu paine crocanta Wasa, paine taraneasca/prajita sau lipie.',
             'categorii'=>'cat1, cat2, cat3',
             'imagine_principala'=>'avatar.jpg',
-            'tags'=>['naut','avocado','branza']
-            ]);
+            'tags'=>['naut','avocado','branza'],
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'1',
             'denumire'=>'Budinca de ovaz cu cacao',
@@ -57,8 +62,10 @@ class RetetaSeeder extends Seeder
             'categorii'=>'c1, c2, c3',
             'imagine_principala'=>'avatar.jpg',
             'imagini'=>'1809788879.jpg',
-            'tags'=>['ovaz']
-            ]);
+            'tags'=>['ovaz'],
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'2',
             'denumire'=>'Papanasi',
@@ -71,8 +78,10 @@ class RetetaSeeder extends Seeder
             Serviti papanasii prajiti cu smantana si dulceata.',
             'categorii'=>'categ1, categ2, categ3',
             'imagine_principala'=>'avatar.jpg',
-            'tags'=>['desert']
-            ]);
+            'tags'=>['desert'],
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'2',
             'denumire'=>'Negresa',
@@ -89,8 +98,10 @@ class RetetaSeeder extends Seeder
             Intre timp prajitura s-a racit si ea, e doar calduta. Taiati-o cuburi de marimea dorita direct in tava. Turnati glazura peste ea si nivelati. Lasati sa se raceasca de tot.',
             'categorii'=>'ca1, ca2, ca3',
             'imagine_principala'=>'avatar.jpg',
-            'tags'=>['desert']
-            ]);
+            'tags'=>['desert','prajituri'],
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'3',
             'denumire'=>'Legume la cuptor cu arpacas',
@@ -102,8 +113,10 @@ class RetetaSeeder extends Seeder
             * daca nu aveti timp sa fierbeti arpacas, puteti sa-l inlocuiti cu bulgur mare fiert sau orez integral fiert.
             Cand legumele sunt gata, scoateti tava din cuptor. Turnati arpacasul aromatizat peste legume si amestecati usor. Rasniti piper negru si mai adaugati sare daca trebuie.',
             'categorii'=>'categ1, categ2, categ3',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'3',
             'denumire'=>'Salata cu somon marinat',
@@ -119,8 +132,10 @@ class RetetaSeeder extends Seeder
             Adaugati somonul cu tot cu ulei peste salata si amestecati iar. Gustati de sare si suc de lamaie.
             Portionati salata in boluri sau o rasfirati pe un platou larg (pt un party cu autoservire). Serviti cu sferturi de lamaie si cu focaccia sau paine prajita.',
             'categorii'=>'categ1, categ2, categ3',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDayss(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'5',
             'denumire'=>'Inghetata de branza de capra cu pere caramelizate',
@@ -138,8 +153,10 @@ class RetetaSeeder extends Seeder
             Turnati continutul tigaii intr-o farfurie inalta si lasati sa se racoreasca.
             Serviti cate un glob mare de inghetata cu cateva felii de pere inca caldute si putin sos.',
             'categorii'=>'categ1, categ2, categ3',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'2',
             'denumire'=>'Friptura de miel',
@@ -153,12 +170,14 @@ class RetetaSeeder extends Seeder
             Dupa acest timp friptura va fi facuta si suculenta si usor in sange doar in jurul osului. Daca o doriti mai in sange scadeti timpul de coacere. Acoperiti friptura cu folie de aluminiu si lasati sa stea 15 minute inainte de a o taia.
             * nu uitati sa ajustati timpul de coacere in functie de greutatea pulpei, a mea avea 1.6 kg',
             'categorii'=>'categ1, categ2, categ3',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'3',
             'denumire'=>'Placinta cu branza de oaie si leurda',
-            'ingrediente'=>'6 foi de placinta, 350 gr telemea de oaie (nu foarte sarata), 150 gr branza tare maturata de oaie (de exemplu branza Horezu sau pecorino romano), 100 gr leurda (4 legaturi mai mici), 1 limeta (lime), 2 oua, piper negru, 150 gr iaurt grecesc (10% grasime), 100 ml lapte, 5 linguri ulei, 1 ou mare',
+            'ingrediente'=>'350 gr telemea de oaie (nu foarte sarata), 6 foi de placinta, 150 gr branza tare maturata de oaie (de exemplu branza Horezu sau pecorino romano), 100 gr leurda (4 legaturi mai mici), 1 limeta (lime), 2 oua, piper negru, 150 gr iaurt grecesc (10% grasime), 100 ml lapte, 5 linguri ulei, 1 ou mare',
             'mod_de_preparare'=>'Se rad telemeaua si branza tare. Se taie coditele si apoi se toaca leurda.
             Se mixeaza manual sau in robot (cateva pulsuri scurte) branzeturile cu ouale batute pana compozitia arata legata. Se condimenteaza cu 1/4 lingurita de piper negru, coaja rasa de la limeta si sucul de la ea (2 linguri). Se adauga leurda si se amesteca manual.
             Pentru sos: se amesteca intr-un bol iaurtul cu laptele, uleiul si oul.
@@ -172,8 +191,10 @@ class RetetaSeeder extends Seeder
             Lasati placinta sa stea pana se incalzeste cuptorul la 200C.
             Coaceti placinta timp de 35-40 minute, pana e rumena deasupra si umflata. Se lasa sa se racoreasca 10-15 minute, apoi se poate taia in 4 (pentru portii mari) sau in 24 patrate (pentru platoul cu aperitive) cu un cutit zimtat. E buna calduta sau la temperatura camerei. Se poate reincalzi.',
             'categorii'=>'categ1, categ2, categ3',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'2',
             'denumire'=>'Salata de broccoli si conopida',
@@ -184,8 +205,10 @@ class RetetaSeeder extends Seeder
             Se adauga jambonul, semintele si parmezanul peste salata. Se condimenteaza cu putin piper negru macinat. Se amesteca bine. Se drege de sare doar daca e cazul (in principiu parmezanul, semintele si baconul sunt destul de sarate).
             Este buna imediat, dar si dupa ce sta. Se poate pastra la frigider. Semintele si baconul se vor inmuia daca o lasati sa stea, dar asta nu va afecta gustul, doar textura. Puteti sa adaugati aceste ingrediente doar in momentul servirii.',
             'categorii'=>'categ1, categ2, categ3',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'5',
             'denumire'=>'Supa crema de telina',
@@ -197,8 +220,10 @@ class RetetaSeeder extends Seeder
             Cand legumele sunt fierte se strecoara de supa (dar pastrati supa!) si se pun in robotel. Se mixeaza bine timp de 1 minut, apoi incet incepem sa adaugamn supa, pana supa-crema capata consistenta pe care o dorim. Eu nu am adaugat chiar toata supa, mi-a ramas cam 1/2 cana.
             Se serveste supa crema "ninsa" cu galbenus de ou trecut prin sita (daca nu tineti post) si "crutoane" de ciuperci. Bineinteles se poate servi si in forma clasica, cu crutoane de paine.',
             'categorii'=>'c1, c2, c3',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'4',
             'denumire'=>'Tarta fina cu mere si crema de migdale',
@@ -214,16 +239,20 @@ class RetetaSeeder extends Seeder
             Coaceti tartele cam 20-25 minute, pana marginea e umflata si rumena. Scoateti tartele din cuptor si le ungeti cu sosul din tigaie (pe care il reincalziti daca e cazul).
             Serviti tartele caldute sau la temperatura camerei. Sunt bune cu sos de vanilie sau un glob de inghetata.',
             'categorii'=>'cat1, cat2, cat3',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         Reteta::create([
             'utilizator_id'=>'4',
             'denumire'=>'Supă cremă de usturoi cu năut',
             'ingrediente'=>"8 căpățâni usturoi, 250 grame năut fiert, 1 tijă țelină apio (sau 1 bucată mică de țelină – rădăcină), 1/4 linguriță pudră cimbrișor, 1 lingură ulei măsline extravirgin, 150 grame iaurt grecesc (optional), 50 grame cheddar ras, 1,5 l apă sau supă de legume, sare și piper – după gust",
             'mod_de_preparare'=>'Se curăță cățeii de usturoi și se lasă deoparte. Se înfierbântă apa/supa de legume și se fierbe țelina, împreună cu cimbrișorul și puțină sare. Se adaugă năutul și usturoiul și se mai lasă pe foc încă 5  min. Se stinge focul, se lasă 5-10 min să se răcească, după care se mixează totul cu blenderul vertical, ori în blender, până se obține o cremă fină.Se adaugă uleiul de măsline și iaurtul grecesc și se mixează din nou câteva secunde, pentru omogenizare. Supa cremă de usturoi cu năut se poate servi imediat, decorată cu puțin ulei de măsline, cheddar ras și cimbrișor.',
             'categorii'=>'supă, supă cremă',
-            'imagine_principala'=>'avatar.jpg'
-            ]);
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
 
         Reteta::create([
             'utilizator_id'=>'6',
@@ -231,7 +260,78 @@ class RetetaSeeder extends Seeder
             'ingrediente'=>"2 conserve Năut, 1 linguriță bicarbonat de sodiu, 60 g tahini, 60 ml ulei de măsline, 2 linguri Zeamă de lămâie, 1 bucată Avocado, sare, piper, 2 căței usturoi, 1 linguriță chimen",
             'mod_de_preparare'=>'Scurgem năutul din conservă și păstrăm lichidul.Îl putem folosi mai târziu pentru a ajuta consistența hummus-ului. Curățăm boabele de năut de pielițe, îndepărtând cât mai multe. Spălăm apoi bine năutul și îl punem la fiert în apă cu bicarbonat. Lăsăm să fiarbă 5 minute la foc mare, apoi scurgem din nou năutul. Punem în blender năutul, avocado curățat de coajă, uleiul de măsline, tahini, usturoiul trecut prin presă, sare și piper, zeamă de lămâie. Amestecăm foarte bine, la viteză mare.Din când în când oprim blenderul și amestecăm cu spatula, astfel încât să nu rămână bucăți de năut pe pereții vasului. În funcție de consistența pe care o dorim, putem adăuga apă din conserva de năut sau ulei de măsline.',
             'categorii'=>'hummus, vegan',
-            'imagine_principala'=>'avatar.jpeg'
-            ]);
+            'imagine_principala'=>'avatar.jpeg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
+        Reteta::create([
+            'utilizator_id'=>'6',
+            'denumire'=>'Cartofi noi cu capere si ansoa la cuptor',
+            'ingrediente'=>"650 gr cartofi noi (4-5 cartofi mari), 6 fileuri de ansoa in ulei, 1 lingura cu varf capere in otet, 2 catei mari de usturoi, 1/4 lingurita ardei iute macinat in ulei (sau pasta de ardei iute cumparata; sau fulgi de chili), 1/2 lingurita boia dulce, 4 linguri ulei masline, 7-8 buc rosii cherry, 3 fire patrunjel, sare, piper negru, 1 lingurita oregano uscat",
+            'mod_de_preparare'=>'Cartofii se taie felii subtiri cu cutitul sau folosind o razatoare de acest tip. Se presara putina sare (atentie si ansoa vor fi sarate!), oregano si se rasneste mult piper negru peste ei.
+            Intr-un mojar se strivesc pasta caperele impreuna cu ansoa si usturoiul. Treptat se adauga 3 linguri de ulei si se mai piseaza, sa aveti o pasta cat mai fina. Se adauga ardeiul iute si boiaua si se amesteca bine.
+            Se toarna pasta aromata peste cartofi si se amesteca pana sunt egal acoperiti.
+            Se aseaza intr-un vas termorezistent (am folosit o cratita de fonta de 25 cm diametru) si se preseaza cu mana sa aveti un strat cat mai egal.
+            Se toarna 100 ml apa pe marginea vasului, nu direct peste cartofi, ca sa nu spalati condimentele. Se acopera vasul cu capac sau hartie de copt si se dau la cuptor la 200C pentru 45 minute. Dupa acest timp ii verificati cu o furculita in centru si daca intra usor in ei sunt gata.
+            Scoateti capacul/folia si adaugati deasupra rosiile taiate in doua si patrunjelul tocat fin. Stropiti totul cu 1 lingura de ulei. Mai dati la cuptor 15 minute, cat rosiile sa se inmoaie un pic si cartofii de deasupra sa se rumeneasca.
+            Scoateti vasul din cuptor, inclinati-l putin si stropiti cartofii cu sosul de dedesubt. Sunt buni calzi. Merg bine langa un gratar de vita sau miel sau doar cu o bucata de telemea buna de capra/oaie.',
+            'categorii'=>'cartofi',
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
+        Reteta::create([
+            'utilizator_id'=>'6',
+            'denumire'=>'Salata cu broccoli si dressing cremos cu avocado',
+            'ingrediente'=>"2 maini de salata asortata (aprox. 30 gr; preferabil sa contina rucola, spanac baby si alte frunze mici), 2 buchetele mari de broccoli, 2 linguri fasole rosie
+            1/4 ceapa rosie mai mica1/2 avocado copt, 1 lingura cu varf maioneza, 1 lingura ulei de masline, 15 gr somon afumat, 2 linguri suc de lamaie, sare, piper negru",
+            'mod_de_preparare'=>'Buchetelele de broccoli se plonjeaza in apa care fierbe pentru 2 minute. Se scot si se trec rapid sub jet de apa rece sa opriti fierberea. Broccoli va ramane verde si crocant. Se taie felii.
+            Pentru dressing se pun toate ingredientele in robot si se mixeaza crema fina. Se pune sare dupa gust si se rasneste piper negru. Daca ati folosit maioneza facuta in casa atunci va trebui sa adaugati la dressing si putin otet calitativ (maioneza cumparata contine deja otet) sau inca 1 lingura de suc de lamaie. Va rezulta dressing suficient pentru aprox. 4-5 salate. Se poate pastra cateva ore la frigider fara a se oxida.
+            Cand preparati o portie de salata luati 1 lingura generoasa de dressing crema si amestecati treptat cu 1-2 linguri de apa, sa ramana consistenta cremoasa, dar sa curga usor de pe lingura.
+            Intr-un bol se pune salata, fasolea, broccoli si ceapa taiata pestisori fini. Se presara putina sare si se amesteca cu mana. Se toarna dressingul moale deasupra si se amesteca pana toata salata e acoperita uniform.',
+            'categorii'=>'salate',
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
+        Reteta::create([
+            'utilizator_id'=>'7',
+            'denumire'=>'Calamari la gratar cu sos de leustean',
+            'ingrediente'=>"10 buc calamari mici (baby), 10 gr frunze de patrunjel, 10 gr frunze de leustean, 3 catei usturoi, 1 lingura cu varf capere in otet (scurse; 25 gr), 1 lingura otet de pe capere, 150 ml ulei masline, sare, piper negru",
+            'mod_de_preparare'=>'Salsa e bine sa o pregatiti din timp, macar cu o ora inainte, ca sa aiba timp sa se imbine aromele. Imediat ce e gata are un usor gust ierbos, dar daca sta, verdeturile se macereaza si acesta dispare.
+            Leusteanul e o verdeata cu aroma puternica asa ca am folosit jumatate din cantitate patrunjel, e mai neutru, ca sa balansez aromele.
+            Puneti toate ingredientele (verdeturile tocate grob si usturoiul feliat) in blenderul vertical si mixati bine pana salsa e fina. Gustati de sare si adaugati daca mai trebuie. Lasati sa stea o ora la temperatura camerei. Daca o tineti mai mult, dupa o ora o mutati la frigider.
+            Cand planificati sa faceti acasa calamari la gratar, cumparati calamari mici, acestia sunt mai fragezi. Socotiti cam 6-7 calamari mici de persoana daca vreti ca aperitivul sa fie consistent, sau 3 daca vreti un aperitiv mic, stil tapas.
+            Ii curatati conform instructiunilor de aici. Ii spalati bine si apoi ii absorbiti cu servetele de hartie sa fie uscati si ii presarati generos cu sare. Se lasa la frigider pana aveti nevoie de ei.
+            Ii scoateti din frigider cu 30 minute inainte de preparare ca sa aiba timp sa revina la temperatura camerei. Se absorb iar cu servetele sa fi uscati cand ii puneti pe gratar. Ii stropiti apoi doar cu putin ulei.
+            Incingeti tigaia grill 5 minute la foc maxim.
+            Asezati calamari in ea fara sa-i inghesuiti. Lasati sa se faca 45 secunde pe fiecare parte. Stiu ca pare putin ca timp, nici nu vor apuca sa ia urme intense de gratar, dar asa calamarii nu vor deveni gumati si veti avea cei mai fragezi calamari la gratar pe care i-ati mancat vreodata.
+            * daca nu aveti tigaie grill puteti folosi o tigaie de fonta bine incinsa
+            Scoateti calamarii intr-un bol, pe masura ce ii coaceti. Cand i-ati terminat pe toti adaugati putina salsa de leustean peste ei si amestecati.
+            Serviti calamarii cu bagheta prajita pe gratar (eu o prajesc in tigaia grill inainte de a face calamarii in ea) si bolul cu sos de leustean alaturi.',
+            'categorii'=>'calamar',
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
+        Reteta::create([
+            'utilizator_id'=>'7',
+            'denumire'=>'Taietei de ou cu susan',
+            'ingrediente'=>"4 oua, 1 lingurita sos de soia, 2 lingurite rase faina, 3 fire ceapa verde tanara, 5 fire patrunjel, 1/2 lingurita ghimbir razuit (pasta), 2 linguri ulei neutru (de floarea soarelui de exemplu), 2 lingurite ulei de susan, 2 linguri seminte de susan, sare",
+            'mod_de_preparare'=>'Se incinge uleiul intr-o tigaie larga (cca 25 cm, preferabil antiaderenta). Se adauga ceapa tocata rondele fine si se presara putina sare. Se soteaza cateva minute, doar pana se inmoaie si se indulceste un pic. Catre final se adauga ghimbirul si se soteaza impreuna. Se ia de pe foc si se adauga patrunjelul tocat marunt si uleiul de susa. Se amesteca. Se strecoara printr-o sita fina, astfel incat sa aveti separat verdeturile si separat uleiul.
+            Intr-un bol se bat bine ouale cu faina, mirinul si sosul de soia. Se adauga verdeturile si se amesteca sa se distribuie uniform in compozitie.
+            Se sterge tigaia in care ati sotata ceapa. Se adauga 1 lingurita din uleiul retinut mai sus si se unge tigaia cu el. Vom folosi putin ulei, ca la clatite, ca sa coacem omletele subtiri.
+            Se incinge tigaia si se adauga cam 1/2 polonic din compozitia de omleta. Cantitatea trebuie sa fie mica, astfel incat omletele sa iasa foarte subtiri, ca si clatitele. Asa se vor coace bine si se vor intoarce usor. Dupa ce ati turnat compozitia miscati tigaia circular, ca la clatite, astfel incat aceasta sa se distribuie pe toata suprafata. Daca aveti compozitie in exces dupa ce tot fundul tigaii s-a acoperit, inclinati tigaia si cu o lingura scoateti excesul.
+            Coaceti omleta cam 1-2 minute pe prima parte, pana vedeti ca se desprinde si e uscata pe margini. Daca va uitati dedesubt trebuie sa fie usor rumena, asa taieteii vor avea un gust mai placut. Intoarceti omleta si mai coaceti cam 10 secunde pe a doua parte.
+            Scoateti omleta din tigaie si tineti-o acoperita.
+            Repetati pasii 3-6 pana terminati compozitia. Mi-au iesit 5 omelete in tigaia de 25 cm.
+            In tigaia incinsa adaugati susanul si il prajiti cateva minute, amestecand des, pana se rumeneste si miroase placut.
+            Luati cate doua omlete, le rulati pe blatul de lucru si apoi le taiati rondele subtiri. Dupa ce ati taiat toate omletele, rasfirati rondelele si le asezati intr-un bol.
+            Turnati peste ele restul de ulei aromat si susanul prajit. Amestecati sa se distribuie uniform. Presarati putina sare mare (fleur de sel).',
+            'categorii'=>'paste',
+            'imagine_principala'=>'avatar.jpg',
+            'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
     }
 }

@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header"><h3>Recenzii</h3>
+            <div class="card my-3">
+                <div class="card-header"><h3>Rating-uri adăugate</h3>
                 </div>
                 <div class="card-body">
                   <table class="table table-sm">
@@ -37,7 +37,7 @@
                     </tbody>
                   </table>
                 </div>
-            </div>
+            </div>{{ $ratings->links() }}
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@ use Str;
 class UsersController extends Controller
 {
     public function index(){
-        $users=User::latest()->get();
+        $users=User::latest()->paginate(12);
         return view('admin.users.index',compact('users'));
     }
     public function create()
@@ -72,8 +72,9 @@ class UsersController extends Controller
     }
     public function destroy($id){
         $user=User::find($id);
+        $nume=$user->username;
         $user->delete();
         $users=User::latest()->get();
-        return view('admin.users.index',compact('users'));
+        return redirect(route('admin.users',compact('users')))->with('success',"'$nume' deleted successfully.");
     }
 }

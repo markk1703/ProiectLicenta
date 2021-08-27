@@ -22,11 +22,16 @@ class RetetaController extends Controller
     public function index(Request $request)
     {  
         $user=null;
+        $tag=null;
         $retete=Reteta::orderBy('created_at','desc')->paginate(5);
         if($request->utilizator_id)
         {$retete=Reteta::orderBy('created_at','desc')->where('utilizator_id',$request->utilizator_id)->paginate(5);
         $user=User::find($request->utilizator_id);}
-        return view('retete.index')->with(compact('retete','user'));
+        if($request->tag){
+            $retete=Reteta::withAnyTags($request->tag)->paginate(5);
+            $tag=$request->tag;
+        }
+        return view('retete.index')->with(compact('retete','user','tag'));
     }
 
     function unaccent($str)//pt ignorare diacritice
@@ -60,7 +65,7 @@ class RetetaController extends Controller
         $content = file_get_contents($path);
         $ingrediente=json_decode($content);
         // $columns=array('proteine','grasimi','carbohidrati','calorii');
-        $um=array('grame','gram','gr','g',' ','mg','kg','conserva','conserve','buc','bucati','bucata','capatani','capatana','tija','ml','l','catei','lingura','lingurita');
+        $um=array('grame','gram','gr','g','gr buchetele',' ','mg','kg','conserva','conserve','buc','bucati','bucata','capatani','capatana','tija','ml','l','catei','lingura','lingura cu varf','lingurita');
         $ingr=$reteta->ingrediente;//tablou cu ingrediente
         $myIngredient=new stdClass();//obiect cu val unui ingredient
         $tabValori=array();//array cu obiectele adaugate
@@ -73,7 +78,7 @@ class RetetaController extends Controller
                 $result = array_intersect($um, $pieces);//gaseste daca exista cuvantul pt u.m.
                 $denumireCompleta=implode(" ",$pieces);//denumire inclusiv gramaj
                 $denumireCompleta=$this->unaccent($denumireCompleta);
-                
+
                 if(isset($result[array_key_first($result)])){
                     $result=$result[array_key_first($result)];
                 if (($pos = strpos($denumireCompleta, $result)) !== FALSE) { 
@@ -83,12 +88,27 @@ class RetetaController extends Controller
                     $denumire = array_slice($denumire, $foundIndex + 1);
                     $denumire=implode(" ",$denumire);
                 }
-                if(str_starts_with($this->unaccent($ingredient->denumire),strtolower($denumire))!== FALSE)
+                if(str_starts_with(strtolower($denumire),$this->unaccent($ingredient->denumire))!== FALSE)
+                {
+                    $myIngredient=$ingredient;
+                    array_push($tabValori,$myIngredient);
+                }
+                else if(str_starts_with($this->unaccent($ingredient->denumire),strtolower($denumire))!== FALSE)
                 {
                     $myIngredient=$ingredient;
                     array_push($tabValori,$myIngredient);
                 }
                     } 
+                    else{
+                        $result=$pieces[array_key_first($pieces)];
+                        if (($pos = strpos($denumireCompleta, $result)) !== FALSE) { 
+                            $denumire = explode(' ',$denumireCompleta);
+                            $foundIndex = array_search($result,$denumire);
+                            if($foundIndex!==FALSE)
+                            $denumire = array_slice($denumire, $foundIndex + 1);
+                            $denumire=implode(" ",$denumire);
+                        }
+                    }
             }
         }
     return $tabValori;
@@ -129,12 +149,15 @@ class RetetaController extends Controller
             'denumire' => $request['denumire'],
             'ingrediente' => $request['ingrediente'],
             'mod_de_preparare' => $request['preparare'],
-            'categorii'=>$request['categorii'],
             'imagine_principala' => $request['imagine_princ'],
             'imagini' => $request['imagini'],
+            'categorii'=>$request['categorii'],
             'URL_video' => $request['URLVideo'],
             'created_at' => now()
         ]);
+        $tags=explode(',',$request['categorii']);
+        $reteta->attachTags($tags);
+
         return redirect()->route('images.create',['denumire'=>$reteta->denumire,'id'=>$reteta->id])->with('success',"'$reteta->denumire' added successfully.");
     }
     public function findProduct($productName)
@@ -180,8 +203,16 @@ class RetetaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        return view('retete.edit',['reteta'=>Reteta::findOrFail($id)]);
+    {$reteta=Reteta::findOrFail($id);
+        $taguri="";
+        foreach($reteta->tags()->get() as $key=>$tag)
+          {
+              if($key<count($reteta->tags()->get())-1)
+              $taguri=$taguri.$tag->name.",";
+              else
+              $taguri=$taguri.$tag->name;
+        }
+        return view('retete.edit',compact('reteta','taguri'));
     }
 
     /**
@@ -203,7 +234,15 @@ class RetetaController extends Controller
     $reteta->denumire=$request->input('denumire');
     $reteta->ingrediente=$request->input('ingrediente');
     $reteta->mod_de_preparare=$request->input('preparare');
-    $reteta->categorii=$request->input('categorii');
+    $oldTags=explode(',',$reteta['categorii']);
+    $reteta->detachTags($oldTags);
+    $substring = ',';
+    $str = $request['categorii'];
+    while(substr($str,-strlen($substring))===$substring)
+    $str = substr($str, 0, strlen($str)-strlen($substring));
+    $tags=explode(',',$str);
+    $reteta->attachTags($tags);
+    $reteta->categorii=$str;
     $reteta->save();
     
     return redirect()->route('images.edit',$id)->with('success',"'$reteta->denumire' modified successfully.");
@@ -218,7 +257,7 @@ class RetetaController extends Controller
     public function destroy($id)
     {$reteta=Reteta::find($id);
         Reteta::find($id)->delete();
-        return redirect()->route('retete.index')->with('success',"'$reteta->denumire' deleted successfully.");
+        return redirect()->route('retete.index',['utilizator_id'=>Auth::id()])->with('success',"'$reteta->denumire' deleted successfully.");
     }
 
     public function discover()
@@ -228,13 +267,8 @@ class RetetaController extends Controller
             ->inRandomOrder()->get();
         }
         else{
-            $retete = DB::table('retete')
-            ->where('utilizator_id','!=', Auth::id())
-           
-            // ->join('followships', 'retete.utilizator_id', '=', 'followships.user2_id')
-            // ->join('users', 'users.id', '=', 'retete.utilizator_id')
-            // ->select('users.*', 'retete.*','followships.*')
-            // ->inRandomOrder()
+            $retete = Reteta::where('utilizator_id','!=', Auth::id())
+            ->inRandomOrder()
             ->get();
         }
         return view('retete.discover')->with(compact('retete'));

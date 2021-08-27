@@ -14,10 +14,22 @@ class UserSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        DB::table('users')->insert(['username'=>'mark1234','nume'=>'Konyicska','prenume'=>'Mark','email'=>'konyicska_mark98@yahoo.com','password'=>Hash::make('password'),'rol_id'=>'2','email_verified_at'=>'2021-03-25 20:59:13']);
-        DB::table('users')->insert(['username'=>'user','nume'=>'Doe','prenume'=>'John','email'=>'john.doe@example.net','password'=>Hash::make('password'),'rol_id'=>'2','email_verified_at'=>'2021-03-25 21:04:25']);
-        DB::table('users')->insert(['username'=>'admin','nume'=>'Admin','prenume'=>'Administrator','email'=>'john.admin@example.net','password'=>Hash::make('admin1234'),'rol_id'=>'1','email_verified_at'=>'2021-03-25 21:10:05']);
+    {   $backwardDays = 1;
+        DB::table('users')->insert(['username'=>'mark1234','nume'=>'Konyicska','prenume'=>'Mark','email'=>'markk485@gmail.com','password'=>Hash::make('password'),'rol_id'=>'2',
+        'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+        'email_verified_at'=>\Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+        'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
+        DB::table('users')->insert(['username'=>'user','nume'=>'Doe','prenume'=>'John','email'=>'john.doe@example.net','password'=>Hash::make('password'),'rol_id'=>'2',
+        'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+        'email_verified_at'=>\Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+        'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
+        DB::table('users')->insert(['username'=>'admin','nume'=>'Admin','prenume'=>'Administrator','email'=>'john.admin@example.net','password'=>Hash::make('admin1234'),'rol_id'=>'1',
+        'created_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+        'email_verified_at'=>\Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+        'updated_at' => \Carbon\Carbon::today()->subDays(rand($backwardDays+1, 0))->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60))
+        ]);
         \App\Models\User::factory(20)->create();        
     }
 }

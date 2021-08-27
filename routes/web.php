@@ -78,6 +78,7 @@ Route::group([ 'middleware' => ['admin']], function() {//ADMIN
 
     Route::get('admin/ratings','AdminRatingsController@index')->name('admin.ratings'); //administrare ratings
     Route::delete('admin/ratings/{id}','AdminRatingsController@destroy')->name('admin.ratings.destroy');
+
 });
 
 

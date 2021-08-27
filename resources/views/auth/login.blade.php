@@ -73,9 +73,6 @@
                         <div class="col-m-2">
                             sau
                         </div>
-                        <div class="col-m-2">
-                            <a href="/auth/facebook" class="btn btn-secondary"><i class="fab fa-facebook-f mr-3"></i>Conectare cu Facebook</a>
-                        </div>
                         <div class="col-m-2 pt-2">
                             <a href="/auth/google" class="btn btn-secondary"><i class="fab fa-google mr-3"></i>Conectare cu Google</a>
                         </div>

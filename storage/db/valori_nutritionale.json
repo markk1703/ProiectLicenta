@@ -24,7 +24,7 @@
       "categorie": "lactate"
     },
     {
-      "denumire": "branza telemea de oaie",
+      "denumire": "telemea de oaie",
       "proteine": "17",
       "grasimi": "20",
       "carbohidrati": "1",
@@ -32,7 +32,7 @@
       "categorie": "lactate"
     },
     {
-      "denumire": "branza telemea de vaca",
+      "denumire": "telemea de vaca",
       "proteine": "17",
       "grasimi": "17,2",
       "carbohidrati": "1",
@@ -320,6 +320,22 @@
       "categorie": "peste"
     },
     {
+      "denumire": "calamar",
+      "proteine": "15.6",
+      "grasimi": "1.4",
+      "carbohidrati": "-",
+      "calorii": "91",
+      "categorie": "peste"
+    },
+    {
+      "denumire": "calamari",
+      "proteine": "15.6",
+      "grasimi": "1.4",
+      "carbohidrati": "-",
+      "calorii": "91",
+      "categorie": "peste"
+    },
+    {
       "denumire": "albus (ou de gaina)",
       "proteine": "13",
       "grasimi": "0,2",
@@ -344,7 +360,7 @@
       "categorie": "oua"
     },
     {
-      "denumire": "un ou de gaina cca. 50 g",
+      "denumire": "ou de gaina cca. 50 g",
       "proteine": "7",
       "grasimi": "6",
       "carbohidrati": "0,3",
@@ -352,7 +368,7 @@
       "categorie": "oua"
     },
     {
-      "denumire": "un ou de rata cca. 60 g",
+      "denumire": "ou de rata cca. 60 g",
       "proteine": "7",
       "grasimi": "8",
       "carbohidrati": "0,2",
@@ -381,6 +397,22 @@
       "grasimi": "8",
       "carbohidrati": "8,2",
       "calorii": "114",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "capere",
+      "proteine": "2.4",
+      "grasimi": "0.9",
+      "carbohidrati": "-",
+      "calorii": "23",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "broccoli",
+      "proteine": "2.8",
+      "grasimi": "0",
+      "carbohidrati": "-",
+      "calorii": "34",
       "categorie": "legume"
     },
     {
@@ -541,6 +573,14 @@
       "grasimi": "0,2",
       "carbohidrati": "3,5",
       "calorii": "16",
+      "categorie": "legume"
+    },
+    {
+      "denumire": "leurda",
+      "proteine": "1",
+      "grasimi": "0.2",
+      "carbohidrati": "-",
+      "calorii": "61",
       "categorie": "legume"
     },
     {
@@ -1453,6 +1493,14 @@
       "grasimi": "20,02",
       "carbohidrati": "21,5",
       "calorii": "592",
+      "categorie": "diverse"
+    },
+    {
+      "denumire": "sos de soia",
+      "proteine": "10.51",
+      "grasimi": "0.01",
+      "carbohidrati": "-",
+      "calorii": "53.1",
       "categorie": "diverse"
     },
     {

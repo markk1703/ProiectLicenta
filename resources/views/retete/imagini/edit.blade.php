@@ -26,6 +26,7 @@
                         <div class="col-md-10">
                             <div class="form-group">       
                                     <div class="row">
+                                        
                                         @foreach($imagini as $imagine)
                                         <div class="col mt-3">
                                             <div class="row mx-3">
@@ -37,6 +38,7 @@
                                             </div>
                                         </div>
                                         @endforeach
+                            
                                     </div>
                             </div>
                         </div>
@@ -136,7 +138,7 @@
                     @endif
                 </div>
                 <div class="card-footer bg-light text-left mt-3">
-                    <a href="{{ action('RetetaController@index')}}" class="btn btn-success">OK</a>
+                    <a href="{{route('retete.index',['utilizator_id'=>Auth::id()])}}" class="btn btn-success">OK</a>
                 </div>
             </div>
         </div>

@@ -21,7 +21,9 @@ class UserFactory extends Factory
      * @return array
      */
     public function definition()
-    {
+    {   $backwardDays = 13;
+        $backwardCreatedDays = rand($backwardDays, 0);
+		$backwardUpdatedDays = rand($backwardCreatedDays, 0);
         return [
             'nume' => $this->faker->lastName,
             'prenume' => $this->faker->firstName,
@@ -29,6 +31,8 @@ class UserFactory extends Factory
             'username'=>$this->faker->unique()->userName,
             'email_verified_at'=>now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // Parola=password
+            'created_at' => \Carbon\Carbon::today()->subDays($backwardCreatedDays)->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
+			'updated_at' => \Carbon\Carbon::today()->subDays($backwardUpdatedDays)->addMinutes(rand(0,60 * 23))->addSeconds(rand(0, 60)),
             'remember_token' => Str::random(10),
         ];
     }

@@ -74,10 +74,16 @@ class NutritieController extends Controller
         $nutrient_levels=null;
         if(array_key_exists('nutrient_levels',$produs))
             $nutrient_levels=$produs['nutrient_levels'];
-        $denumire=$produs['product_name'];
-        $img=$produs['selected_images'];
-        $img=$img['front']['small'];
-        $img=array_pop($img);
+        if(array_key_exists('product_name',$produs))
+            $denumire=$produs['product_name'];
+        if(array_key_exists('selected_images',$produs))
+            $img=$produs['selected_images'];
+        if((isset($img['front']['small'])))
+            {$img=$img['front']['small'];
+            $img=array_pop($img);}
+            elseif((isset($img['ingredients']['small'])))
+                {$img=$img['ingredients']['small'];
+                $img=array_pop($img);}
         $nutriscore_grade=null;
         $nutriscore_image=null;
         if(array_key_exists('nutriscore_grade',$produs))
